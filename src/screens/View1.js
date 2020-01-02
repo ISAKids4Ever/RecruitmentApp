@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './View1.module.css'
-import { login } from '../services/userService';
+import React from "react";
+import styles from "./View1.module.css";
+import { login } from "../services/userService";
 
 
 function View1() {

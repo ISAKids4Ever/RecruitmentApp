@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import styles from './View2.module.css'
-import { register } from '../services/userService';
+import React from "react";
+import styles from "./View2.module.css";
+import { register } from "../services/userService";
 
 
 function View2() {

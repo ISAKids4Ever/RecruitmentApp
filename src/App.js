@@ -9,7 +9,7 @@ import {
 import { useAuth } from "./hooks/useAuth";
 
 // components
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
 
 // screens
 import View1 from "./screens/View1";
