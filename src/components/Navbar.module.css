@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.navbarLeft {
+   
+    width: 50%;
+}
+
+.navbarRight {
+    width: 50%;
+}
+
+.viewList {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.viewList li {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.viewList li:hover {
+   
+    background: gray;
+    cursor: pointer;
+}
