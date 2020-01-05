@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Link,
   BrowserRouter as Router,
   Route,
   Redirect,  
@@ -12,10 +11,12 @@ import { useAuth } from "./hooks/useAuth";
 import Navbar from "./components/Navbar";
 
 // screens
-import View1 from "./screens/View1";
-import View2 from "./screens/View2";
-import View3 from "./screens/View3";
-import View4 from "./screens/View4";
+import Tests from "./screens/Tests";
+import Questions from "./screens/Questions";
+import Forum from "./screens/Forum";
+import Profile from "./screens/Profile";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
 import Home from "./screens/Home"
 
 
@@ -33,16 +34,16 @@ const App = () => {
       <Router>
         <div>
           <div>
-            <Link to={"/zaloguj"}>
-              Zaloguj sie
-            </Link>
-            <Link to={"/zarejestruj"}>
-              Zarejestruj się
-            </Link>
+            <Navbar profile={false} logout={false} login={true} />
           </div>
           <Switch>
-            <Route exact path="/zaloguj" component={View1} />
-            <Route exact path="/zarejestruj" component={View2} />
+            <Route exact path="/zaloguj" component={Login} />
+            <Route exact path="/zarejestruj" component={Register} />
+            <Route strict exact path="/testy" component={Tests}/>
+            <Route strict exact path="/pytania" component={Questions}/>
+            <Route strict exact path="/forum" component={Forum}/>
+            <Route strict exact path="/profile" component={Profile}/>
+            <Route exact path="/" component={Home} />
             <Redirect to="/zaloguj" />
           </Switch>
         </div>
@@ -50,21 +51,22 @@ const App = () => {
     );
   }
 
+  
   return (
     <Router>
-      <Navbar/>
-      
+      <Navbar profile={true} logout={true} login={false} />      
         <Switch>
-          <Redirect exact path="/zaloguj" to="/" />
-          <Redirect exact path="/zarejestruj" to="/" />
-          <Route strict exact path="/view3" component={View3}/>
-          <Route strict exact path="/view4" component={View4}/>
+          <Redirect path="/zaloguj" to="/" />
+          <Redirect path="/zarejestruj" to="/" /> 
+          <Route strict exact path="/testy" component={Tests}/>
+          <Route strict exact path="/pytania" component={Questions}/>
+          <Route strict exact path="/forum" component={Forum}/>
+          <Route strict exact path="/profile" component={Profile}/>
           <Route exact path="/" component={Home} />
           <Route component={() => <h1>Nie ma takiej strony</h1>} />
-        </Switch>
-  
+        </Switch>  
     </Router>
-  );
+  );  
 };
 
 export default App;
