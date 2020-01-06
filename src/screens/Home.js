@@ -5,7 +5,7 @@ function Home() {
   return (
    <div>
        <h1>HOME</h1>
-       <h2>Congrtats you logged succesfully</h2>
+       <h2>Hero section here</h2>
    </div>
   );
 }
