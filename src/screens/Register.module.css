@@ -1,0 +1,8 @@
+.mainDiv2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 40px;
+    height: calc(100vh - 40px);
+  }
