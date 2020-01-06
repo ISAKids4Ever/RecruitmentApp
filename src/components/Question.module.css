@@ -1,0 +1,26 @@
+.mainDiv {
+    display: flex;
+    flex-direction: row;
+    background: grey;
+    color:white;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 10px;
+    width: 300px;
+}
+
+.secondDiv {
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.datesDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.likesDiv {
+    display: flex;
+    flex-direction: column;
+}

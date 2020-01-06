@@ -3,14 +3,22 @@ import styles from "./Question.module.css";
 
 
 function Question(props) {
-const { question, date, respAmount} = props
-  return (
- <div>
-<h1>{question}</h1>
-  <p>{date}</p>
-<p>{respAmount}</p>
- </div>
-  );
+    const { question, date, lastRespDate, likes, respAmount } = props
+    return (
+        <div className={styles.mainDiv}>
+            <div className={styles.firstDiv}>{question}</div>
+            <div className={styles.secondDiv}>
+                <div className={styles.datesDiv}>
+                    <div>{date}</div>
+                    <div>{lastRespDate}</div>
+                </div>
+                <div className={styles.likesDiv}>
+                    <div>{likes}</div>
+                    <div>{respAmount}</div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Question;
