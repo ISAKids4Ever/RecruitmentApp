@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './Forum.module.css'
+import Question from '../components/Question'
 
 
 function Forum() {
   return (
     <div className={styles.mainDiv3}>
-      <h1>Forum</h1>
+      <div>FILTRY</div>
+      <Question question="SIEMKA"/>
+      <Question question="LOOOL"/>
+      <Question question="TRZECI!"/>
+      <Question />
        </div>
   );
 }
