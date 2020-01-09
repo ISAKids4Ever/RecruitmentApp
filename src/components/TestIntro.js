@@ -14,6 +14,7 @@ function TestIntro(props) {
               <div className={styles.language}>React</div>
               
           </div>
+          <p>Test rozpocznie się za ...</p>
         </div>
     );
 }
