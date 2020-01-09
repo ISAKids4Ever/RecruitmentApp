@@ -6,6 +6,7 @@ function View1() {
   return (
    <div className={styles.mainDiv1}>
        <h1>Testy</h1>
+       halko
    </div>
   );
 }
