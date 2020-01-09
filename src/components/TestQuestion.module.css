@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+.testView{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.question{
+    margin: 10%;
+    font-size: 48px;
+}
+.questionNumber{
+    display: flex;
+}
+.arrow{
+    margin: 0 5%;
+}
