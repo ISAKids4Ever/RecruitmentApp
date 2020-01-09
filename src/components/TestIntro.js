@@ -11,8 +11,7 @@ function TestIntro(props) {
               <div className={styles.language}><i class="fab fa-js-square"></i></div>
               <div className={styles.language}>HTML</div>
               <div className={styles.language}>CSS</div>
-              <div className={styles.language}>React</div>
-              
+              <div className={styles.language}>React</div>    
           </div>
           <p>Test rozpocznie się za ...</p>
         </div>
