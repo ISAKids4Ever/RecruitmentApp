@@ -11,10 +11,14 @@ function View1() {
                          {question: "pytanko 2", answear1: "odp 1.2", answear2: "odp 2.2", answear3: "odp 3.2"},
                          {question: "pytanko 3", answear1: "odp 1.3", answear2: "odp 2.3", answear3: "odp 3.3"}
 ]
+
+  const displayQuestions = [basicQuestions[Math.ceil(Math.random()*basicQuestions.length)]]
+  console.log(displayQuestions)
+
   return (
    <div className={styles.mainDiv1}>
        <TestIntro/>
-      { basicQuestions.map((data, index)=>  <TestQuestion question={data.question} answear1={data.answear1} answear2={data.answear2} answear3={data.answear3} key={index}/>)}
+      { displayQuestions.map((data, index)=>  <TestQuestion question={data.question} answear1={data.answear1} answear2={data.answear2} answear3={data.answear3} key={index}/>)}
        </div>
   
    
