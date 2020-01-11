@@ -1,31 +1,50 @@
 import React from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-import styles from "./Home.module.css"
+import Slider from "react-slick";
+// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from 'pure-react-carousel';
+// import 'pure-react-carousel/dist/react-carousel.es.css';
+import styles from "./Home.module.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
  
 
 function Home() {
   console.log(styles)
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    pauseOnHover: true
+  };
   return (
-    <CarouselProvider
-        naturalSlideWidth={50}
-        naturalSlideHeight={50}
-        totalSlides={3}
-      >
-        <Slider className={styles.slider}>
-          <Slide className={styles.slide} index={0}>
-            <img src="https://www.sciencealert.com/images/2019-12/processed/CatsHaveFacialExpressionsButHardToRead_1024.jpg" alt=""/>
-            <span className={styles.heroText}>I am the first Slide.</span>
-          </Slide>
-          <Slide className={styles.slide} index={1}>I am the second Slide.</Slide>
-          <Slide className={styles.slide} index={2}>I am the third Slide.</Slide>
-        </Slider>
-        <ButtonBack className={styles.prevButton}>Back</ButtonBack>
-        <ButtonNext className={styles.nextButton}>Next</ButtonNext>
-        <DotGroup className={styles.dots}/>
-      </CarouselProvider>
+    <div className="homepage__slider">
+      <Slider {...settings}>
+        <div className={`${styles.slideWrapper}`} >
+          <div className={`${styles.slide} ${styles.first}`}>
+            <h2 className={styles.slideHeader}>IntervYou</h2>
+            <p className={styles.slideText}>Jest to aplikacja dzięki której sprawdzisz swoją wiedzę z frontendu</p>
+          </div>
+        </div>
+        <div className={`${styles.slideWrapper}`}>
+          <div className={`${styles.slide} ${styles.second}`}>2</div>
+        </div>
+        <div className={`${styles.slideWrapper}`}>
+          <div className={`${styles.slide} ${styles.third}`}>3</div>
+        </div>
+        <div className={`${styles.slideWrapper}`}>
+          <div className={`${styles.slide} ${styles.fourth}`}>4</div>
+        </div>
+        <div className={`${styles.slideWrapper}`}>
+          <div className={`${styles.slide} ${styles.fifth}`}>5</div>
+        </div>
+        <div className={`${styles.slideWrapper}`}>
+          <div className={`${styles.slide} ${styles.sixth}`}>6</div>
+        </div>
+      </Slider>
+    </div>
   );
 }
-
 
 export default Home;
