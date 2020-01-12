@@ -19,31 +19,37 @@ const [ addedDate, setAddedDate] = useState(new Date());
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log("handleSubmit")
   setAddedDate(new Date())
-  const newQuestion = {'question':question, 'date': addedDate.toLocaleDateString()}
-  const newArr = [...RandomQuestions, newQuestion];
+  let newQuestion = {'question':question, 'date': addedDate.toLocaleDateString()}
+  let newArr = [...RandomQuestions, newQuestion];
   RandomQuestions = [...newArr]
   setRandomQuestion(newArr);
-
- 
-
-  console.log(randomQuestions)
-
+  setQuestion("")
 } 
 
 const handleChange = (e) => {
-  console.log(e.target.value)
-  console.log("GREETINGS")
+
   setQuestion(e.target.value);
-  console.log("question: " , question)
 
+}
+const dateSort = () => {
+  console.log("dateSort")
+  let sorted = randomQuestions.sort((a, b) => a.question.localeCompare(b.question))
+  console.log(sorted)
+  setRandomQuestion(sorted)
+  console.log("RANODMY: ", randomQuestions)
+}
+const likesSort = () => {
+  console.log("likesSort")
+}
 
+const responsesSort = () => {
+  console.log("responsesSort")
 }
   return (
     <div className={styles.mainDiv}>
 
-      <Filters />
+      <Filters dateSort={dateSort} likesSort={likesSort} responsesSort={responsesSort}/>
       <ItemsList Questions={randomQuestions}/>
       <AddItem handleChange={handleChange} handleSubmit={handleSubmit}/>
      

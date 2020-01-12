@@ -11,6 +11,7 @@ const ItemsList = (props) => {
     const { Questions } = props
     return (
         <div>
+            
             <div>FILTRY</div>
 
             {Questions.map((data, index) => <AnimateGroup play  key={index}>
