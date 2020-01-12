@@ -17,9 +17,9 @@ const handleSubmit = (e) => {
   console.log("handleSubmit")
 } 
 
-const handleChange = (e) => {
+const handleChange = () => {
   console.log("GREETINGS")
-console.log(e)
+
 }
   return (
     <div className={styles.mainDiv}>
