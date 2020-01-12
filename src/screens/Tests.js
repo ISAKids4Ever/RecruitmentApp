@@ -46,7 +46,6 @@ const basicQuestions = [
 
 function View1() {
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
-  const [hidden, setHidden] = useState('none')
 
   useEffect(() => {
     shuffle(basicQuestions);
