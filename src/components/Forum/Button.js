@@ -4,7 +4,7 @@ import styles from './Button.module.css'
 const Button = (props) => {
     const { name, icon } = props;
     return(
-        <div>
+        <div className={styles.mainDiv}>
             <button>
                 <i>{icon}</i>
                 { name }
