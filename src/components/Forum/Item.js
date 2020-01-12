@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Question.module.css";
+import styles from "./";
 
 
-function Question(props) {
+function Item (props) {
     const { question, date, lastRespDate, likes, respAmount } = props
     return (
         <div className={styles.mainDiv}>
@@ -21,4 +21,4 @@ function Question(props) {
     );
 }
 
-export default Question;
+export default Item;
