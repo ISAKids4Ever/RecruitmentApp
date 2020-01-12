@@ -3,10 +3,11 @@ import styles from "./Item.module.css";
 
 
 const Item =  (props) => {
-    const { question } = props
+    const { question, date } = props
     return (
         <div className={styles.mainDiv}>
             { question }
+            { date }
         </div>
     );
 }

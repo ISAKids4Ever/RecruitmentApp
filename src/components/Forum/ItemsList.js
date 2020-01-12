@@ -7,11 +7,11 @@ import styles from './ItemsList.module.css'
 
 
 const ItemsList = (props) => {
-   const { RandomQuestions } = props
+   const { Questions } = props
     return(
         <div>
               <div>FILTRY</div>
-      {RandomQuestions.map((data, index) => <Item question={data.question} key={index} />)}
+      {Questions.map((data, index) => <Item question={data.question} date={data.date} key={index} />)}
         </div>
     )
 }

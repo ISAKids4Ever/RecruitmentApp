@@ -5,8 +5,8 @@ const Button = (props) => {
     const { name, icon } = props;
     return(
         <div className={styles.mainDiv}>
-            <button>
-                <i>{icon}</i>
+            <button className={styles.button}>
+                <i classNAme={styles.buttonIcon}>{icon}</i>
                 { name }
             </button>
         </div>

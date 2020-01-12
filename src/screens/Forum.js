@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Forum.module.css'
 import Filters from '../components/Forum/Filters'
 import ItemsList from '../components/Forum/ItemsList'
+import AddItem from '../components/Forum/AddItem'
 import { database } from 'firebase';
 
 
@@ -16,7 +17,8 @@ const  Forum = () => {
     <div className={styles.mainDiv}>
 
       <Filters />
-      <ItemsList RandomQuestions={RandomQuestions}/>
+      <ItemsList Questions={RandomQuestions}/>
+      <AddItem />
      
 
     </div>
