@@ -4,6 +4,9 @@ import styles from './TestIntro.module.css';
 
 function TestIntro(props) {
     const { display } = props
+    if (display === "none"){
+        return null
+    } else {
     return (
         <div className={styles.intro}>
           <p> Test składa się z 10 losowych pytań. Wybierz język programowania/technologię!</p>
@@ -16,6 +19,7 @@ function TestIntro(props) {
           <p>Test rozpocznie się za ...</p>
         </div>
     );
+}
 }
 
 export default TestIntro;
