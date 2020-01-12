@@ -12,14 +12,16 @@ let RandomQuestions = [{ question: "PYTANIE PIERWSZE", date: "14-05-2015", lastR
 const  Forum = () => {
 
 const [ question, setQuestion ] = useState("");
-const [ randomQuestions, setRandomQuestion ] = useState(RandomQuestions)
+const [ randomQuestions, setRandomQuestion ] = useState(RandomQuestions);
+const [ addedDate, setAddedDate] = useState(new Date());
 
   
 
 const handleSubmit = (e) => {
   e.preventDefault();
   console.log("handleSubmit")
-  const newQuestion = {'question':question}
+  setAddedDate(new Date())
+  const newQuestion = {'question':question, 'date': addedDate.toLocaleDateString()}
   const newArr = [...RandomQuestions, newQuestion];
   RandomQuestions = [...newArr]
   setRandomQuestion(newArr);

@@ -12,14 +12,14 @@ const ItemsList = (props) => {
     return (
         <div>
             <div>FILTRY</div>
-           
-                {Questions.map((data, index) => <AnimateGroup play >
-                    <Animate start={{ opacity: 0 }} end={{ opacity: 1 }} duration={1.5} sequenceIndex={index}>
-                        <Item question={data.question} key={index} />
-                        </Animate>
-                        </AnimateGroup >)}
 
-             
+            {Questions.map((data, index) => <AnimateGroup play  key={index}>
+                <Animate start={{ opacity: 0 }} end={{ opacity: 1 }} duration={1.5} sequenceIndex={index}>
+                    <Item question={data.question} date={data.date} key={index} />
+                </Animate>
+            </AnimateGroup >)}
+
+
 
 
         </div>
