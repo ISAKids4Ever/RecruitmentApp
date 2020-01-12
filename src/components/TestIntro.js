@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './TestIntro.module.css';
 
 
-function TestIntro(props) {
+function TestIntro() {
     const [hidden, setHidden] = useState('visible')
     if (hidden === "none"){
         return null
