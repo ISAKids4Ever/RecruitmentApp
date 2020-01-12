@@ -11,7 +11,7 @@ const ItemsList = (props) => {
     return(
         <div>
               <div>FILTRY</div>
-      {Questions.map((data, index) => <Item question={data.question} date={data.date} key={index} />)}
+      {Questions.map((data, index) => <Item question={data.question} key={index} />)}
         </div>
     )
 }
