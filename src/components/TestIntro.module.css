@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+
+.intro{
+    display: none;
+    flex-direction: column;
+}
+
+.languages{
+    display: flex;
+    justify-content: space-between;
+}
+
+.language i{
+    font-size: 30px;
+    text-align: center;
+    border: solid 1px blue;
+    padding: 20% 30%;
+    margin: 2%;
+}
