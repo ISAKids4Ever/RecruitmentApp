@@ -13,7 +13,6 @@ function View1() {
 ]
 
   const displayQuestions = [basicQuestions[Math.floor(Math.random()*basicQuestions.length)]]
-  console.log(displayQuestions)
   function shuffle(a) {
     for (let i = a.length -1; i>0; i--){
   const j = Math.floor(Math.random()*(i+1));
@@ -21,15 +20,16 @@ function View1() {
   return a; }
 
   useEffect(() => {
-    console.log('halko')
-    const display = shuffle(basicQuestions)
+  const toDisplay = shuffle(basicQuestions)
+  console.log(basicQuestions)
     
   }, [])
+ 
 
   return (
    <div className={styles.mainDiv1}>
        <TestIntro/>
-      { displayQuestions.map((data, index)=>  <TestQuestion question={data.question} answear1={data.answear1} answear2={data.answear2} answear3={data.answear3} key={index}/>)}
+      { basicQuestions.map((data, index)=>  <TestQuestion question={data.question} answear1={data.answear1} answear2={data.answear2} answear3={data.answear3} key={index}/>)}
        </div>
   
    
