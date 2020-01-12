@@ -3,35 +3,57 @@ import styles from "./Tests.module.css";
 import TestQuestion from "../components/TestQuestion";
 import TestIntro from "../components/TestIntro";
 
+const basicQuestions = [
+  {
+    question: "pytanko 1",
+    answear1: "odp 1",
+    answear2: "odp 2",
+    answear3: "odp 3"
+  },
+  {
+    question: "pytanko 2",
+    answear1: "odp 1.2",
+    answear2: "odp 2.2",
+    answear3: "odp 3.2"
+  },
+  {
+    question: "pytanko 3",
+    answear1: "odp 1.3",
+    answear2: "odp 2.3",
+    answear3: "odp 3.3"
+  }
+];
 
 function View1() {
-  const basicQuestions =[{question: "pytanko 1", answear1: "odp 1", answear2: "odp 2", answear3: "odp 3"},
-                         {question: "pytanko 2", answear1: "odp 1.2", answear2: "odp 2.2", answear3: "odp 3.2"},
-                         {question: "pytanko 3", answear1: "odp 1.3", answear2: "odp 2.3", answear3: "odp 3.3"}
-]
-const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions)
-
-  function shuffle(a) {
-    const newQuestions = [...a]
-    for (let i = newQuestions.length -1; i>0; i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [newQuestions[i], newQuestions[j]] = [newQuestions[j], newQuestions[i]];}
-    setQuestionsDisplay(newQuestions)
-    console.log(newQuestions)
- }
+  const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
 
   useEffect(() => {
-  shuffle(basicQuestions)
-  }, [])
- 
+    shuffle(basicQuestions);
+  }, []);
+
+  function shuffle(a) {
+    const newQuestions = [...a];
+    for (let i = newQuestions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newQuestions[i], newQuestions[j]] = [newQuestions[j], newQuestions[i]];
+    }
+    setQuestionsDisplay(newQuestions);
+    console.log(newQuestions);
+  }
 
   return (
-   <div className={styles.mainDiv1}>
-       <TestIntro/>
-      {questionsDisplay.map((data, index)=>  <TestQuestion question={data.question} answear1={data.answear1} answear2={data.answear2} answear3={data.answear3} key={index}/>)}
-       </div>
-  
-   
+    <div className={styles.mainDiv1}>
+      <TestIntro />
+      {questionsDisplay.map((data, index) => (
+        <TestQuestion
+          question={data.question}
+          answear1={data.answear1}
+          answear2={data.answear2}
+          answear3={data.answear3}
+          key={index}
+        />
+      ))}
+    </div>
   );
 }
 
