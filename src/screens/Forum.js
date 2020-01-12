@@ -33,11 +33,8 @@ const handleChange = (e) => {
 
 }
 const dateSort = () => {
-  console.log("dateSort")
   let sorted = randomQuestions.sort((a, b) => a.question.localeCompare(b.question))
-  console.log(sorted)
   setRandomQuestion(sorted)
-  console.log("RANODMY: ", randomQuestions)
 }
 const likesSort = () => {
   console.log("likesSort")
@@ -50,7 +47,7 @@ const responsesSort = () => {
     <div className={styles.mainDiv}>
 
       <Filters dateSort={dateSort} likesSort={likesSort} responsesSort={responsesSort}/>
-      <ItemsList Questions={randomQuestions}/>
+      <ItemsList Questions={randomQuestions} />
       <AddItem handleChange={handleChange} handleSubmit={handleSubmit}/>
      
 

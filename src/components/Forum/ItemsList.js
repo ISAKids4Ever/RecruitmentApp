@@ -11,7 +11,6 @@ const ItemsList = (props) => {
     const { Questions } = props
     return (
         <div>
-            
             <div>FILTRY</div>
 
             {Questions.map((data, index) => <AnimateGroup play  key={index}>
@@ -19,10 +18,6 @@ const ItemsList = (props) => {
                     <Item question={data.question} date={data.date} key={index} />
                 </Animate>
             </AnimateGroup >)}
-
-
-
-
         </div>
     )
 }
