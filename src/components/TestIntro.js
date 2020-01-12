@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import styles from './TestIntro.module.css';
 
 
 function TestIntro(props) {
-    const { display } = props
-    if (display === "none"){
+    const [hidden, setHidden] = useState('visible')
+    if (hidden === "none"){
         return null
     } else {
     return (
@@ -16,7 +16,7 @@ function TestIntro(props) {
               <div className={styles.language}>CSS</div>
               <div className={styles.language}>React</div>    
           </div>
-          <p>Test rozpocznie się za ...</p>
+          <p onClick={() => setHidden('none')}>Rozpocznij test!</p>
         </div>
     );
 }

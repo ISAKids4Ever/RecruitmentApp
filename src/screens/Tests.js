@@ -40,10 +40,13 @@ const basicQuestions = [
     value: "odp 3.3",
     correct: false}
 }
-]
+];
+
+
 
 function View1() {
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
+  const [hidden, setHidden] = useState('none')
 
   useEffect(() => {
     shuffle(basicQuestions);
@@ -61,7 +64,7 @@ function View1() {
 
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro display={'none'}/>
+      <TestIntro/>
       {questionsDisplay.map((data, index) => (
         <TestQuestion
           question={data.question}
