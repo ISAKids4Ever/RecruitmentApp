@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Forum.module.css'
+import Filters from '../components/Forum/Filters'
+import ItemsList from '../components/Forum/ItemsList'
 import { database } from 'firebase';
 
 
@@ -12,6 +14,9 @@ const  Forum = () => {
 
   return (
     <div className={styles.mainDiv}>
+
+      <Filters />
+      <ItemsList />
       {/* <div>FILTRY</div>
       {RandomQuestions.map((data, index) => <Question question={data.question} date={data.date} lastRespDate={data.lastRespDate} likes={data.likes} respAmount={data.respAmount} key={index} />)} */}
 

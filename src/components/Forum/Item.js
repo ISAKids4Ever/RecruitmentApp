@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./";
+import styles from "./Item.module.css";
 
 
-function Item (props) {
+const Item =  (props) => {
     const { question, date, lastRespDate, likes, respAmount } = props
     return (
         <div className={styles.mainDiv}>

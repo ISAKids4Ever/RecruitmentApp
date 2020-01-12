@@ -3,8 +3,8 @@ import styles from './SearchInput.module.css'
 
 const SearchInput = () => {
     return(
-        <div>
-            SearchInput
+        <div>      
+            <input type="text" placeholder="Szukaj..." />
         </div>
     )
 }
