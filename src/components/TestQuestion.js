@@ -9,9 +9,9 @@ function TestQuestion(props) {
            <div className={styles.question}>{question}</div>
            <div className={styles.answears}>
                <ul>
-                   <li>{answear1}</li>
-                   <li>{answear2}</li>
-                   <li>{answear3}</li>
+                   <li onClick={()=> console.log(answear1.correct)}>{answear1.value}</li>
+                   <li onClick={()=> console.log(answear2.correct)}>{answear2.value}</li>
+                   <li onClick={()=> console.log(answear3.correct)}>{answear3.value}</li>
                </ul>
            </div>
            <div className={styles.questionNumber}>

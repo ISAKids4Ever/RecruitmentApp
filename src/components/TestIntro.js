@@ -3,7 +3,7 @@ import styles from './TestIntro.module.css';
 
 
 function TestIntro(props) {
-    const { state } = props
+    const { display } = props
     return (
         <div className={styles.intro}>
           <p> Test składa się z 10 losowych pytań. Wybierz język programowania/technologię!</p>

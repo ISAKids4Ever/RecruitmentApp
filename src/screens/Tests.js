@@ -4,25 +4,43 @@ import TestQuestion from "../components/TestQuestion";
 import TestIntro from "../components/TestIntro";
 
 const basicQuestions = [
-  {
-    question: "pytanko 1",
-    answear1: "odp 1",
-    answear2: "odp 2",
-    answear3: "odp 3"
-  },
-  {
-    question: "pytanko 2",
-    answear1: "odp 1.2",
-    answear2: "odp 2.2",
-    answear3: "odp 3.2"
-  },
-  {
-    question: "pytanko 3",
-    answear1: "odp 1.3",
-    answear2: "odp 2.3",
-    answear3: "odp 3.3"
-  }
-];
+{
+  question: "pytanko 1",
+  answear1: {
+    value: "odp 1",
+    correct: false},
+  answear2: {
+    value: "odp 2",
+    correct: true},
+  answear3: {
+    value: "odp 3",
+    correct: false}
+},
+{
+  question: "pytanko 2",
+  answear1: {
+    value: "odp 1.2",
+    correct: false},
+  answear2: {
+    value: "odp 2.2",
+    correct: false},
+  answear3: {
+    value: "odp 3.2",
+    correct: true}
+},
+{
+  question: "pytanko 3",
+  answear1: {
+    value: "odp 1.3",
+    correct: true},
+  answear2: {
+    value: "odp 2.3",
+    correct: false},
+  answear3: {
+    value: "odp 3.3",
+    correct: false}
+}
+]
 
 function View1() {
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
@@ -43,7 +61,7 @@ function View1() {
 
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro />
+      <TestIntro display={'none'}/>
       {questionsDisplay.map((data, index) => (
         <TestQuestion
           question={data.question}
