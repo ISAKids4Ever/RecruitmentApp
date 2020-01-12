@@ -2,6 +2,9 @@
     box-sizing: border-box;
 }
 
+.start{
+    cursor: pointer;
+}
 
 .intro{
     display: flex;
@@ -19,4 +22,5 @@
     border: solid 1px blue;
     padding: 20% 30%;
     margin: 2%;
+    cursor: pointer;
 }

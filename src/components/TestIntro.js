@@ -16,7 +16,7 @@ function TestIntro() {
               <div className={styles.language}>CSS</div>
               <div className={styles.language}>React</div>    
           </div>
-          <p onClick={() => setHidden('none')}>Rozpocznij test!</p>
+          <p onClick={() => setHidden('none')} className={styles.start}>Rozpocznij test!</p>
         </div>
     );
 }
