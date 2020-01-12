@@ -4,11 +4,15 @@ import SearchInput  from './SearchInput';
 import styles from './AddItem.module.css'
 
 
-const AddItem = () => {
+const AddItem = (props) => {
+    const { handleChange, handleSubmit } = props
     return(
         <div className={styles.mainDiv}>
-            <SearchInput />
-            <Button />
+            <form onSubmit={handleSubmit}>
+            <SearchInput itemValue="HEJ" placeholder="Wpisz pytanie..." handleChange={handleChange}/>
+            <Button name="DODAJ"/>
+            </form>
+            
         </div>
     )
 }

@@ -12,13 +12,21 @@ const  Forum = () => {
   { question: "PYTANIE DRUGIE", date: "25-08-2009", lastRespDate: "22-10-2010", likes: "69", respAmount: "55" },
   { question: "PYTANIE TRZECIE", date: "22-09-1994", lastRespDate: "11-11-2011", likes: "69", respAmount: "99" }]
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("handleSubmit")
+} 
 
+const handleChange = (e) => {
+  console.log("GREETINGS")
+console.log(e)
+}
   return (
     <div className={styles.mainDiv}>
 
       <Filters />
       <ItemsList Questions={RandomQuestions}/>
-      <AddItem />
+      <AddItem handleChange={handleChange} handleSubmit={handleSubmit}/>
      
 
     </div>
