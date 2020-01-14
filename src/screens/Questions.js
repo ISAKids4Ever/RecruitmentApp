@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./Questions.module.css";
+import QuestionsIntro from '../components/QuestionsIntro';
+import Fleshcard from '../components/Flashcard'
+
 
 
 function Questions() {
   return (
    <div className={styles.mainDiv2}>
-      <h1>Pytania rekrutacyjne</h1>
+      <QuestionsIntro />
+      <Fleshcard />
    </div>
   );
 }
