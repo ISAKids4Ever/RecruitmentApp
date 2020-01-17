@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Questions.module.css";
 import QuestionsIntro from '../components/QuestionsIntro';
-import Fleshcard from '../components/Flashcard'
+import Flashcard from '../components/Flashcard'
 
 const Flashcards = [
   {
@@ -47,7 +47,7 @@ function Questions() {
   return (
    <div className={styles.mainDiv2}>
       <QuestionsIntro />
-      <Fleshcard flashcards={shuffledFlashcards} hidden={'none'}/>
+      <Flashcard flashcards={shuffledFlashcards} hidden={'none'}/>
    </div>
   );
 }

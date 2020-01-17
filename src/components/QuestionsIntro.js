@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import styles from './QuestionsIntro.module.css'
 
 function QuestionsIntro(props) {
-    const {banan} = props
-    const [hidden, setHidden] = useState(banan)
+    const [hidden, setHidden] = useState('visible')
 
 
     if (hidden === 'none'){
