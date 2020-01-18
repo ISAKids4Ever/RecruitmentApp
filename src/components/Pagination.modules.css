@@ -1,0 +1,31 @@
+.pagination{
+    display: flex;
+    margin: 5% 5%;
+}
+
+.pageItem{
+    margin: 10px;
+}
+
+.pageItem p{
+    text-decoration: none;
+    color: green;
+    padding: 90%;
+}
+.pageItem p:hover{
+    color: rgb(6, 51, 21);
+    font-weight: bold;
+   
+}
+
+.pageItem p:focus{
+    color: white;
+    background: rgb(27, 54, 16);
+    font-weight: bold;
+    outline: none;
+   padding: 5px;
+}
+
+.pageLink{
+    cursor: pointer;
+}
