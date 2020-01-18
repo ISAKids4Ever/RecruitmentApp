@@ -10,7 +10,9 @@ function QuestionsIntro(props) {
 
     return (
         <div className={styles.Question}>
-            <p>Poznaj typowe pytania rekrutacujne i odpowiedzi.</p>
+            <div className={styles.questionCard}>
+                <p>Poznaj typowe pytania rekrutacujne i odpowiedzi.</p>
+            </div>
             <button onClick={() => hideIntro(false)}>Wylosuj pytanie</button>
         </div>
     )
