@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './QuestionsIntro.module.css'
+import Button from './Button'
 
 function QuestionsIntro(props) {
     const {showIntro} = props
@@ -13,7 +14,7 @@ function QuestionsIntro(props) {
             <div className={styles.questionCard}>
                 <p>Poznaj typowe pytania rekrutacujne i odpowiedzi.</p>
             </div>
-            <button onClick={() => hideIntro(false)}>Wylosuj pytanie</button>
+            <Button onClick={() => hideIntro(false)}>Wylosuj pytanie</Button>
         </div>
     )
 }

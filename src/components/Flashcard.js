@@ -1,5 +1,6 @@
 import React, { useState }  from 'react'
 import styles from './Flashcard.module.css'
+import Button from './Button'
 
 function Flashcard(props) {
     const { flashcards } = props
@@ -9,9 +10,7 @@ function Flashcard(props) {
             <div className={styles.flashcardView}>
                 {/* <p>{flashcards[count].id}</p> */}
                 <div className={styles.flashcardPlusButtons}>
-                    <div className={styles.flashcardButton}>
-                        { (count) ?  <button onClick={() => setCount(count - 1)}><i className="fas fa-angle-left"></i></button> : <p> </p>}
-                    </div>
+                    { (count) ?  <Button onClick={() => setCount(count - 1)} className={'iconButton'}><i className="fas fa-chevron-circle-left"></i></Button> : <p> </p>}
                     <div className={styles.flashcard}>
                         <div className={styles.flashcardInner}>
                             <div className={styles.flashcardFront}>
@@ -24,14 +23,12 @@ function Flashcard(props) {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.flashcardButton}>
-                        { (count+1 < flashcards.length) ? <button onClick={() => setCount(count + 1)}><i className="fas fa-angle-right"></i></button> : <p> </p> }
-                    </div>
+                    { (count+1 < flashcards.length) ? <Button onClick={() => setCount(count + 1)} className={'iconButton'}><i className="fas fa-chevron-circle-right"></i></Button> : <p> </p>}
                 </div>
                 <div className={styles.flashcardUserButtons}>
-                    <button><i className="fas fa-save"></i></button>
-                    <button><i className="fas fa-check"></i></button>
-                    <button><i className="fas fa-times"></i></button>
+                    <Button className={'iconButton'}><i className="fas fa-save"></i></Button>
+                    <Button className={'iconButton'}><i className="fas fa-check"></i></Button>
+                    <Button className={'iconButton'}><i className="fas fa-times"></i></Button>
                 </div>
             </div>
         )
