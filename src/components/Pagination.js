@@ -3,11 +3,11 @@ import styles from "./Pagination.modules.css";
 
 export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
-  let currentPageClass;
+  let currentPageClass = [];
   if(currentPage){
-    currentPageClass="current"
+    currentPageClass[currentPage]="current"
   } else {
-    currentPageClass="pageLink"
+    currentPageClass[currentPage]="pageLink"
   }
   console.log(currentPageClass)
 
@@ -26,7 +26,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
               onClick={()  => {
                paginate(number)
               }}
-              className={currentPageClass}
+              className={currentPageClass[number]}
             >
               {number}
             </p>
