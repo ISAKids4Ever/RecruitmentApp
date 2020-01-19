@@ -11,27 +11,24 @@
 
 .pageItem p{
     text-decoration: none;
-    color: green;
+    color: black;
     padding: 10px;
 }
 
 .pageItem p:hover{
-    color: rgb(6, 51, 21);
+    color: white;
     font-weight: bold;
    
 }
 
-.pageItem p:focus{
-    color: white;
-    background: rgb(27, 54, 16);
-    font-weight: bold;
-    outline: none;
-}
 
 .pageLink{
     cursor: pointer;
 }
 
 .current{
-    background: blue;
+    background: rgb(27, 54, 16);
+    font-weight: bold;
+    outline: none;
+    color: white;
 }
