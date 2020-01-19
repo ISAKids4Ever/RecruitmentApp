@@ -68,7 +68,6 @@ function Tests() {
     }
     setQuestionsDisplay(newQuestions);
   }
-
   return (
     <div className={styles.mainDiv1}>
       <TestIntro/>
@@ -81,7 +80,7 @@ function Tests() {
           key={index}
         />
       ))}
-      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate}/>
+      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage}/>
       
       
     </div>

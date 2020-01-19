@@ -1,8 +1,16 @@
 import React from "react";
 import styles from "./Pagination.modules.css";
 
-export const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
+  let currentPageClass;
+  if(currentPage){
+    currentPageClass="current"
+  } else {
+    currentPageClass="pageLink"
+  }
+  console.log(currentPageClass)
+
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -14,11 +22,11 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
         {pageNumbers.map(number => (
           <div key={number} className="pageItem">
             <p
-              tabIndex={0}
-              onClick={() => {
-                paginate(number)
+              tabIndex={-1}
+              onClick={()  => {
+               paginate(number)
               }}
-              className="pageLink"
+              className={currentPageClass}
             >
               {number}
             </p>
