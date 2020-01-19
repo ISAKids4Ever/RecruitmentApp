@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Pagination.modules.css";
 
 export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
-  let currentPageClass;
-  if(currentPage){
-    currentPageClass="current"
-  } else {
-    currentPageClass="pageLink"
-  }
+  let [currentPageClass, setCurrentPageClass] = useState("pageLink");
+ 
   console.log(currentPageClass)
 
 
@@ -19,6 +15,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
   return (
     <nav>
       <div className="pagination">
+          
         {pageNumbers.map(number => (
           <div key={number} className="pageItem">
             <p
@@ -28,6 +25,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
               }}
               className={currentPageClass}
             >
+                
               {number}
             </p>
           </div>
