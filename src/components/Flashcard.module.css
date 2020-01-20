@@ -8,6 +8,7 @@
     height: 50vh;
     width: 60vw;
     color: white;
+    margin: 30px;
 }
 
 .flashcardPlusButtons {
@@ -16,30 +17,8 @@
     align-items: center;
 }
 
-.flashcardButton {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-}
-
-.flashcardButton>Button,
-.flashcardButton>p {
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+.flashcardPlusButtons>p {
     width: 30px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.flashcardButton>Button {
-    cursor: pointer;
-}
-
-.flashcardButton>Button:hover {
-    color: rgba(255, 255, 255, 0.753);
 }
 
 .flashcard:hover .flashcardInner {
@@ -79,24 +58,8 @@
 }
 
 .flashcardUserButtons {
-    margin: 30px;
+    margin: 10px;
     display: flex;
     flex-direction: row;
     align-content: space-around;
-}
-
-.flashcardUserButtons>button {
-    height: 48px;
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
-    width: 30px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 1, 5rem;
-    cursor: pointer;
-}
-
-.flashcardUserButtons>button:hover {
-    color: rgba(255, 255, 255, 0.75);
 }
