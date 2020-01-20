@@ -1,16 +1,9 @@
 import React from "react";
 import styles from "./Pagination.modules.css";
+import Button from "./Button"
 
 export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
   const pageNumbers = [];
-  let currentPageClass = [];
-  if(currentPage){
-    currentPageClass[currentPage]="current"
-  } else {
-    currentPageClass[currentPage]="pageLink"
-  }
-  console.log(currentPageClass)
-
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -21,15 +14,15 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
       <div className="pagination">
         {pageNumbers.map(number => (
           <div key={number} className="pageItem">
-            <p
+            <Button
               tabIndex={-1}
               onClick={()  => {
                paginate(number)
               }}
-              className={currentPageClass[number]}
+              className={number === currentPage ? 'regularButton current' : 'regularButton' }
             >
               {number}
-            </p>
+            </Button>
           </div>
         ))}
       </div>

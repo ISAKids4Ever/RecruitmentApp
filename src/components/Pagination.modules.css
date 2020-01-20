@@ -1,37 +1,21 @@
-.pagination{
+.pagination {
     display: flex;
     width: 300px;
 }
 
-.pageItem{
+.pageItem {
     flex: 1;
     text-align: center;
     padding: 20px;
 }
 
-.pageItem p{
+.pageItem p {
     text-decoration: none;
     color: green;
     padding: 10px;
 }
 
-.pageItem p:hover{
+.pageItem p:hover {
     color: rgb(6, 51, 21);
     font-weight: bold;
-   
-}
-
-.pageItem p:focus{
-    color: white;
-    background: rgb(27, 54, 16);
-    font-weight: bold;
-    outline: none;
-}
-
-.pageLink{
-    cursor: pointer;
-}
-
-.current{
-    background: blue;
 }

@@ -19,6 +19,11 @@
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+.current{
+    box-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 .iconButton {
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
     width: 30px;
