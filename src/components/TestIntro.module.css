@@ -14,13 +14,23 @@
 .languages{
     display: flex;
     justify-content: space-between;
+    width: 80%;
 }
 
 .language i{
-    font-size: 30px;
+    
     text-align: center;
     border: solid 1px blue;
     padding: 20% 30%;
-    margin: 2%;
+    
     cursor: pointer;
+}
+
+i {
+    color: rgb(41, 27, 236); 
+    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    width: 60px;
+    font-size: 40px;
+    margin: 20px 0;
 }
