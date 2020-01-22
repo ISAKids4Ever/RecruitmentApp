@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Tests.module.css";
 import TestQuestion from "../components/TestQuestion";
 import TestIntro from "../components/TestIntro";
+import { Pagination } from "../components/Pagination";
 
 const basicQuestions = [
 {
@@ -42,10 +43,18 @@ const basicQuestions = [
 }
 ];
 
+function Tests() {
+  const [postsPerPage]= useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirtsPost = indexOfLastPost-postsPerPage;
 
-
-function View1() {
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
+  
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
+  const currentQuestions = questionsDisplay.slice(indexOfFirtsPost, indexOfLastPost)
 
   useEffect(() => {
     shuffle(basicQuestions);
@@ -58,13 +67,11 @@ function View1() {
       [newQuestions[i], newQuestions[j]] = [newQuestions[j], newQuestions[i]];
     }
     setQuestionsDisplay(newQuestions);
-    console.log(newQuestions);
   }
-
   return (
     <div className={styles.mainDiv1}>
       <TestIntro/>
-      {questionsDisplay.map((data, index) => (
+      {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
           answear1={data.answear1}
@@ -73,8 +80,11 @@ function View1() {
           key={index}
         />
       ))}
+      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage}/>
+      
+      
     </div>
   );
 }
 
-export default View1;
+export default Tests;

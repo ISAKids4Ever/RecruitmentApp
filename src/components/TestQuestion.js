@@ -14,11 +14,7 @@ function TestQuestion(props) {
                    <li onClick={()=> console.log(answear3.correct)}>{answear3.value}</li>
                </ul>
            </div>
-           <div className={styles.questionNumber}>
-               <div className={styles.arrow}> PREV </div>
-               1 2 3 4 5 6 7 8 9 10
-               <div className={styles.arrow}> NEXT </div>
-               </div>
+          
         </div>
     );
 }
