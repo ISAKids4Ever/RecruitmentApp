@@ -26,3 +26,11 @@
     cursor: pointer;
 }
 
+.visible{
+    display: inherit;
+  }
+  
+  .hidden{
+    display: none;
+  }
+

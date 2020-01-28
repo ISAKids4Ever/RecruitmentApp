@@ -8,3 +8,11 @@
   height: 100vh;
   background-image: linear-gradient(to right, #F45C43, #F45C43);
 }
+
+.visible{
+  display: inherit;
+}
+
+.hidden{
+  display: none;
+}

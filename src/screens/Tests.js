@@ -3,6 +3,7 @@ import styles from "./Tests.module.css";
 import TestQuestion from "../components/TestQuestion";
 import TestIntro from "../components/TestIntro";
 import { Pagination } from "../components/Pagination";
+import Button from "../components/Button";
 
 const basicQuestions = [
 {
@@ -46,6 +47,7 @@ const basicQuestions = [
 function Tests() {
   const [postsPerPage]= useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const [elementToShow, setElementToShow] = useState('TestIntro')
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirtsPost = indexOfLastPost-postsPerPage;
 
@@ -58,6 +60,7 @@ function Tests() {
 
   useEffect(() => {
     shuffle(basicQuestions);
+    console.log(elementToShow)
   }, []);
 
   function shuffle(a) {
@@ -70,7 +73,8 @@ function Tests() {
   }
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro/>
+      <TestIntro onClick={() => console.log(elementToShow)} elementToShow={elementToShow} setElementToShow={setElementToShow}/>
+      <button className={elementToShow === 'TestQuestion' ? 'visible' : 'hidden'} onClick={() => setElementToShow('TestIntro')}> Wróć do instrukcji </button>
       {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
@@ -78,9 +82,10 @@ function Tests() {
           answear2={data.answear2}
           answear3={data.answear3}
           key={index}
+          elementToShow={elementToShow}
         />
       ))}
-      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage}/>
+      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
       
       
     </div>

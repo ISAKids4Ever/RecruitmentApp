@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import styles from "./Pagination.modules.css";
 import Button from "./Button"
 
-export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
+export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, elementToShow }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
 
+
+    if(elementToShow !== 'TestIntro'){
   return (
     <nav>
       <div className="pagination">
@@ -29,5 +31,8 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
         ))}
       </div>
     </nav>
-  );
+  );}
+  else {
+    return null
+  }
 };
