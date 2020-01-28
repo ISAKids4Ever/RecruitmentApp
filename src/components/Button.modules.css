@@ -39,3 +39,28 @@
 .iconButton:hover {
     opacity: 1;
 }
+
+.iconButtonTest{
+    color: rgb(41, 27, 236); 
+    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    width: 60px;
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.fa-js-square{
+    color: yellow;
+}
+
+.fa-html5{
+    color: orange;
+}
+
+.fa-css3-alt{
+    color: rgb(78, 245, 245);
+}
+
+.fa-react{
+    color: purple;
+}

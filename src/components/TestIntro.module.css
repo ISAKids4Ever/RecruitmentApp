@@ -26,11 +26,3 @@
     cursor: pointer;
 }
 
-i {
-    color: rgb(41, 27, 236); 
-    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
-    display: inline-block;
-    width: 60px;
-    font-size: 40px;
-    margin: 20px 0;
-}
