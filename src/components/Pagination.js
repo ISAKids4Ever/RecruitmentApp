@@ -10,7 +10,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
   }
 
 
-    if(elementToShow !== 'TestIntro'){
+    if(elementToShow !== "TestIntro"){
   return (
     <nav>
       <div className="pagination">
@@ -22,7 +22,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
               onClick={()  => {
                paginate(number)
               }}
-              className={number === currentPage ? 'regularButton current' : 'regularButton' }
+              className={number === currentPage ? "regularButton current" : "regularButton" }
             >
                 
               {number}

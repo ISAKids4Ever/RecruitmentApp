@@ -74,7 +74,7 @@ function Tests() {
   }
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro onClick={() => console.log(elementToShow)} elementToShow={elementToShow} setElementToShow={setElementToShow}/>
+      <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow}/>
       <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow}> Wróć do instrukcji </BackButton>
       {currentQuestions.map((data, index) => (
         <TestQuestion
