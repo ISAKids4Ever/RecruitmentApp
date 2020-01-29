@@ -4,7 +4,6 @@ import styles from './TestQuestion.module.css'
 
 function TestQuestion(props) {
     const { question, answear1, answear2, answear3, elementToShow} = props;
-    let classChange;
     if(elementToShow === 'TestQuestion') {
         return (
             <div className={styles.testView}>

@@ -3,8 +3,9 @@ import styles from "./Tests.module.css";
 import TestQuestion from "../components/TestQuestion";
 import TestIntro from "../components/TestIntro";
 import { Pagination } from "../components/Pagination";
-import Button from "../components/Button";
 import BackButton from "../components/BackButton";
+import TestResults from "../components/TestResults";
+import SubmitTestButton from "./SubmitTestButton";
 
 const basicQuestions = [
 {
@@ -61,7 +62,6 @@ function Tests() {
 
   useEffect(() => {
     shuffle(basicQuestions);
-    console.log(elementToShow)
   }, []);
 
   function shuffle(a) {
@@ -75,7 +75,7 @@ function Tests() {
   return (
     <div className={styles.mainDiv1}>
       <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow}/>
-      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow}> Wróć do instrukcji </BackButton>
+      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} value='Wróć do instrukcji'/>
       {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
@@ -86,6 +86,8 @@ function Tests() {
           elementToShow={elementToShow}
         />
       ))}
+      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage}></SubmitTestButton>
+      <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
       
       
