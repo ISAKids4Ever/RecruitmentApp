@@ -2,10 +2,10 @@ import React from 'react';
 import Button from './Button';
 
 function BackButton(props) {
-    const {elementToShow, setElementToShow, value} = props;
+    const {elementToShow, setElementToShow} = props;
     if(elementToShow === 'TestQuestion'){
         return (
-            <Button onClick={() => setElementToShow('TestIntro')}>{value}</Button>
+            <Button onClick={() => setElementToShow('TestIntro')} children='Wróć do instrukcji'></Button>
         )
     } else {
         return null;

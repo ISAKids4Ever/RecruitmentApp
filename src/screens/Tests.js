@@ -5,7 +5,7 @@ import TestIntro from "../components/TestIntro";
 import { Pagination } from "../components/Pagination";
 import BackButton from "../components/BackButton";
 import TestResults from "../components/TestResults";
-import SubmitTestButton from "./SubmitTestButton";
+import SubmitTestButton from "../components/SubmitTestButton";
 
 const basicQuestions = [
 {
@@ -75,7 +75,7 @@ function Tests() {
   return (
     <div className={styles.mainDiv1}>
       <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow}/>
-      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} value='Wróć do instrukcji'/>
+      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow}/>
       {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
