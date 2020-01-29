@@ -6,7 +6,7 @@ function TestResults(props) {
     if(elementToShow === 'TestResults'){
     return (
         <div>
-            WYNIKI
+            <div>WYNIKI</div>
             <Button children='Wróć do testów' onClick={() => setElementToShow('TestIntro')}></Button>
             
         </div>

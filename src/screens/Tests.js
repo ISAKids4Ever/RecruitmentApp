@@ -50,15 +50,15 @@ function Tests() {
   const [postsPerPage]= useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [elementToShow, setElementToShow] = useState('TestIntro')
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirtsPost = indexOfLastPost-postsPerPage;
+  const indexOfLastPage = currentPage * postsPerPage;
+  const indexOfFirtsPage = indexOfLastPage-postsPerPage;
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
   
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
-  const currentQuestions = questionsDisplay.slice(indexOfFirtsPost, indexOfLastPost)
+  const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage)
 
   useEffect(() => {
     shuffle(basicQuestions);
@@ -86,7 +86,7 @@ function Tests() {
           elementToShow={elementToShow}
         />
       ))}
-      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage}></SubmitTestButton>
+      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} lastQuestion={questionsDisplay.length}></SubmitTestButton>
       <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
       
