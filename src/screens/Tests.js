@@ -86,10 +86,10 @@ function Tests() {
           elementToShow={elementToShow}
         />
       ))}
-      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} lastQuestion={questionsDisplay.length}></SubmitTestButton>
+      
       <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
-      
+      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} lastQuestion={questionsDisplay.length}></SubmitTestButton>
       
     </div>
   );

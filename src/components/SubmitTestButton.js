@@ -5,8 +5,7 @@ function SubmitTestButton(props) {
     const { elementToShow, setElementToShow, currentPage, lastQuestion} = props;
     if(currentPage === lastQuestion && elementToShow === 'TestQuestion'){
         return (
-            <Button children={'Zakończ'} onClick={() => setElementToShow('TestResults')}>
-     
+            <Button className={'regularButton submitButton'} children={'Zakończ'} onClick={() => setElementToShow('TestResults')}>
             </Button>
          )
     } else{

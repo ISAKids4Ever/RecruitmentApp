@@ -64,3 +64,8 @@
 .fa-react{
     color: purple;
 }
+
+.submitButton{
+    position: fixed;
+    bottom: 30px;
+}
