@@ -52,6 +52,8 @@ function Tests() {
   const [elementToShow, setElementToShow] = useState('TestIntro')
   const indexOfLastPage = currentPage * postsPerPage;
   const indexOfFirtsPage = indexOfLastPage-postsPerPage;
+  let points=[0,0,0,0,0,0,0,0,0,0];
+  const [userPoints, setUserPoints] = useState(points)
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -75,7 +77,7 @@ function Tests() {
   return (
     <div className={styles.mainDiv1}>
       <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow}/>
-      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow}/>
+      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} setUserPoints={setUserPoints} setCurrentPage={setCurrentPage}/>
       {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
@@ -84,12 +86,15 @@ function Tests() {
           answear3={data.answear3}
           key={index}
           elementToShow={elementToShow}
+          userPoints={userPoints}
+          setPoints={setUserPoints}
+          currentPage={currentPage}
         />
       ))}
       
-      <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow}/>
+      <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow} userPoints={userPoints}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
-      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} lastQuestion={questionsDisplay.length}></SubmitTestButton>
+      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} setCurrentPage={setCurrentPage}  lastQuestion={questionsDisplay.length}></SubmitTestButton>
       
     </div>
   );
