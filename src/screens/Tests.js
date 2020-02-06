@@ -8,57 +8,66 @@ import TestResults from "../components/TestResults";
 import SubmitTestButton from "../components/SubmitTestButton";
 
 const basicQuestions = [
-{
-  question: "pytanko 1",
-  answear1: {
-    value: "odp 1",
-    correct: false},
-  answear2: {
-    value: "odp 2",
-    correct: true},
-  answear3: {
-    value: "odp 3",
-    correct: false}
-},
-{
-  question: "pytanko 2",
-  answear1: {
-    value: "odp 1.2",
-    correct: false},
-  answear2: {
-    value: "odp 2.2",
-    correct: false},
-  answear3: {
-    value: "odp 3.2",
-    correct: true}
-},
-{
-  question: "pytanko 3",
-  answear1: {
-    value: "odp 1.3",
-    correct: true},
-  answear2: {
-    value: "odp 2.3",
-    correct: false},
-  answear3: {
-    value: "odp 3.3",
-    correct: false}
-}
+  {
+    question: "pytanko 1",
+    answear1: {
+      value: "odp 1",
+      correct: false
+    },
+    answear2: {
+      value: "odp 2",
+      correct: true
+    },
+    answear3: {
+      value: "odp 3",
+      correct: false
+    }
+  },
+  {
+    question: "pytanko 2",
+    answear1: {
+      value: "odp 1.2",
+      correct: false
+    },
+    answear2: {
+      value: "odp 2.2",
+      correct: false
+    },
+    answear3: {
+      value: "odp 3.2",
+      correct: true
+    }
+  },
+  {
+    question: "pytanko 3",
+    answear1: {
+      value: "odp 1.3",
+      correct: true
+    },
+    answear2: {
+      value: "odp 2.3",
+      correct: false
+    },
+    answear3: {
+      value: "odp 3.3",
+      correct: false
+    }
+  }
 ];
 
 function Tests() {
-  const [postsPerPage]= useState(1);
+  const [postsPerPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [elementToShow, setElementToShow] = useState('TestIntro')
   const indexOfLastPage = currentPage * postsPerPage;
-  const indexOfFirtsPage = indexOfLastPage-postsPerPage;
-  let points=[0,0,0,0,0,0,0,0,0,0];
+  const indexOfFirtsPage = indexOfLastPage - postsPerPage;
+  let points = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const [userPoints, setUserPoints] = useState(points)
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
-  
+
   const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
   const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage)
 
@@ -76,8 +85,8 @@ function Tests() {
   }
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow}/>
-      <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} setUserPoints={setUserPoints} setCurrentPage={setCurrentPage}/>
+      <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow} />
+      {elementToShow === 'TestQuestion' ? <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} setUserPoints={setUserPoints} setCurrentPage={setCurrentPage} /> : null}
       {currentQuestions.map((data, index) => (
         <TestQuestion
           question={data.question}
@@ -91,11 +100,11 @@ function Tests() {
           currentPage={currentPage}
         />
       ))}
-      
-      <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow} userPoints={userPoints}/>
-      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow}/>
-      <SubmitTestButton elementToShow={elementToShow} setElementToShow={setElementToShow} currentPage={currentPage} setCurrentPage={setCurrentPage}  lastQuestion={questionsDisplay.length}></SubmitTestButton>
-      
+
+      {elementToShow === 'TestResults' ? <TestResults elementToShow={elementToShow} setElementToShow={setElementToShow} userPoints={userPoints} setCurrentPage={setCurrentPage} /> : null}
+      <Pagination postsPerPage={postsPerPage} totalPosts={questionsDisplay.length} paginate={paginate} currentPage={currentPage} elementToShow={elementToShow} />
+      {currentPage === questionsDisplay.length && elementToShow === 'TestQuestion' ? <SubmitTestButton setElementToShow={setElementToShow} setCurrentPage={setCurrentPage}></SubmitTestButton> : null}
+
     </div>
   );
 }
