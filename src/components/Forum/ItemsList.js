@@ -1,25 +1,38 @@
-import React from 'react';
-import Item from './Item';
-import { Animate, AnimateGroup } from 'react-simple-animate'
-import styles from './ItemsList.module.css'
+import React, { useState } from 'react'
+import Item from './Item'
+import firebase from '../../firebase'
 
+function ItemsList() {
+    const [questions, setQuestions ] = useState([]);
+    
+  React.useEffect(()=>{
+    getLinks()
+}, [])
 
+function getLinks() {
+  firebase.db.collection('forum').orderBy("created", "desc").onSnapshot(handleSnapshot)
 
+}
 
+function handleSnapshot(snapshot) {
+    const questions = snapshot.docs.map(doc => {
+        console.log("DOCID", doc.id)
 
-const ItemsList = (props) => {
-    const { Questions } = props
-    return (
+        console.log("QUESTIONY", { id:doc.id, ...doc.data() } )
+
+        return { uid:doc.id, ...doc.data() }
+        
+    })
+     setQuestions(questions);
+      }
+    return(
         <div>
-            <div>FILTRY</div>
-
-            {Questions.map((data, index) => <AnimateGroup play  key={index}>
-                <Animate start={{ opacity: 0 }} end={{ opacity: 1 }} duration={1.5} sequenceIndex={index}>
-                    <Item question={data.question} date={data.date} key={index} />
-                </Animate>
-            </AnimateGroup >)}
-        </div>
+        {questions.map((question, index) => {
+            console.log("PYTANIE", question)
+          return  <Item key={question.id}  question={question} index={index+1}/>
+        })}
+    </div>
     )
 }
 
-export default ItemsList;
+export default ItemsList
