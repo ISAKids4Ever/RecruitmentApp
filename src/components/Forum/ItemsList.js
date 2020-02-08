@@ -5,13 +5,25 @@ import firebase from '../../firebase'
 function ItemsList() {
     const [questions, setQuestions ] = useState([]);
     const [sortType, setSortType] = useState(false)
+    const [votesSort, setVotesSort] = useState(false)
   React.useEffect(()=>{
     getLinks()
 }, [])
-function handleSort() {
+function handleDateSort() {
 
     setSortType(!sortType)
     getLinks()
+}
+function handleVotesSort() {
+    if(votesSort){
+        firebase.db.collection('forum').orderBy("votes", "desc").onSnapshot(handleSnapshot)
+        setVotesSort(false)
+    } else {
+        firebase.db.collection('forum').orderBy("votes", "asc").onSnapshot(handleSnapshot)
+setVotesSort(true)
+    }
+
+
 }
 function getLinks() {
     console.log("SORT TYPE Z GET LINKA", sortType)
@@ -39,8 +51,10 @@ function handleSnapshot(snapshot) {
     return(
         <div>
             <div>
-                SORTUJ:
-                <button onClick={handleSort}>KLIK</button>
+                SORTUJ PO DACIE:
+                <button onClick={handleDateSort}>KLIK</button>
+                SORTUJ PO Lajkach:
+                <button onClick={handleVotesSort}>KLIK</button>
             </div>
         {questions.map((question, index) => {
             console.log("PYTANIE", question)
