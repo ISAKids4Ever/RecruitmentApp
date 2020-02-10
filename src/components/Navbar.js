@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import firebase from "../firebase";
+import logo from "../images/logoSmallBlack.png";
 
 function Navbar(props) {
   const { profile, logout, login } = props;
   console.log(profile)
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarLeft}>LEWA</div>
+      <div className={styles.navbarLeft}> <img src={logo}></img> </div>
       <div className={styles.navbarRight}>
         <ul className={styles.viewList}>
           <li>

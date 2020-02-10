@@ -85,7 +85,7 @@ function Tests() {
   }
   return (
     <div className={styles.mainDiv1}>
-      <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow} />
+      {elementToShow === 'TestIntro' ? <TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow} /> : null}
       {elementToShow === 'TestQuestion' ? <BackButton elementToShow={elementToShow} setElementToShow={setElementToShow} setUserPoints={setUserPoints} setCurrentPage={setCurrentPage} /> : null}
       {currentQuestions.map((data, index) => (
         <TestQuestion

@@ -9,8 +9,12 @@
 }
 
 .navbarLeft {
-   
     width: 50%;
+}
+
+.navbarLeft img{
+    height: 100px;
+    margin-left: 5%;
 }
 
 .navbarRight {
