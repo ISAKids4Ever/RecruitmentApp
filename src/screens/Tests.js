@@ -61,7 +61,7 @@ function Tests() {
   const [elementToShow, setElementToShow] = useState('TestIntro')
   const indexOfLastPage = currentPage * postsPerPage;
   const indexOfFirtsPage = indexOfLastPage - postsPerPage;
-  let points = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let points = new Array(10).fill(0);
   const [userPoints, setUserPoints] = useState(points)
 
   const paginate = (pageNumber) => {

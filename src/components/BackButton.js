@@ -6,7 +6,7 @@ function BackButton(props) {
     return (
         <Button onClick={() => {
             setElementToShow('TestIntro')
-            setUserPoints([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+            setUserPoints(new Array(10).fill(0))
             setCurrentPage(1)
         }} children='Wróć do instrukcji'></Button>
     )
