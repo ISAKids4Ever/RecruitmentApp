@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+.hidden{
+    display: none;
+  }
 
 .testView{
     width: 80%;
@@ -21,3 +24,5 @@
 .arrow{
     margin: 0 5%;
 }
+
+  
