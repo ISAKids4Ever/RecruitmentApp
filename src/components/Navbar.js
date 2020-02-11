@@ -22,7 +22,7 @@ function Navbar(props) {
             <Link to="/pytania">Pytania rekrutacyjne</Link>
           </li>
           <li>
-            <Link to="/view3">Forum</Link>
+            <Link to="/forum">Forum</Link>
           </li>
           {login && <li>
             <Link to="/zaloguj">Zaloguj się</Link>

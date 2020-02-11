@@ -5,7 +5,7 @@ import {
   Redirect,  
   Switch
 } from "react-router-dom";
-import { useAuth } from "./hooks/useAuth";
+import  useAuth  from "./hooks/useAuth";
 
 // components
 import Navbar from "./components/Navbar";
@@ -18,12 +18,13 @@ import Profile from "./screens/Profile";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
 import Home from "./screens/Home"
+import ItemDetails from './components/Forum/ItemDetail'
 
 
 const App = () => {
   const isLoggedIn = useAuth();
 
-  if (isLoggedIn === null) {
+  if (isLoggedIn) {
     return (      
       <div>Pobieranie danych...</div>  
     );
@@ -42,6 +43,7 @@ const App = () => {
             <Route strict exact path="/testy" component={Tests}/>
             <Route strict exact path="/pytania" component={Questions}/>
             <Route strict exact path="/forum" component={Forum}/>
+            <Route path="/forum/:uid" component={ItemDetails} />
             <Route strict exact path="/profile" component={Profile}/>
             <Route exact path="/" component={Home} />
             <Redirect to="/zaloguj" />
