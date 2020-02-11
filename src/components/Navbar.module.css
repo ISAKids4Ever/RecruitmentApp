@@ -5,11 +5,16 @@
     left: 0;
     width: 100%;
     height: 40px;
+    z-index: 4;
 }
 
 .navbarLeft {
-   
     width: 50%;
+}
+
+.navbarLeft img{
+    height: 100px;
+    margin-left: 5%;
 }
 
 .navbarRight {

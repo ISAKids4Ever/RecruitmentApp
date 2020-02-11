@@ -10,11 +10,11 @@ function View1() {
       <Link to="/zarejestruj">Zarejestruj się</Link>
       <h1>Login</h1>
       <button onClick={() => {
-        login("email2@email.com", "password").then(() => {
-          console.log("logged in")
-        }).catch((err) => {
-          console.log(err)
-        })
+        console.log("login is disabled here")
+        // login("email2@email.com", "password").then(() => {
+        // }).catch((err) => {
+          
+        // })
       }}>LogIn</button>
    </div>
   );
