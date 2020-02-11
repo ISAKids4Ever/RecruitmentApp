@@ -18,7 +18,7 @@ function Navbar(props) {
             <Link to="/testy">Testy</Link>
           </li>
           <li>
-            <Link to="/view2">Pytania rekrutacyjne</Link>
+            <Link to="/pytania">Pytania rekrutacyjne</Link>
           </li>
           <li>
             <Link to="/forum">Forum</Link>

@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+.start{
+    cursor: pointer;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+}
+
+.languages{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.language i{
+    
+    text-align: center;
+    border: solid 1px blue;
+    padding: 20% 30%;
+    
+    cursor: pointer;
+}
+
+i {
+    color: rgb(41, 27, 236); 
+    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    width: 60px;
+    font-size: 40px;
+    margin: 20px 0;
+}
