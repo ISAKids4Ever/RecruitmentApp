@@ -8,7 +8,6 @@ import styles from './Forum.module.css'
 function Forum() {
   // const newPost = { title:"new title", question:"new question"}
   // useEffect(()=>{
-  //   console.log("UDAŁO SI")
   //   firebaseApp.db.collection('forum').add(newPost);
 
   // },[])

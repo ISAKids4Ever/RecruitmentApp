@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick-theme.css";
  
 
 function Home() {
-  console.log(styles)
   const settings = {
     dots: true,
     infinite: true,

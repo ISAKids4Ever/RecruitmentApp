@@ -11,10 +11,9 @@ function View2() {
       <h1>Register</h1>
       <button onClick={() => {
         register("email2@email.com", "password", "name", "bio", "joined").then(() => {
-          console.log("registered in")
-        }).catch((err) => {
-          console.log(err)
-        })
+      }).catch((err) => {
+       
+      })
       }}>Zarejestruj</button>
    </div>
   );

@@ -1,6 +1,5 @@
 export default function validateCreate(values) {
     let errors = {}
-     console.log("validateCreateVALUES : ", values)
     //Email errors
     if(!values.description) {
         errors.description = "Question required!"
@@ -13,6 +12,5 @@ export default function validateCreate(values) {
     } else if(values.title.length < 5) {
         errors.title = "Za krótki tytuø "
     }
-    console.log("validateCreate ERROR: ", errors)
     return errors;
 }

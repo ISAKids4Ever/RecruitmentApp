@@ -4,10 +4,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import firebase from '../../firebase'
 
 function Item({ question }) {
-console.log("REAL QUESTION", question)
     function handleVote() {
-     console.log("URUCHSMIAM SIE")
-     console.log(question.id)
             const voteRef = firebase.db.collection('forum').doc(question.uid)
             voteRef.get().then(doc => {
             
@@ -26,10 +23,9 @@ console.log("REAL QUESTION", question)
     function handleDelete() {
         const questionRef = firebase.db.collection('forum').doc(question.uid)
         questionRef.delete().then(() => {
-            console.log(`Question with id ${question.uid} deleted`)
         })
             .catch(err => {
-                console.error("Error deleting question", err)
+                
             })
 
     }

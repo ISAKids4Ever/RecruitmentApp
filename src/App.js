@@ -35,7 +35,7 @@ const App = () => {
       <Router>
         <div>
           <div>
-            <Navbar profile={false} logout={false} login={true} />
+            <Navbar profile={false} logout={false} login={false} />
           </div>
           <Switch>
             <Route exact path="/zaloguj" component={Login} />

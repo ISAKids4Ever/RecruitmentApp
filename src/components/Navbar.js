@@ -6,7 +6,6 @@ import logo from "../images/logoSmallBlack.png";
 
 function Navbar(props) {
   const { profile, logout, login } = props;
-  console.log(profile)
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarLeft}> <img src={logo}></img> </div>

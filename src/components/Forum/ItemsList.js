@@ -26,13 +26,10 @@ setVotesSort(true)
 
 }
 function getLinks() {
-    console.log("SORT TYPE Z GET LINKA", sortType)
     if(!sortType){
-        console.log("TERAZ Z NIE SORT TYPE")
         firebase.db.collection('forum').onSnapshot(handleSnapshot)
 
     } else {
-        console.log("TERAZ Z  SORT TYPE")
 
         firebase.db.collection('forum').orderBy("created", "desc").onSnapshot(handleSnapshot)
 
@@ -57,7 +54,6 @@ function handleSnapshot(snapshot) {
                 <button onClick={handleVotesSort}>KLIK</button>
             </div>
         {questions.map((question, index) => {
-            console.log("PYTANIE", question)
           return  <Item key={question.id}  question={question} index={index+1}/>
         })}
     </div>
