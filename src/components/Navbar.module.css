@@ -18,11 +18,11 @@
     opacity: 1;
 }
 
-#navViewList ol{
+#navViewList {
     display: flex;
-    width: 50vw;
+    width: 100vw;
+    align-content: flex-end;
     justify-content: space-around;
-    list-style-type: none;
     margin: 0;
 }
 
@@ -34,7 +34,6 @@
     font-size: 0.8rem;
     font-family: Helvetica, sans-serif;
     text-decoration: none;
-    padding:0 5vw;
 }
 #navViewList:hover a{
     opacity: 0.9;
@@ -51,7 +50,8 @@
     .navLogo img{
        margin: 0 50px;
     }
-    #navViewList ol{
-        align-items: center;
+    #navViewList {
+        width: 40vw;
+        align-items: flex-end;
     }
 }
