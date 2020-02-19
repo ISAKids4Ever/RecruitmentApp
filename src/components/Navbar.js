@@ -8,17 +8,18 @@ function Navbar(props) {
   const { profile, logout, login } = props;
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarLeft}> <img src={logo}></img> </div>
-      <div className={styles.navbarRight}>
-        <ul className={styles.viewList}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+      <div className={styles.navLogo}>
+        <Link to="/"><img src={logo} alt='intervyou logo'></img></Link>
+      </div>
+      
+      <div id={styles.navViewList}>
+        <ol>
+
           <li>
             <Link to="/testy">Testy</Link>
           </li>
           <li>
-            <Link to="/pytania">Pytania rekrutacyjne</Link>
+            <Link to="/pytania">Fiszki</Link>
           </li>
           <li>
             <Link to="/forum">Forum</Link>
@@ -33,7 +34,7 @@ function Navbar(props) {
             <button onClick={() => firebase.auth().signOut()}>Log out</button>
           </li>}
           
-        </ul>
+        </ol>
       </div>
     </nav>
   );
