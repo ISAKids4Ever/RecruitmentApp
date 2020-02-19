@@ -58,8 +58,9 @@
 
 .flashcardFront>i,
 .flashcardBack>i {
+    position: relative;
     font-size: 1.2rem;
-    margin: 15px;
+    padding: 15px;
 }
 
 .flashcardUserButtons {
