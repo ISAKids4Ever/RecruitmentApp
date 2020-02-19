@@ -13,7 +13,7 @@ function Navbar(props) {
         <Link to="/"><img src={logo} alt='intervyou logo'></img></Link>
       </div>
       
-      <div id={styles.navViewList}>
+      <div className={styles.navViewList}>
         
         <Link to="/testy">Testy</Link>
           
@@ -28,7 +28,7 @@ function Navbar(props) {
         {logout && <button onClick={() => firebase.auth().signOut()}>Log out</button>}
         
       </div>
-      
+
     </nav>
   );
 }

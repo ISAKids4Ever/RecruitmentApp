@@ -18,7 +18,7 @@
     opacity: 1;
 }
 
-#navViewList {
+.navViewList {
     display: flex;
     width: 100vw;
     align-content: flex-end;
@@ -27,7 +27,7 @@
 }
 
 
-#navViewList a{
+.navViewList a{
     color: white;
     text-transform: uppercase;
     font-weight: 600;
@@ -35,7 +35,7 @@
     font-family: Helvetica, sans-serif;
     text-decoration: none;
 }
-#navViewList:hover a{
+.navViewList a:hover{
     opacity: 0.9;
 }
 
@@ -50,7 +50,7 @@
     .navLogo img{
        margin: 0 50px;
     }
-    #navViewList {
+    .navViewList {
         width: 40vw;
         align-items: flex-end;
     }
