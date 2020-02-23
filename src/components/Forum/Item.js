@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import styles from './Item.module.css'
 import firebase from '../../firebase'
 
 function Item({ question }) {
@@ -31,7 +32,7 @@ function Item({ question }) {
     }
     return (
    
-            <div>
+            <div className={styles.mainDiv}>
                 <div onClick={handleVote}>
                     Łapka w góre
 </div>

@@ -3,6 +3,7 @@ import useFormValidation from '../../hooks/useFormValidation'
 import validateCreate from '../../services/validateCreate'
 import firebaseApp from '../../firebase'
 import uuid from 'react-uuid'
+import styles from './CreateItem.module.css'
 
 
 const INITIAL_STATE = {
@@ -27,22 +28,24 @@ function CreateItem(props) {
 
     }
     return(
-        <form onSubmit={handleSubmit}>
-            <input 
+        <form onSubmit={handleSubmit} className={styles.forum}>
+            <input className={styles.input}
                name="title"
                placeholder="Tytuł"
                autoComplete="off"
                onChange={handleChange}
                value={values.title}
                type="text"/>
-            <input 
+            <input
+             
+            className={styles.input}
              name="description"
              placeholder="Pytanie"
              autoComplete="off"
              onChange={handleChange}
              value={values.description}
              type="text"/>
-            <button type="submit">ZADAJ PYTANIE</button>
+            <button type="submit" className={styles.button}>ADD QUESTION</button>
         </form>
     )
 }

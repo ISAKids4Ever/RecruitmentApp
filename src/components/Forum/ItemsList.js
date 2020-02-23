@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Item from './Item'
+import styles from './ItemsList.module.css'
 import firebase from '../../firebase'
 
 function ItemsList() {
@@ -46,12 +47,13 @@ function handleSnapshot(snapshot) {
      setQuestions(questions);
       }
     return(
-        <div>
-            <div>
-                SORTUJ PO DACIE:
-                <button onClick={handleDateSort}>KLIK</button>
-                SORTUJ PO Lajkach:
-                <button onClick={handleVotesSort}>KLIK</button>
+        <div className={styles.mainDiv}>
+            <div className={styles.sorting}>
+                <button onClick={handleDateSort}>SORT BY DATE</button>
+                <button onClick={handleVotesSort}>SORT BY LIKES</button>
+                <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
+
+
             </div>
         {questions.map((question, index) => {
           return  <Item key={question.id}  question={question} index={index+1}/>
