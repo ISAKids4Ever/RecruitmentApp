@@ -3,18 +3,19 @@
 }
 
 .flashcard {
-    font-family: Helvetica, sans-serif;
+    font-size: 1rem;
     background-color: transparent;
-    height: 50vh;
-    width: 60vw;
+    height: 40vh;
+    width: 80vw;
     color: white;
-    margin: 30px;
+    margin-bottom: 30px;
 }
 
 .flashcardPlusButtons {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    width: 100vw;
+    justify-content: space-between;
 }
 
 .flashcardPlusButtons>p {
@@ -68,4 +69,14 @@
     display: flex;
     flex-direction: row;
     align-content: space-around;
+}
+
+@media (min-width: 750px){
+    .flashcard { 
+        font-size: 1.1rem;
+        width: 60vw;
+    }
+    .flashcardPlusButtons {
+        width: 80vw;
+    }
 }

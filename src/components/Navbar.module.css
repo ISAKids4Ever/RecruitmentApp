@@ -1,3 +1,8 @@
+@font-face{
+    font-family: 'Rationale';
+    src: '../fonts/Rationale-Regular.ttf'
+}
+
 .navbar{
     box-sizing: border-box;
     width: 100vw;
@@ -7,15 +12,17 @@
     z-index: 100;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .navLogo img{
-    max-height: 20vh;
-    opacity: 0.9;
+    max-height: 15vh;
+    opacity: 1;
+    transition: all 0.15s ease-in-out;
 }
 
 .navLogo:hover img{
-    opacity: 1;
+    opacity: 0.85;
 }
 
 .navViewList {
@@ -31,10 +38,12 @@
     color: white;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.8rem;
-    font-family: Helvetica, sans-serif;
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+    font-family: 'Rationale';
     text-decoration: none;
 }
+
 .navViewList a:hover{
     opacity: 0.9;
 }
@@ -52,6 +61,8 @@
     }
     .navViewList {
         width: 40vw;
-        align-items: flex-end;
+    }
+    .navViewList a{
+        font-size: 1rem;
     }
 }
