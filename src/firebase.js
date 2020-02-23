@@ -1,5 +1,4 @@
-import app from 'firebase/app'
-import 'firebase/firestore'
+import firebase from 'firebase'
 
 const {
   REACT_APP_API_KEY,
@@ -21,15 +20,12 @@ const firebaseConfig = {
   appId: REACT_APP_APP_ID
 };
 
-class Firebase {
-  constructor() {
-      app.initializeApp(firebaseConfig);
-      this.db = app.firestore();
-  }
+
+      firebase.initializeApp(firebaseConfig);
+     
+  
 
 
-}
- 
-const firebase =  new Firebase();
+
 
 export default firebase

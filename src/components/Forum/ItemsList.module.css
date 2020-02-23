@@ -65,7 +65,10 @@
     animation: fadein 3s;
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
+    .mainDiv {
+    width: 90%;
+    }
     .sorting {
         flex-direction: column;
     }

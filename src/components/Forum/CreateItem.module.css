@@ -38,3 +38,12 @@ flex-wrap: wrap;
 flex-direction: column;
 
 }
+
+
+@media (max-width:800px) {
+
+    .forum {
+      width: 95%;
+    }
+
+  }

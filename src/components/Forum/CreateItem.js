@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useFormValidation from '../../hooks/useFormValidation'
 import validateCreate from '../../services/validateCreate'
-import firebaseApp from '../../firebase'
+import firebase from '../../firebase'
 import uuid from 'react-uuid'
 import styles from './CreateItem.module.css'
 
@@ -23,7 +23,8 @@ function CreateItem(props) {
                 created: Date.now(),
                 id:uuid()
             }
-            firebaseApp.db.collection('forum').add(newLink);
+            firebase.database().ref('forum').push(newLink);
+            console.log("ADDED")
             
         
 
