@@ -15,7 +15,6 @@ function Forum() {
   return(
     <div className={styles.mainDiv}>
       <CreateLink />
-      <SearchLink />
       <ItemsList />
     </div>
   )

@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import Item from './Item'
 import styles from './ItemsList.module.css'
 import firebase from '../../firebase'
+import SearchItem from './SearchItem';
 
 function ItemsList() {
     const [questions, setQuestions ] = useState([]);
     const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
+    const [isFilter, setIsFilter] = useState(false)
   React.useEffect(()=>{
     getLinks()
 }, [])
@@ -46,15 +48,29 @@ function handleSnapshot(snapshot) {
     })
      setQuestions(questions);
       }
+
+
+      function handleFilters() {
+          setIsFilter((value) => !value)
+      }
     return(
         <div className={styles.mainDiv}>
-            <div className={styles.sorting}>
+            <div>
+                <button className={styles.filterToggle} onClick={handleFilters}>FILTERS</button>
+            <div className={isFilter ? styles.sortingDiv : styles.none}>
+                
+                <SearchItem />
+                <div  className={styles.sorting}>
                 <button onClick={handleDateSort}>SORT BY DATE</button>
                 <button onClick={handleVotesSort}>SORT BY LIKES</button>
                 <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
+                </div>
+           
 
 
             </div>
+            </div>
+           
         {questions.map((question, index) => {
           return  <Item key={question.id}  question={question} index={index+1}/>
         })}

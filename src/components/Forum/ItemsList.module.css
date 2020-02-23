@@ -14,10 +14,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    animation: fadein 3s;
 }
-
-.sorting > * {
+.sorting >* {
     color: white;
     font-size: 1rem;
     outline: none;
@@ -27,9 +26,44 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     padding: 15px 20px;
     cursor: pointer;
-    margin: 1%
+    margin: 1%;
+    width: 33%
+}
+.sortingDiv {
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadein 3s;
+    width: 100%;
+    flex-direction: column;
+}
+.filterToggle {
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 15px 20px;
+    cursor: pointer;
+    margin: 1%;
+    width: 100%;
 }
 
+
+.none{
+    display: none;
+    animation: fadein 3s;
+}
 
 @media (max-width:600px) {
     .sorting {
@@ -39,3 +73,9 @@
         width: 90%;
     }
 }
+
+
+@keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+  }

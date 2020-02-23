@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useFormValidation from '../../hooks/useFormValidation'
 import validateCreate from '../../services/validateCreate'
 import firebaseApp from '../../firebase'
@@ -12,6 +12,7 @@ const INITIAL_STATE = {
 }
 function CreateItem(props) {
     const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink)
+    const [isClicked, setIsClicked] = useState(false)
     function handleCreateLink() {
             const { title, description } = values;
             const newLink = {
@@ -27,9 +28,12 @@ function CreateItem(props) {
         
 
     }
+    function handleClick() {
+        setIsClicked(value => !value)
+    }
     return(
         <form onSubmit={handleSubmit} className={styles.forum}>
-            <input className={styles.input}
+            <input className={isClicked ? styles.input : styles.none}
                name="title"
                placeholder="Tytuł"
                autoComplete="off"
@@ -38,14 +42,15 @@ function CreateItem(props) {
                type="text"/>
             <input
              
-            className={styles.input}
+             className={isClicked ? styles.input : styles.none}
              name="description"
              placeholder="Pytanie"
              autoComplete="off"
              onChange={handleChange}
              value={values.description}
              type="text"/>
-            <button type="submit" className={styles.button}>ADD QUESTION</button>
+            <button type="submit" className={styles.button} onClick={handleClick}>ADD QUESTION</button>
+            
         </form>
     )
 }
