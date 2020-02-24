@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import firebase from "../firebase";
 import logo from "../images/logoSmallBlack.png";
@@ -14,21 +14,13 @@ function Navbar(props) {
       </div>
       
       <div className={styles.navViewList}>
-        
-        <Link to="/testy">Testy</Link>
-          
-        <Link to="/pytania">Fiszki</Link>
-          
-        <Link to="/forum">Forum</Link>
-          
+        <NavLink to="/testy" activeClassName={styles.navActive}>Testy</NavLink>
+        <NavLink to="/pytania" activeClassName={styles.navActive}>Fiszki</NavLink>
+        <NavLink to="/forum" activeClassName={styles.navActive}>Forum</NavLink>
         {login && <Link to="/zaloguj">Zaloguj się</Link>}
-        
         {profile && <Link to="/view4">WIDOK 4</Link> }
-        
         {logout && <button onClick={() => firebase.auth().signOut()}>Log out</button>}
-        
       </div>
-
     </nav>
   );
 }
