@@ -1,16 +1,20 @@
-.mainDiv {
+/* .mainDiv {
     background-image: linear-gradient(to right, #3a6073, #ff8008);
-    /* background: linear-gradient(to bottom, transparent, black)  no-repeat bottom; */
+    background: linear-gradient(to bottom, transparent, black)  no-repeat bottom;
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
 height: 100vh;   
-  }
+overflow: hidden;  } */
 
   .content {
+    background-image: linear-gradient(to right, #3a6073, #ff8008);
+
 position: absolute;
 top: 40px;
-width: 70%;
+width: 100%;
+height: calc(100vh - 40px);
+overflow: hidden;
   }

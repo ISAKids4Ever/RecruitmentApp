@@ -42,21 +42,23 @@ function Item({ question }) {
     return (
    
             <div className={styles.mainDiv}>
-                <div onClick={handleVote}>
-                    Łapka w góre
-                   
-</div>
+
                 <div>
-                    {question.title}, {question.description}
+                    <div className={styles.title}>  {question.title}</div>
+                  <div>{question.description}</div> 
                 </div>
                 
                 <div>
     LIKES{question.votedBy.length-1}
-    Recent like: {formatDistanceToNow(question.votedBy[question.votedBy.length-1].createdAt)}
+    {/* Recent like: {formatDistanceToNow(question.votedBy[question.votedBy.length-1].createdAt)} */}
                 </div>
                 <Link to={`/forum/${question.qid}`}> 
                    DISCUSS
                  </Link>
+                 <div onClick={handleVote}>
+                    Łapka w góre
+                   
+</div>
                  {/* {question.comments.length > 0 ? `${question.comments.length} comments` : "discuss"} */}
               <span onClick={handleDelete}>DELETE</span>
                 

@@ -10,3 +10,7 @@
     cursor: pointer;
     height: 10%;
 }
+
+.title {
+    text-decoration: underline;
+}
