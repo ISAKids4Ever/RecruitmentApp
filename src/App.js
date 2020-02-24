@@ -6,6 +6,7 @@ import {
   Switch
 } from "react-router-dom";
 import  useAuth  from "./hooks/useAuth";
+import './App.css';
 
 // components
 import Navbar from "./components/Navbar";
