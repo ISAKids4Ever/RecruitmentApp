@@ -40,11 +40,11 @@ function Item({ question }) {
                     {question.title}, {question.description}
                 </div>
                 <div>
-                    {question.votes.length} votes {formatDistanceToNow(question.created)}
+                    {/* {question.votes.length} votes {formatDistanceToNow(question.created)} */}
                 </div>
-                <Link to={`/forum/${question.uid}`}>
-                    {question.comments.length > 0 ? `${question.comments.length} comments` : "discuss"}
-                </Link>
+                {/* <Link to={`/forum/${question.uid}`}> */}
+                    {/* {question.comments.length > 0 ? `${question.comments.length} comments` : "discuss"} */}
+                {/* </Link> */}
               <span onClick={handleDelete}>DELETE</span>
                 
             </div>

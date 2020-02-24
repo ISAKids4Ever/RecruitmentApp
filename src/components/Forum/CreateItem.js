@@ -24,7 +24,7 @@ function CreateItem(props) {
                 id:uuid()
             }
             firebase.database().ref('forum').push(newLink);
-            console.log("ADDED")
+            
             
         
 
