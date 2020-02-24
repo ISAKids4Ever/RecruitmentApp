@@ -20,9 +20,9 @@ useEffect(() => {
 }, [])
 const prepareData = data => {
     return Object.entries(data).map(arr => {
-      const [id, value] = arr;
+      const [qid, value] = arr;
       return {
-        id,
+        qid,
         ...value
       };
     });

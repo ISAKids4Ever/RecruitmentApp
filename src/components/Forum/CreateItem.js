@@ -18,11 +18,20 @@ function CreateItem(props) {
             const newLink = {
                 title,
                 description,
-                votes: [],
-                comments: [],
+                votedBy: [{
+                    user:"unknown",
+                    date:Date.now()
+                }],
+                comments: [{
+                    createdBy:"",
+                    comment:"",
+                    createdAt:"",
+                    
+                }],
                 created: Date.now(),
                 id:uuid()
             }
+            console.log("NEWLINK", newLink)
             firebase.database().ref('forum').push(newLink);
             
             
