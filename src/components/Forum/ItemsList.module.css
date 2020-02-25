@@ -1,6 +1,8 @@
 .mainDiv {
-    width: 70%;
-    overflow: scroll;
+    width: 95%;
+ 
+
+
 }
 
 .sorting {
@@ -13,9 +15,11 @@
     padding: 15px 20px;
     cursor: pointer;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     animation: fadein 3s;
+
 }
 .sorting >* {
     color: white;
@@ -28,7 +32,7 @@
     padding: 15px 20px;
     cursor: pointer;
     margin: 1%;
-    width: 33%
+    width: 90%
 }
 .sortingDiv {
     color: white;
@@ -66,15 +70,15 @@
     animation: fadein 3s;
 }
 
-@media (max-width:800px) {
+@media (min-width:800px) {
     .mainDiv {
-    width: 90%;
+    width: 70%;
     }
     .sorting {
-        flex-direction: column;
+        flex-direction: row;
     }
     .sorting >* {
-        width: 90%;
+        width: 70%;
     }
 }
 
