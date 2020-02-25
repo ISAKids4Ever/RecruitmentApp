@@ -20,7 +20,7 @@
     padding: 15px 20px;
     cursor: pointer;
     height: auto;
-    width: 70%;
+    width: 95%;
     margin-bottom:4%
 }
 
@@ -65,4 +65,12 @@
     border-bottom: 2px solid black;
     font-weight: bold;
     color: white;
+}
+
+
+@media (min-width:800px) {
+
+    .questionSection {
+        width: 70%;
+    }
 }
