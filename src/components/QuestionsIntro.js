@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './QuestionsIntro.module.css'
-import Button from './Button'
+import { Button } from './';
+
 
 function QuestionsIntro(props) {
     const {showIntro} = props

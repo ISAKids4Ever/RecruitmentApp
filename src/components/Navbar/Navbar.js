@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import firebase from "../firebase";
-import logo from "../images/logoSmallBlack.png";
+import firebase from "../../firebase";
+import logo from "../../images/logoSmallBlack.png";
 
-function Navbar(props) {
+export function Navbar(props) {
   const { profile, logout, login } = props;
   return (
     <nav className={styles.navbar}>
@@ -24,5 +24,3 @@ function Navbar(props) {
     </nav>
   );
 }
-
-export default Navbar;

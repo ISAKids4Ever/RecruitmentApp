@@ -2,7 +2,7 @@ import React from 'react'
 import './Button.modules.css'
 
 
-function Button(props){
+export function Button(props){
     const {
       onClick,
       className = 'regularButton',
@@ -14,5 +14,3 @@ function Button(props){
       </button>
     )
 }
-
-export default Button

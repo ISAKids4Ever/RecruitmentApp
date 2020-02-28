@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Pagination.modules.css"
-import Button from "./Button"
+import { Button } from './';
+
 
 export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, elementToShow }) => {
   const pageNumbers = [];
@@ -10,28 +11,28 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
   }
 
 
-    if(elementToShow !== "TestIntro"){
-  return (
-    <nav>
-      <div className="pagination">
-          
-        {pageNumbers.map(number => (
-          <div key={number} className="pageItem">
-            <Button
-              tabIndex={-1}
-              onClick={()  => {
-               paginate(number)
-              }}
-              className={number === currentPage ? "regularButton current" : "regularButton" }
-            >
-                
-              {number}
-            </Button>
-          </div>
-        ))}
-      </div>
-    </nav>
-  );}
+  if (elementToShow !== "TestIntro") {
+    return (
+      <nav>
+        <div className="pagination">
+          {pageNumbers.map(number => (
+            <div key={number} className="pageItem">
+              <Button
+                tabIndex={-1}
+                onClick={() => {
+                  paginate(number)
+                }}
+                className={number === currentPage ? "regularButton current" : "regularButton"}
+              >
+
+                {number}
+              </Button>
+            </div>
+          ))}
+        </div>
+      </nav>
+    );
+  }
   else {
     return null
   }

@@ -1,5 +1,6 @@
 import React from 'react'
-import Button from './Button';
+
+import { Button } from './';
 
 function TestResults(props) {
     const { setElementToShow, userPoints, setCurrentPage } = props;

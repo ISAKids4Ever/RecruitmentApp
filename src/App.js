@@ -9,7 +9,7 @@ import  useAuth  from "./hooks/useAuth";
 import './App.css';
 
 // components
-import Navbar from "./components/Navbar";
+import { Navbar } from './components';
 
 // screens
 import Tests from "./screens/Tests";
