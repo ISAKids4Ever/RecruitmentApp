@@ -1,0 +1,76 @@
+.mainDiv {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #3a6073, #ff8008);
+    padding-top:100px;
+    overflow: scroll;
+    overflow-x: hidden;
+
+
+}
+
+.questionSection {
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.7);
+    padding: 15px 20px;
+    cursor: pointer;
+    height: auto;
+    width: 95%;
+    margin-bottom:4%
+}
+
+.questionSectionTitle {
+    font-weight: bold;
+}
+
+.addComment {
+    width: 70%;
+}
+
+.addCommentBtn {
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 15px 20px;
+    cursor: pointer;
+    height: 10%;
+    width: 100%;
+}
+
+.commentsContainer {
+
+    width: 70%;
+}
+
+.commentDiv {
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    padding: 15px 20px;
+   
+}
+
+.commentsTitle {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    color: white;
+}
+
+
+@media (min-width:800px) {
+
+    .questionSection {
+        width: 70%;
+    }
+}
