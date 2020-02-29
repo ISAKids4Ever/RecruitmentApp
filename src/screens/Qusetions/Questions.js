@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Questions.module.css";
-import QuestionsIntro from '../../components/QuestionsIntro';
-import { Flashcard } from '../../components'
+import {QuestionsIntro, Flashcard} from 'components';
 
 const Flashcards = [
   {

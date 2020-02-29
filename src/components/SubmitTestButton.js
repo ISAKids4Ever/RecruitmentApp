@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from '../components'
 
-function SubmitTestButton(props) {
+export function SubmitTestButton(props) {
     const { setElementToShow, setCurrentPage } = props;
     return (
         <Button className={'regularButton submitButton'} children={'Zakończ'} onClick={() => {
@@ -11,7 +11,3 @@ function SubmitTestButton(props) {
         </Button>
     )
 }
-
-
-
-export default SubmitTestButton

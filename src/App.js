@@ -5,15 +5,15 @@ import {
   Redirect,  
   Switch
 } from "react-router-dom";
-import  useAuth  from "./hooks/useAuth";
+import  {useAuth}  from "hooks";
 import './App.css';
 
 // components
-import { Navbar } from './components';
+import { Navbar } from 'components';
 
 // screens
-import { Forum, Home, Login, Profile, Register, Questions, Tests }from "./screens";
-import ItemDetails from './components/Forum/ItemDetail'
+import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens";
+import ItemDetails from 'components/Forum/ItemDetail'
 
 
 const App = () => {

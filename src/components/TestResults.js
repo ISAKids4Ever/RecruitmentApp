@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from './';
 
-function TestResults(props) {
+export function TestResults(props) {
     const { setElementToShow, userPoints, setCurrentPage } = props;
     return (
         <div>
@@ -18,5 +18,3 @@ function TestResults(props) {
         </div>
     )
 }
-
-export default TestResults;

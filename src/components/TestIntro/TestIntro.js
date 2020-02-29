@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './TestIntro.module.css';
 import { FaJsSquare, FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa'
 
-import { Button } from './';
+import { Button } from 'components';
 
-function TestIntro(props) {
+export function TestIntro(props) {
     const { setElementToShow } = props;
     return (
         <div className={styles.intro}>
@@ -21,5 +21,3 @@ function TestIntro(props) {
         </div>
     )
 }
-
-export default TestIntro;

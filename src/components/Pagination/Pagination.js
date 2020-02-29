@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Pagination.modules.css"
-import { Button } from './';
+import { Button } from 'components';
 
 
 export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, elementToShow }) => {

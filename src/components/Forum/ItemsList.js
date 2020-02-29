@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import styles from './ItemsList.module.css'
 import firebase from '../../firebase'
-import SearchItem from './SearchItem';
+import {SearchItem} from 'components';
 
-function ItemsList() {
+export function ItemsList() {
     const [questions, setQuestions ] = useState([]);
     const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
@@ -63,5 +63,3 @@ const prepareData = data => {
     </div>
      )
 }
-
-export default ItemsList;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const useFormValidation = (initialState, validate, authenticate) => {
+export const useFormValidation = (initialState, validate, authenticate) => {
 
     const [values, setValues] = useState(initialState)
     const [errors, setErrors] = useState({})
@@ -42,5 +42,3 @@ const useFormValidation = (initialState, validate, authenticate) => {
     }
  return { handleChange, handleSubmit, handleBlur, errors, isSubmitting, values }
 }
-
-export default useFormValidation;

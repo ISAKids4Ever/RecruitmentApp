@@ -12,7 +12,7 @@ const INIT_STATE = {
 
 
 
-function ItemDetails(props) {
+export function ItemDetails(props) {
   // const [item, setItem] = React.useState(null);
   const [commentText, setCommentText] = React.useState("");
   // const itemId = props.match.params.uid;
@@ -103,5 +103,3 @@ function handleAddComment() {
   </div>
   );
 }
-
-export default ItemDetails;

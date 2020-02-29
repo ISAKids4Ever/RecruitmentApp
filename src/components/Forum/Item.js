@@ -4,7 +4,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './Item.module.css'
 import firebase from '../../firebase'
 
-function Item({ question }) {
+export function Item({ question }) {
 
     function handleVote() {
         
@@ -67,5 +67,3 @@ function Item({ question }) {
     )
     
 }
-
-export default Item
