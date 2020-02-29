@@ -31,6 +31,8 @@ yarn
 npm start
 ```
 
+or
+
 ```bash
 yarn start
 ```
