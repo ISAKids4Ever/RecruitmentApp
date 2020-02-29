@@ -13,7 +13,7 @@ import { Navbar } from 'components';
 
 // screens
 import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens";
-import ItemDetails from 'components/Forum/ItemDetail'
+import {ItemDetails} from 'components'
 
 
 const App = () => {

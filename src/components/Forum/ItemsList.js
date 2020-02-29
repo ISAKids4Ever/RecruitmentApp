@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Item from './Item'
 import styles from './ItemsList.module.css'
 import firebase from '../../firebase'
-import {SearchItem} from 'components';
+import {SearchItem, Item} from 'components';
 
 export function ItemsList() {
     const [questions, setQuestions ] = useState([]);
