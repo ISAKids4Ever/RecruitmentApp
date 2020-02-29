@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import CreateLink from '../../components/Forum/CreateItem'
+import {Flashcard} from "*/components/";
 import SearchLink from '../../components/Forum/SearchItem'
 import ItemsList from '../../components/Forum/ItemsList'
 import firebaseApp from '../../firebase'
