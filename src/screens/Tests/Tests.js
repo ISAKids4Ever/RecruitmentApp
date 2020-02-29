@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Tests.module.css";
-import TestQuestion from "../components/TestQuestion";
-import TestIntro from "../components/TestIntro";
-import { Pagination } from "../components/Pagination";
-import BackButton from "../components/BackButton";
-import TestResults from "../components/TestResults";
-import SubmitTestButton from "../components/SubmitTestButton";
+import TestQuestion from "../../components/TestQuestion";
+import TestIntro from "../../components/TestIntro";
+import { Pagination } from "../../components/Pagination";
+import BackButton from "../../components/BackButton";
+import TestResults from "../../components/TestResults";
+import SubmitTestButton from "../../components/SubmitTestButton";
 
 const basicQuestions = [
   {
@@ -55,7 +55,7 @@ const basicQuestions = [
   }
 ];
 
-function Tests() {
+export function Tests() {
   const [postsPerPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [elementToShow, setElementToShow] = useState('TestIntro')
@@ -108,5 +108,3 @@ function Tests() {
     </div>
   );
 }
-
-export default Tests;

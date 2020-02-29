@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
  
 
-function Home() {
+export function Home() {
   const settings = {
     dots: true,
     infinite: true,
@@ -45,5 +45,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
