@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import styles from "./Login.module.css";
-import { login } from "../../services/userService";
+import { login } from "services";
 
 
 export function Login() {

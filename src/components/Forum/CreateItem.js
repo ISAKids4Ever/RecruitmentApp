@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useFormValidation} from 'hooks';
-import validateCreate from '../../services/validateCreate';
+import {validateCreate} from 'services';
 import firebase from '../../firebase';
 import uuid from 'react-uuid';
 import styles from './CreateItem.module.css';

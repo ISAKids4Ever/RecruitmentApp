@@ -160,8 +160,6 @@
           ],
           "alias": {
             "components": "./src/components",
-            "configs": "./src/configs",
-            "routes": "./src/routes",
             "screens": "./src/screens",
             "services": "./src/services",
             "hooks": "./src/hooks"
