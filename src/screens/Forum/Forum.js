@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import CreateLink from '../components/Forum/CreateItem'
-import SearchLink from '../components/Forum/SearchItem'
-import ItemsList from '../components/Forum/ItemsList'
-import firebaseApp from '../firebase'
-import styles from './Forum.module.css'
-import firebase from '../firebase'
+import firebaseApp from '../../firebase'
+import firebase from '../../firebase'
 
-function Forum() {
+import { CreateItem, ItemsList } from "components";
+
+import styles from './Forum.module.css'
+
+export function Forum() {
   // const newPost = { title:"new title", question:"new question"}
   // useEffect(()=>{
   //   firebaseApp.db.collection('forum').add(newPost);
@@ -30,11 +30,9 @@ function Forum() {
   return(
     <div className={styles.mainDiv}>
       <div className={styles.content}>
-      <CreateLink addQuestion={addQuestion}/>
+      <CreateItem addQuestion={addQuestion}/>
       <ItemsList />
       </div>
     </div>
   )
 }
-
-export default Forum

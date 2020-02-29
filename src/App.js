@@ -5,21 +5,15 @@ import {
   Redirect,  
   Switch
 } from "react-router-dom";
-import  useAuth  from "./hooks/useAuth";
+import  {useAuth}  from "hooks";
 import './App.css';
 
 // components
-import Navbar from "./components/Navbar";
+import { Navbar } from 'components';
 
 // screens
-import Tests from "./screens/Tests";
-import Questions from "./screens/Questions";
-import Forum from "./screens/Forum";
-import Profile from "./screens/Profile";
-import Login from "./screens/Login";
-import Register from "./screens/Register";
-import Home from "./screens/Home"
-import ItemDetails from './components/Forum/ItemDetail'
+import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens";
+import {ItemDetails} from 'components'
 
 
 const App = () => {

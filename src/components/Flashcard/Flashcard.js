@@ -1,9 +1,10 @@
 import React, { useState }  from 'react'
 import styles from './Flashcard.module.css'
-import Button from './Button'
 import { FaQuestion, FaCommentDots, FaChevronCircleLeft, FaChevronCircleRight, FaSave, FaCheck, FaTimes } from 'react-icons/fa'
 
-function Flashcard(props) {
+import { Button } from '../';
+
+export function Flashcard(props) {
     const { flashcards } = props
 
     const [count, setCount] = useState(0);
@@ -34,5 +35,3 @@ function Flashcard(props) {
             </div>
         )
 }
-
-export default Flashcard

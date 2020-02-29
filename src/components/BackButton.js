@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from './Button';
+import { Button } from 'components';
 
-function BackButton(props) {
+export function BackButton(props) {
     const { setElementToShow, setUserPoints, setCurrentPage } = props;
     return (
         <Button onClick={() => {
@@ -12,5 +12,3 @@ function BackButton(props) {
     )
 
 }
-
-export default BackButton;

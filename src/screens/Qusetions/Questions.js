@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Questions.module.css";
-import QuestionsIntro from '../components/QuestionsIntro';
-import Flashcard from '../components/Flashcard'
+import {QuestionsIntro, Flashcard} from 'components';
 
 const Flashcards = [
   {
@@ -27,7 +26,7 @@ const Flashcards = [
 ]
 
 
-function Questions() {
+export function Questions() {
   const [shuffledFlashcards, setShuffledFlashcards] = useState(Flashcards);
   const [showIntro, setShowIntro] = useState(true)
 
@@ -62,5 +61,3 @@ function Questions() {
     )
   }
 }
-
-export default Questions;

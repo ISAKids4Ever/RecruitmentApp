@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './TestQuestion.module.css'
 
 
-function TestQuestion(props) {
+export function TestQuestion(props) {
     const { question, answear1, answear2, answear3, elementToShow, userPoints, setPoints, currentPage} = props;
     function calculatePoints(currentPage, answear){
         const points = [...userPoints]
@@ -29,8 +29,5 @@ function TestQuestion(props) {
         );
     } else {
         return null;
-    }
-    
+    }   
 }
-
-export default TestQuestion;

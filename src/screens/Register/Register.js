@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Register.module.css";
 import { Link } from "react-router-dom"
-import { register } from "../services/userService";
+import { register } from "services";
 
 
-function View2() {
+export function Register() {
   return (
    <div className={styles.mainDiv2}>
      <Link to="/zaloguj">zaloguj się</Link>
@@ -18,5 +18,3 @@ function View2() {
    </div>
   );
 }
-
-export default View2;

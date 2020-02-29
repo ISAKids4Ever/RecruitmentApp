@@ -1,13 +1,12 @@
 import React from 'react';
 import Slider from "react-slick";
-// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from 'pure-react-carousel';
-// import 'pure-react-carousel/dist/react-carousel.es.css';
+
 import styles from "./Home.module.css";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
  
 
-function Home() {
+export function Home() {
   const settings = {
     dots: true,
     infinite: true,
@@ -45,5 +44,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

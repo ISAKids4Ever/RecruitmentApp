@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './QuestionsIntro.module.css'
-import Button from './Button'
+import { Button } from 'components';
 
-function QuestionsIntro(props) {
+
+export function QuestionsIntro(props) {
     const {showIntro} = props
 
     const hideIntro = (hide) => {
@@ -18,5 +19,3 @@ function QuestionsIntro(props) {
         </div>
     )
 }
-
-export default QuestionsIntro
