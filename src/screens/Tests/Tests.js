@@ -51,9 +51,9 @@ const basicQuestions = [
 ];
 
 export function Tests() {
-	const [ postsPerPage ] = useState(1);
 	const [ currentPage, setCurrentPage ] = useState(1);
 	const [ elementToShow, setElementToShow ] = useState('TestIntro');
+	const postsPerPage = 1;
 	const indexOfLastPage = currentPage * postsPerPage;
 	const indexOfFirtsPage = indexOfLastPage - postsPerPage;
 	let points = new Array(10).fill(0);
