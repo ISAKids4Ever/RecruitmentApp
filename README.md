@@ -1,4 +1,4 @@
-# interviewApp (LIVE DEMO)[https://intervyou.netlify.com]
+# interviewApp [LIVE DEMO](https://intervyou.netlify.com)
 
 This application is designed to help every younger and older person find the job they have always dreamed of.
 
@@ -9,21 +9,21 @@ To run it in local environment follow these steps:
 1. Clone/Download the code from this repository
 
 ```bash
-git clone https://github.com/MateuszRostkowski/Gatsby_blog.git
+git clone https://github.com/ISAKids4Ever/RecruitmentApp.git
 ```
 
 2. Install dependencies 
     
 ```bash
-cd Gatsby_blog
-npm install
+cd RecruitmentApp
+npm i
 ```
 
 or 
 
 ```bash
-cd Gatsby_blog
-yarn install
+cd RecruitmentApp
+yarn
 ```
 3. 🚀 **Launch Project**
     
@@ -31,4 +31,6 @@ yarn install
 npm start
 ```
 
-(This project was made with react tutorial)[https://reactjs.org/tutorial/tutorial.html]
+```bash
+yarn start
+```
