@@ -9,11 +9,11 @@ import  {useAuth}  from "hooks";
 import './App.css';
 
 // components
-import { Navbar } from 'components';
+import { Navbar, CreateItem } from 'components';
 
 // screens
 import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens";
-import {ItemDetails} from 'components'
+import { ItemDetails } from 'components'
 
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
             <Route strict exact path="/pytania" component={Questions}/>
             <Route strict exact path="/forum" component={Forum}/>
             <Route path="/forum/:qid" component={ItemDetails} />
+            <Route path="forum/create" component={CreateItem}/>
             <Route strict exact path="/profile" component={Profile}/>
             <Route exact path="/" component={Home} />
             <Redirect to="/zaloguj" />

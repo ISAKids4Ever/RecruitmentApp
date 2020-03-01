@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import firebaseApp from '../../firebase'
 import firebase from '../../firebase'
 
-import { CreateItem, ItemsList } from "components";
+import { ItemsList } from "components";
 
 import styles from './Forum.module.css'
+import { Link } from 'react-router-dom';
 
 export function Forum() {
   // const newPost = { title:"new title", question:"new question"}
@@ -28,7 +29,9 @@ export function Forum() {
   return(
     <div className={styles.mainDiv}>
       <div className={styles.content}>
-      <CreateItem addQuestion={addQuestion}/>
+      <h1>FORUM</h1>
+      <h1>You wanna create a topic/ask question? <Link to="forum/create">CLICK HERE</Link></h1>
+      {/* <CreateItem addQuestion={addQuestion}/> */}
       <ItemsList />
       </div>
     </div>
