@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 	title: '',
 	description: ''
 };
-export function CreateItem(props) {
+export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
 	const [ isClicked, setIsClicked ] = useState(false);
 	function handleCreateLink() {
@@ -38,21 +38,22 @@ export function CreateItem(props) {
 	function handleClick() {
 		setIsClicked((value) => !value);
 	}
+
 	return (
-		<form onSubmit={handleSubmit} className={styles.forum}>
+		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
 			<input
-				className={isClicked ? styles.input : styles.none}
+				className={styles.input}
 				name="title"
-				placeholder="Tytuł"
+				placeholder="Topic/Question title"
 				autoComplete="off"
 				onChange={handleChange}
 				value={values.title}
 				type="text"
 			/>
 			<input
-				className={isClicked ? styles.input : styles.none}
+				className={styles.input}
 				name="description"
-				placeholder="Pytanie"
+				placeholder="Description"
 				autoComplete="off"
 				onChange={handleChange}
 				value={values.description}

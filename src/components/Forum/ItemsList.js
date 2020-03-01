@@ -12,7 +12,6 @@ export function ItemsList() {
 useEffect(() => {
     firebase.database().ref('forum').on("value", data => {
         const forumQuestion =  data.val()
-        console.log("PTRP", prepareData(forumQuestion))
         setQuestions(prepareData(forumQuestion))
      })
      

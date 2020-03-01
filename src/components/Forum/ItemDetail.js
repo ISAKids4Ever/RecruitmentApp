@@ -24,8 +24,7 @@ export function ItemDetails(props) {
     firebase.database().ref('forum').child(props.match.params.qid).on("value", data => {
       const forumQuestion = data.val()
       setQuestions(forumQuestion)
-      console.log("FORUM", forumQuestion)
-      console.log("TIME", forumQuestion.created)
+    
     })
 
   }, [])
@@ -73,7 +72,7 @@ export function ItemDetails(props) {
      
         <div className={styles.questionSection}>
         <div style={{width:"70%" }}>
-          <div className={styles.questionSectionTitle}>{question.title}</div>
+          {/* <div className={styles.questionSectionTitle}>{question.title}</div> */}
           {question.created && <div style={{ width: '100%', color: "black" }}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>
           }        <div className={styles.questionDescription}>{question.description}</div>
           </div>

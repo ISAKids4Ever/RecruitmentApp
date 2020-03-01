@@ -10,7 +10,6 @@ export const useFormValidation = (initialState, validate, authenticate) => {
          if(isSubmitting) {
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
-                 console.log("Auth", values)
                  authenticate();
                  setSubmitting(false)
              } else {
@@ -33,7 +32,6 @@ export const useFormValidation = (initialState, validate, authenticate) => {
     }
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log("useFormValidation VALUES: ", values)
       const validationErrors = validate(values)
       setErrors(validationErrors)
       setSubmitting(true)

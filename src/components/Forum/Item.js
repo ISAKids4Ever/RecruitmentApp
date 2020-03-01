@@ -46,9 +46,12 @@ export function Item({ question }) {
 
       <div className={styles.questionSection}>
         <div className={styles.title}>  {question.title}</div>
-        <div>{question.description}</div>
-        <Link to={`/forum/${question.qid}`} style={{border:"1px solid black"}}>DISCUSS</Link>
-        <div onClick={handleDelete} style={{border:"1pxsolid black"}}>DELETE</div>
+        <div className={styles.description}>{question.description}</div>
+        <div style={{display:"flex"}}>
+           <Link to={`/forum/${question.qid}`} style={{ margin:"0", padding:"2px", fontSize:"120%"}}>DISCUSS</Link>
+           <div onClick={handleDelete} style={{border:"1pxsolid black", margin:"0", padding:"2px", fontSize:"120%"}}>DELETE</div>
+        </div>
+     
       </div>
       <div className={styles.likesSection}>
         <div style={{margin:"0"}}>{question.votedBy.length - 1}</div>
