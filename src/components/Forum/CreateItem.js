@@ -34,6 +34,10 @@ export function CreateItem({clicked}) {
 			id: uuid()
 		};
 		firebase.database().ref('forum').push(newLink);
+        
+
+		
+
 	}
 	function handleClick() {
 		setIsClicked((value) => !value);

@@ -11,6 +11,7 @@ export const useFormValidation = (initialState, validate, authenticate) => {
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
                  authenticate();
+                 setValues(initialState)
                  setSubmitting(false)
              } else {
                  setSubmitting(false)
