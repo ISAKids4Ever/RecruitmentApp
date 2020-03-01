@@ -24,9 +24,7 @@ export function Forum() {
  
   };
 
-  useEffect(()=>{
-    console.log("DODAŁEM")
-  }, [])
+
   return(
     <div className={styles.mainDiv}>
       <div className={styles.content}>
