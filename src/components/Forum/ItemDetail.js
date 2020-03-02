@@ -89,7 +89,7 @@ export function ItemDetails(props) {
           return (<div className={styles.commentDiv} style={{ display: "flex", flexDirection: "column", width: "90%" }}>
             <div style={{ display: "flex", width: "100%" }}>
               <div style={{ marginRight: "1%", width: "50%", textAlign: "start", color: "black" }}>User:{comment.createdBy}</div>
-              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {formatDistanceToNow(comment.createdAt)} ago</div>
+              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {comment.createdAt && formatDistanceToNow(comment.createdAt)} ago</div>
             </div>
             <div style={{ fontSize:"150%" , width: "100%", textAlign: "start" }}>{comment.comment}</div>
 
