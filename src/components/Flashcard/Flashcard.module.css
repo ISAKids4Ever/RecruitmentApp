@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+.flashcard {
+    font-size: 1rem;
+    background-color: transparent;
+    height: 40vh;
+    width: 80vw;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.flashcardPlusButtons {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.flashcardPlusButtons>p {
+    width: 30px;
+}
+
+.flashcard:hover .flashcardInner {
+    transform: rotateY(180deg);
+}
+
+.flashcard:hover .flashcardFront{
+    opacity: 0;
+}
+
+.flashcardInner {
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.flashcardFront,
+.flashcardBack {
+    padding: 0 15px;
+    text-align: center;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    transition: opacity 0.4s;
+}
+
+.flashcardBack {
+    transform: rotateY(180deg);
+}
+
+.flashcardFront>i,
+.flashcardBack>i {
+    position: relative;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.flashcardUserButtons {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+
+@media (min-width: 750px){
+    .flashcard { 
+        font-size: 1.1rem;
+        width: 60vw;
+    }
+    .flashcardPlusButtons {
+        width: 80vw;
+    }
+}

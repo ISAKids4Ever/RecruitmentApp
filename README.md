@@ -19,20 +19,16 @@ cd RecruitmentApp
 npm i
 ```
 
-or 
-
-```bash
-cd RecruitmentApp
-yarn
-```
 3. 🚀 **Launch Project**
     
 ```bash
 npm start
 ```
 
-or
-
+# **QuickLaunch**
 ```bash
-yarn start
+git clone https://github.com/ISAKids4Ever/RecruitmentApp.git
+cd RecruitmentApp
+npm i
+npm start
 ```

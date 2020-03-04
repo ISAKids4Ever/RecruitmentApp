@@ -1,63 +1,64 @@
-import React, { useState } from 'react'
-import Item from './Item'
+import React, { useState, useEffect } from 'react'
+import styles from './ItemsList.module.css'
 import firebase from '../../firebase'
+import {SearchItem, Item} from 'components';
 
-function ItemsList() {
+export function ItemsList() {
     const [questions, setQuestions ] = useState([]);
     const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
-  React.useEffect(()=>{
-    getLinks()
-}, [])
-function handleDateSort() {
+    const [isFilter, setIsFilter] = useState(false)
 
-    setSortType(!sortType)
-    getLinks()
-}
-function handleVotesSort() {
-    if(votesSort){
-        firebase.db.collection('forum').orderBy("votes", "desc").onSnapshot(handleSnapshot)
-        setVotesSort(false)
-    } else {
-        firebase.db.collection('forum').orderBy("votes", "asc").onSnapshot(handleSnapshot)
-setVotesSort(true)
-    }
-
-
-}
-function getLinks() {
-    if(!sortType){
-        firebase.db.collection('forum').onSnapshot(handleSnapshot)
-
-    } else {
-
-        firebase.db.collection('forum').orderBy("created", "desc").onSnapshot(handleSnapshot)
-
-    }
-
-}
-
-function handleSnapshot(snapshot) {
-    const questions = snapshot.docs.map(doc => {
+useEffect(() => {
+    firebase.database().ref('forum').on("value", data => {
+        const forumQuestion =  data.val()
+        console.log("PTRP", prepareData(forumQuestion))
+        setQuestions(prepareData(forumQuestion))
+     })
      
-        return { uid:doc.id, ...doc.data() }
-        
-    })
-     setQuestions(questions);
-      }
+}, [])
+const prepareData = data => {
+    return Object.entries(data).map(arr => {
+      const [qid, value] = arr;
+      return {
+        qid,
+        ...value
+      };
+    });
+  };
+
+  function handleDateSort() {
+     return 0;      
+  }
+  function handleVotesSort() {
+      return 0
+  }
+  function handleFilters() {
+    setIsFilter((value) => !value)
+}
+
     return(
-        <div>
+    
+        <div className={styles.mainDiv}>
             <div>
-                SORTUJ PO DACIE:
-                <button onClick={handleDateSort}>KLIK</button>
-                SORTUJ PO Lajkach:
-                <button onClick={handleVotesSort}>KLIK</button>
+                <button className={styles.filterToggle} onClick={handleFilters}>FILTERS</button>
+            <div className={isFilter ? styles.sortingDiv : styles.none}>
+                
+                <SearchItem />
+                <div  className={styles.sorting}>
+                <button onClick={handleDateSort}>SORT BY DATE</button>
+                <button onClick={handleVotesSort}>SORT BY LIKES</button>
+                <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
+                </div>
+           
+
+
             </div>
+            </div>
+           
         {questions.map((question, index) => {
           return  <Item key={question.id}  question={question} index={index+1}/>
         })}
     </div>
-    )
+     )
 }
-
-export default ItemsList

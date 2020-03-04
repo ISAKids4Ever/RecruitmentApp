@@ -1,4 +1,4 @@
-export default function validateCreate(values) {
+export function validateCreate(values) {
     let errors = {}
     //Email errors
     if(!values.description) {
