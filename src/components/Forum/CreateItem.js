@@ -38,8 +38,7 @@ export function CreateItem({clicked}) {
 		
 
 	}
-	function handleClick() {
-	}
+
 
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
@@ -61,7 +60,7 @@ export function CreateItem({clicked}) {
 				value={values.description}
 				type="text"
 			/>
-			<button type="submit" className={styles.button} onClick={handleClick}>
+			<button type="submit" className={styles.button} >
 				ADD QUESTION
 			</button>
 		</form>
