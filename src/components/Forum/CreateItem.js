@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 };
 export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-	const [ isClicked, setIsClicked ] = useState(false);
 	function handleCreateLink() {
 		const { title, description } = values;
 		const newLink = {
@@ -40,7 +39,6 @@ export function CreateItem({clicked}) {
 
 	}
 	function handleClick() {
-		setIsClicked((value) => !value);
 	}
 
 	return (

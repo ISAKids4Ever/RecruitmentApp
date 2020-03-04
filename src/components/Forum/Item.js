@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './Item.module.css'
 import firebase from '../../firebase'
 
@@ -22,18 +21,7 @@ export function Item({ question }) {
       email: 'email',
 
     });
-    //     const voteRef = firebase.database().ref('forum').push.doc(question.uid)
-    //     voteRef.get().then(doc => {
 
-    //         if (doc.exists) {
-    //             const previousVotes = doc.data().votes;
-    //             const vote = { votedBy: { id: 'unknown', name: 'unknown' } }
-    //             const updatedVotes = [...previousVotes, vote];
-    //             voteRef.update({ votes: updatedVotes })
-    //         }
-
-    // }
-    //     )
   }
 
 

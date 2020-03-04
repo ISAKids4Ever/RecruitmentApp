@@ -22,15 +22,15 @@
     padding-bottom:1%;
 }
 .likesSection {
-width: 30%;
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: bolder;
-font-size: 200%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 200%;
 
 }
 
 .questionSection {
-width: 70%;
+    width: 70%;
 }
