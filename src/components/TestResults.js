@@ -2,8 +2,7 @@ import React from 'react'
 
 import { Button } from './';
 
-export function TestResults(props) {
-    const { setElementToShow, userPoints, setCurrentPage } = props;
+export function TestResults({ setElementToShow, userPoints, setCurrentPage }) {
     return (
         <div>
             <div>{userPoints.reduce(function (prevPoints, currentPoint) {
