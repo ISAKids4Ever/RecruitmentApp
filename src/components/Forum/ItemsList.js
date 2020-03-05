@@ -12,7 +12,6 @@ export function ItemsList() {
 useEffect(() => {
     firebase.database().ref('forum').on("value", data => {
         const forumQuestion =  data.val()
-        console.log("PTRP", prepareData(forumQuestion))
         setQuestions(prepareData(forumQuestion))
      })
      
@@ -40,19 +39,17 @@ const prepareData = data => {
     return(
     
         <div className={styles.mainDiv}>
+            
             <div>
                 <button className={styles.filterToggle} onClick={handleFilters}>FILTERS</button>
             <div className={isFilter ? styles.sortingDiv : styles.none}>
-                
+               
                 <SearchItem />
                 <div  className={styles.sorting}>
                 <button onClick={handleDateSort}>SORT BY DATE</button>
                 <button onClick={handleVotesSort}>SORT BY LIKES</button>
                 <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
                 </div>
-           
-
-
             </div>
             </div>
            

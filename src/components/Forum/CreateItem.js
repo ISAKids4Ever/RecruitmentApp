@@ -9,9 +9,8 @@ const INITIAL_STATE = {
 	title: '',
 	description: ''
 };
-export function CreateItem(props) {
+export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-	const [ isClicked, setIsClicked ] = useState(false);
 	function handleCreateLink() {
 		const { title, description } = values;
 		const newLink = {
@@ -34,31 +33,34 @@ export function CreateItem(props) {
 			id: uuid()
 		};
 		firebase.database().ref('forum').push(newLink);
+        
+
+		
+
 	}
-	function handleClick() {
-		setIsClicked((value) => !value);
-	}
+
+
 	return (
-		<form onSubmit={handleSubmit} className={styles.forum}>
+		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
 			<input
-				className={isClicked ? styles.input : styles.none}
+				className={styles.input}
 				name="title"
-				placeholder="Tytuł"
+				placeholder="Topic/Question title"
 				autoComplete="off"
 				onChange={handleChange}
 				value={values.title}
 				type="text"
 			/>
 			<input
-				className={isClicked ? styles.input : styles.none}
+				className={styles.input}
 				name="description"
-				placeholder="Pytanie"
+				placeholder="Description"
 				autoComplete="off"
 				onChange={handleChange}
 				value={values.description}
 				type="text"
 			/>
-			<button type="submit" className={styles.button} onClick={handleClick}>
+			<button type="submit" className={styles.button} >
 				ADD QUESTION
 			</button>
 		</form>

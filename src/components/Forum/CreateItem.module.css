@@ -20,15 +20,16 @@
 
 input {
     
-    color: #3a6073;
     font-size: 1rem;
     outline: none;
-    background-color: white;
+    background-color: rgba(255,255,255, 0.2);
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     padding: 15px 20px;
     margin: 5px;
+    color:white;
+
 }
 
 .forum {
@@ -38,7 +39,10 @@ flex-wrap: wrap;
 flex-direction: column;
 
 }
-
+.forum  button:hover {
+    box-shadow: 0 4px 8px 0  rgba(255, 255, 255, 1);
+    background:  linear-gradient(to right,  #F45C43, #3a6073);
+}
 
 @media (max-width:800px) {
 

@@ -9,11 +9,10 @@ import  {useAuth}  from "hooks";
 import './App.css';
 
 // components
-import { Navbar } from 'components';
+import { Navbar, ItemDetails } from 'components';
 
 // screens
 import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens";
-import {ItemDetails} from 'components'
 
 
 const App = () => {
