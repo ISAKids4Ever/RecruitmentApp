@@ -24,7 +24,6 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
                 }}
                 className={number === currentPage ? "regularButton current" : "regularButton"}
               >
-
                 {number}
               </Button>
             </div>

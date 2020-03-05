@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {useFormValidation} from 'hooks';
 import {validateCreate} from 'services';
 import firebase from '../../firebase';
@@ -33,12 +33,7 @@ export function CreateItem({clicked}) {
 			id: uuid()
 		};
 		firebase.database().ref('forum').push(newLink);
-        
-
-		
-
 	}
-
 
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
