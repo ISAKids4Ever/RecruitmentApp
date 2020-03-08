@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Questions.module.css";
-import {QuestionsIntro, Flashcard} from 'components';
+import {FlashcardsIntro, Flashcard} from 'components';
 import { Flashcards } from './QuestionsBase.js'
 
 export function Questions() {
@@ -27,7 +27,7 @@ export function Questions() {
   if (showIntro) {
     return (
       <div className={styles.mainDiv2}>
-        <QuestionsIntro showIntro={whatsDisplayed}/>
+        <FlashcardsIntro showIntro={whatsDisplayed}/>
       </div>
     )
   }else{
