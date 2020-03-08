@@ -1,4 +1,4 @@
-export const Flashcards = [
+export const Questions = [
     {
       id: '1',
       question: 'What is HTML?',

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Questions.module.css";
-import {FlashcardsIntro, Flashcard} from 'components';
-import { Flashcards } from './QuestionsBase.js'
+import styles from "./Flashcards.module.css";
+import { FlashcardsIntro, Flashcard} from 'components';
+import { Questions } from './QuestionsBase.js'
 
-export function Questions() {
-  const [shuffledFlashcards, setShuffledFlashcards] = useState(Flashcards);
+export function Flashcards() {
+  const [shuffledFlashcards, setShuffledFlashcards] = useState(Questions);
   const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
-    shuffle(Flashcards);
+    shuffle(Questions);
   }, []);
 
   const whatsDisplayed = (dataFromIntro) => {
@@ -26,13 +26,13 @@ export function Questions() {
 
   if (showIntro) {
     return (
-      <div className={styles.mainDiv2}>
+      <div className={styles.mainFlashcards}>
         <FlashcardsIntro showIntro={whatsDisplayed}/>
       </div>
     )
   }else{
     return (
-      <div className={styles.mainDiv2}>
+      <div className={styles.mainFlashcards}>
         <Flashcard flashcards={shuffledFlashcards} />
       </div>
     )
