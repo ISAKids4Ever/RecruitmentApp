@@ -33,7 +33,7 @@ export function Flashcards() {
   }else{
     return (
       <div className={styles.mainFlashcards}>
-        <Flashcard flashcards={shuffledFlashcards} />
+        <Flashcard questions={shuffledFlashcards} />
       </div>
     )
   }
