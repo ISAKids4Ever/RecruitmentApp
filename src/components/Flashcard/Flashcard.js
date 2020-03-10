@@ -13,28 +13,43 @@ export function Flashcard(props) {
 
     useEffect(() => {
         localStorage.setItem('known', JSON.stringify(known));
-        console.table(JSON.parse(localStorage.getItem('known')));
+        localStorage.setItem('unknown', JSON.stringify(unknown));
+    }, [known, unknown]);
+    
+    useEffect(() => {
+        localStorage.setItem('known', JSON.stringify(known));
+        localStorage.setItem('unknown', JSON.stringify(unknown));
     });
 
-    useEffect(() => {
-        localStorage.setItem('unknown', JSON.stringify(unknown));
-        console.table(JSON.parse(localStorage.getItem('unknown')));
-    })
-
     const addToUserKnown = () => {
-        let newKnown = known;
-        if(!newKnown.includes(questions[count].id)){
+        if(!known.includes(questions[count].id)){
+            let newKnown = known;
             newKnown.push(questions[count].id);
             setKnown(newKnown);
+
+            if(unknown.includes(questions[count].id)){
+                let newUnknown = unknown.filter(item => item != parseInt(questions[count].id));
+                setUnknown(newUnknown)
+            }
         }
+        console.log(known);
+        console.log(unknown);
     }
 
     const addToUserUnknown = () => {
-        let newUnknown = unknown;
-        if(!newUnknown.includes(questions[count].id)){
+        if(!unknown.includes(questions[count].id)){
+            let newUnknown = unknown;
             newUnknown.push(questions[count].id);
             setUnknown(newUnknown);
+            
+
+            if(known.includes(questions[count].id)){
+                let newKnown = known.filter(item => item != parseInt(questions[count].id));
+                setKnown(newKnown)
+            }
         }
+        console.log(known);
+        console.log(unknown)
     }
 
         return (
