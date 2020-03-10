@@ -10,11 +10,32 @@ export function Flashcard(props) {
     const [count, setCount] = useState(0);
     const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
     const [unknown, setUnknown] = useState(JSON.parse(localStorage.getItem('unknown')) || []);
+    const [all, setAll] = useState(questions.map(question => question.id));
+
+
+    const checkAllWithLocalStorage = () =>{
+        let check = questions.map(question => question.id);
+        for (let i = 0; i < known.length; i++) {
+            check = check.filter(id => id !== known[i]);
+        }
+        for (let i = 0; i < unknown.length; i++) {
+            check = check.filter(id => id !== unknown[i]);
+        }
+        setAll(check);
+    }
+
+    useEffect(() => {
+        checkAllWithLocalStorage();
+    }, []);
     
     useEffect(() => {
         localStorage.setItem('known', JSON.stringify(known));
         localStorage.setItem('unknown', JSON.stringify(unknown));
     });
+
+    console.log(all);
+    console.log(known);
+    console.log(unknown);
 
     const addToUserKnown = () => {
         if(!known.includes(questions[count].id)){
@@ -23,10 +44,11 @@ export function Flashcard(props) {
             setKnown(newKnown);
 
             if(unknown.includes(questions[count].id)){
-                let newUnknown = unknown.filter(item => item != parseInt(questions[count].id));
+                let newUnknown = unknown.filter(item => item !== questions[count].id);
                 setUnknown(newUnknown);
             }
         }
+        checkAllWithLocalStorage()
     }
 
     const addToUserUnknown = () => {
@@ -36,10 +58,11 @@ export function Flashcard(props) {
             setUnknown(newUnknown);
             
             if(known.includes(questions[count].id)){
-                let newKnown = known.filter(item => item != parseInt(questions[count].id));
+                let newKnown = known.filter(item => item !== questions[count].id);
                 setKnown(newKnown);
             }
         }
+        checkAllWithLocalStorage();
     }
 
     return (
