@@ -1,8 +1,9 @@
 import React, { useState, useEffect }  from 'react'
 import styles from './Flashcard.module.css'
-import { FaQuestion, FaCommentDots, FaChevronCircleLeft, FaChevronCircleRight, FaSave, FaCheck, FaTimes } from 'react-icons/fa'
+import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 
 import { Button } from '../';
+import { CardContent } from './CardContent';
 
 export function Flashcard(props) {
     const { questions } = props;
@@ -10,7 +11,7 @@ export function Flashcard(props) {
     const [count, setCount] = useState(0);
     const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
     const [unknown, setUnknown] = useState(JSON.parse(localStorage.getItem('unknown')) || []);
-    const [all, setAll] = useState(questions.map(question => question.id));
+    const [all, setAll] = useState();
 
 
     const checkAllWithLocalStorage = () =>{
@@ -69,25 +70,7 @@ export function Flashcard(props) {
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
                 { (count) ?  <Button onClick={() => setCount(count - 1)} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
-                <div className="flashcardPlusUserButtons">
-                    <div className={styles.flashcard}>
-                        <div className={styles.flashcardInner}>
-                            <div className={styles.flashcardFront}>
-                                <i><FaQuestion /></i>
-                                <p>{questions[count].question}</p>
-                            </div>
-                            <div className={styles.flashcardBack}>
-                                <i><FaCommentDots /></i>
-                                <p>{questions[count].answer}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.flashcardUserButtons}>
-                        <Button className={'iconButton'}><i><FaSave /></i></Button>
-                        <Button className={'iconButton'} onClick={() => addToUserKnown(questions[count].id)} ><i><FaCheck /></i></Button>
-                        <Button className={'iconButton'} onClick={() => addToUserUnknown(questions[count].id)} ><i><FaTimes /></i></Button>
-                    </div>
-                </div>
+                <CardContent question={ questions[count] } addToUserKnown={addToUserKnown} addToUserUnknown={addToUserUnknown}  />
                 { (count+1 < questions.length) ? <Button onClick={() => setCount(count + 1)} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
             </div>
         </div>
