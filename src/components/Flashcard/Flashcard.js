@@ -38,39 +38,38 @@ export function Flashcard(props) {
     console.log(known);
     console.log(unknown);
 
-    const addToUserKnown = () => {
-        if(!known.includes(questions[count].id)){
-            let newKnown = known;
-            newKnown.push(questions[count].id);
-            setKnown(newKnown);
-
-            if(unknown.includes(questions[count].id)){
-                let newUnknown = unknown.filter(item => item !== questions[count].id);
+    const addToUserKnown = (id, tag) => {
+        if (tag === 'known') {
+            if(!known.includes(id)){
+                let newKnown = known;
+                newKnown.push(id);
+                setKnown(newKnown);
+    
+                if(unknown.includes(id)){
+                    let newUnknown = unknown.filter(item => item !== id);
+                    setUnknown(newUnknown);
+                }
+            }
+        }else{
+            if(!unknown.includes(id)){
+                let newUnknown = unknown;
+                newUnknown.push(id);
                 setUnknown(newUnknown);
+                
+                if(known.includes(id)){
+                    let newKnown = known.filter(item => item !== id);
+                    setKnown(newKnown);
+                }
             }
         }
         checkAllWithLocalStorage()
-    }
-
-    const addToUserUnknown = () => {
-        if(!unknown.includes(questions[count].id)){
-            let newUnknown = unknown;
-            newUnknown.push(questions[count].id);
-            setUnknown(newUnknown);
-            
-            if(known.includes(questions[count].id)){
-                let newKnown = known.filter(item => item !== questions[count].id);
-                setKnown(newKnown);
-            }
-        }
-        checkAllWithLocalStorage();
     }
 
     return (
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
                 { (count) ?  <Button onClick={() => setCount(count - 1)} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
-                <CardContent question={ questions[count] } addToUserKnown={addToUserKnown} addToUserUnknown={addToUserUnknown}  />
+                <CardContent question={ questions[count] } addToUserKnown={addToUserKnown} />
                 { (count+1 < questions.length) ? <Button onClick={() => setCount(count + 1)} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
             </div>
         </div>
