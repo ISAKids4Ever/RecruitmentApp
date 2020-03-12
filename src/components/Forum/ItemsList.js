@@ -14,6 +14,14 @@ export function ItemsList() {
         //     const forumQuestion = data.val()
         //     setQuestions(prepareData(forumQuestion))
         // })
+        function handleSnapshot(snapshot) {
+            const items = snapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            })
+            console.log("ITEMY", items)
+            setQuestions(items)
+        }
+        firebase.db.collection("forum").onSnapshot(handleSnapshot)
 
     }, [])
     
