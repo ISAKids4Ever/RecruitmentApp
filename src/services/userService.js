@@ -27,13 +27,9 @@ export const loginWithGoogle = () => {
 };
 
 export const register = async (email, password, name, bio, joined) => {
-  
-  console.log('register')  
   await firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-
-  console.log('register 2')
   const user = await firebase.auth().currentUser;
 
   await user.updateProfile({
@@ -47,10 +43,7 @@ export const register = async (email, password, name, bio, joined) => {
     bio,
     joined
   })
-      
-  return user
-        
-   
+  return user    
 };
 
 export const passwordReset = email => {

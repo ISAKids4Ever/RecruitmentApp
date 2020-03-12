@@ -18,7 +18,7 @@ import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens"
 const App = () => {
   const isLoggedIn = useAuth();
 
-  if (isLoggedIn) {
+  if (isLoggedIn == null) {
     return (      
       <div>Pobieranie danych...</div>  
     );
@@ -29,7 +29,7 @@ const App = () => {
       <Router>
         <div>
           <div>
-            <Navbar profile={false} logout={false} login={false} />
+            <Navbar login/>
           </div>
           <Switch>
             <Route exact path="/zaloguj" component={Login} />
@@ -50,7 +50,7 @@ const App = () => {
   
   return (
     <Router>
-      <Navbar profile={true} logout={true} login={false} />      
+      <Navbar logout/>      
         <Switch>
           <Redirect path="/zaloguj" to="/" />
           <Redirect path="/zarejestruj" to="/" /> 
@@ -58,6 +58,7 @@ const App = () => {
           <Route strict exact path="/pytania" component={Questions}/>
           <Route strict exact path="/forum" component={Forum}/>
           <Route strict exact path="/profile" component={Profile}/>
+          <Route path="/forum/:qid" component={ItemDetails} />
           <Route exact path="/" component={Home} />
           <Route component={() => <h1>Nie ma takiej strony</h1>} />
         </Switch>  
