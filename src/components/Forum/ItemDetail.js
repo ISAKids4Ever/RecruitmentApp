@@ -18,45 +18,35 @@ export function ItemDetails(props) {
   const [question, setQuestions] = useState(INIT_STATE)
 
   const questionId = props.match.params.qid;
+  const questionRef = firebase.db.collection('forum').doc(questionId);
+
 
  useEffect(() => {
 
-  const questionRef = firebase.db.collection('forum').doc(questionId);
   questionRef.get().then(doc => {
     setQuestions({...doc.data(), id: doc.id})
   })
   
-
  }, [])
 
 
 
   function handleAddComment() {
-    firebase.database().ref('forum/' + props.match.params.qid + '/comments').once("value", snapshot => {
-      if (snapshot.exists()) {
-        const email = snapshot.val();
-        firebase.database().ref('forum/' + props.match.params.qid).update({
-          comments: [
-            ...question.comments,
-            {
-              createdBy: 'krzychi',
-              createdAt: Date.now(),
-              comment: commentText
-            }
-          ]
-        });
-      } else {
-        firebase.database().ref('forum/' + props.match.params.qid).update({
-          comments: [
-            {
-              createdBy: 'krzychi',
-              createdAt: Date.now(),
-              comment: commentText
-            }
-          ]
-        });
+    console.log("CLICK")
+  questionRef.get().then(doc => {
+    if(doc.exists) {
+      const previosuComments = doc.data().comments
+      const newComment = {
+        postedBy: {id:"id", user:"username"},
+        created: Date.now(),
+        text: commentText
       }
-    });
+      const updatedComments = [...previosuComments, newComment];
+      questionRef.update({comments: updatedComments})
+      setQuestions(prevState => ({...prevState, comments: updatedComments}))
+    }
+  })
+
   }
 
   return (
