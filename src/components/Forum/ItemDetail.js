@@ -32,7 +32,7 @@ export function ItemDetails(props) {
 
 
   function handleAddComment() {
-    console.log("CLICK")
+
   questionRef.get().then(doc => {
     if(doc.exists) {
       const previosuComments = doc.data().comments
