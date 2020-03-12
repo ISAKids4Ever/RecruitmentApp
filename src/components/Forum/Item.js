@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Item.module.css'
-import firebase from '../../firebase'
+import {db} from '../../firebase'
 
 export function Item({ question }) {
 
   function handleVote() {
 
-    const voteReference = firebase.db.collection('forum').doc(question.qid);
+    const voteReference = db.collection('forum').doc(question.qid);
     voteReference.get().then(doc => {
       if(doc.exists) {
         const prevVotes = doc.data().votes;

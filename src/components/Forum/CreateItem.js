@@ -1,7 +1,7 @@
 import React from 'react';
 import {useFormValidation} from 'hooks';
 import {validateCreate} from 'services';
-import firebase from '../../firebase';
+import {db} from '../../firebase';
 import uuid from 'react-uuid';
 import styles from './CreateItem.module.css';
 
@@ -33,7 +33,7 @@ export function CreateItem({clicked}) {
 			id: uuid()
 		};
 		console.log("newLink", newLink)
-		firebase.db.collection("forum").add(newLink)
+		db.collection("forum").add(newLink)
 	}
 
 	return (

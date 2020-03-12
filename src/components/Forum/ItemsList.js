@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './ItemsList.module.css'
-import firebase from '../../firebase'
+import {db} from '../../firebase'
 import { SearchItem, Item } from 'components';
 
 export function ItemsList() {
@@ -22,7 +22,7 @@ export function ItemsList() {
             
             setQuestions(items)
         }
-        firebase.db.collection("forum").onSnapshot(handleSnapshot)
+        db.collection("forum").onSnapshot(handleSnapshot)
 
     }, [])
     

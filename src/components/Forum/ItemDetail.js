@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase";
+import {db} from "../../firebase";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './ItemDetail.module.css'
 
@@ -18,7 +18,7 @@ export function ItemDetails(props) {
   const [question, setQuestions] = useState(INIT_STATE)
 
   const questionId = props.match.params.qid;
-  const questionRef = firebase.db.collection('forum').doc(questionId);
+  const questionRef = db.collection('forum').doc(questionId);
 
 
  useEffect(() => {

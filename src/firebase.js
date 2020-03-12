@@ -1,6 +1,5 @@
-import app from 'firebase/app'
+import firebase from 'firebase'
 import 'firebase/firestore'
-// import 'firebase/auth'
 
 // zakomentowane rzeczy to te, o ktorych pisalem, jak nie chcesz z nich skorzystac to poprostu je usun
 const {
@@ -23,23 +22,9 @@ const firebaseConfig = {
   appId: REACT_APP_APP_ID
 };
 
-     class Firebase {
-       constructor() {
-        app.initializeApp(firebaseConfig);
-        this.db=app.firestore();
-        // this.auth = app.auth()
-       }
+firebase.initializeApp(firebaseConfig)
 
-      //  async register(name, email, password) {
-      //    const newUser = await this.auth.createUserWithEmailAndPassword(email, password)
-      //    return await newUser.user.updateProfile({
-      //      displayName: name
-      //    })
-      //  }
-      //  async login(email, password) {
-      //    return await this.auth.signInWithEmailAndPassword(email, password)
-      //  }
+export const db = firebase.firestore()
 
-     }
-     const firebase = new Firebase()
 export default firebase
+

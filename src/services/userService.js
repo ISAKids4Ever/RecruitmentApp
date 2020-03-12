@@ -27,27 +27,28 @@ export const loginWithGoogle = () => {
 };
 
 export const register = async (email, password, name, bio, joined) => {
-    await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
+  
+  console.log('register')  
+  await firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
 
-    const user = await firebase.auth().currentUser;
+  console.log('register 2')
+  const user = await firebase.auth().currentUser;
 
-    debugger;
-    await user.updateProfile({
-        displayName: name
-    })
+  await user.updateProfile({
+      displayName: name
+  })
 
-    firebase.database()
-        .ref(`/users/${user.uid}`)
-        .set({
-            name,
-            email,
-            bio,
-            joined
-        });
-        
-    return user
+
+  firebase.db.collection('users').doc(user.id).set({
+    name,
+    email,
+    bio,
+    joined
+  })
+      
+  return user
         
    
 };

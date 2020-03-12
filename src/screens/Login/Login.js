@@ -10,12 +10,8 @@ export function Login() {
       <Link to="/zarejestruj">Zarejestruj się</Link>
       <h1>Login</h1>
       <button onClick={() => {
-        console.log("login is disabled here")
-        // login("email2@email.com", "password").then(() => {
-        // }).catch((err) => {
-          
-        // })
-      }}>LogIn</button>
+        login("email2@email.com", "password")
+      }}>Click here to login</button>
    </div>
   );
 }
