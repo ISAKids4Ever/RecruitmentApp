@@ -7,20 +7,20 @@ export function Item({ question }) {
 
   function handleVote() {
 
-    firebase.database().ref('forum/' + question.qid).update({
-      votedBy: [
-        ...question.votedBy,
-        {
-          userid: 'krzychi',
-          createdAt: Date.now()
-        }
-      ],
-      email: 'email',
-    });
+  //   firebase.database().ref('forum/' + question.qid).update({
+  //     votedBy: [
+  //       ...question.votedBy,
+  //       {
+  //         userid: 'krzychi',
+  //         createdAt: Date.now()
+  //       }
+  //     ],
+  //     email: 'email',
+  //   });
   }
 
   function handleDelete() {
-    firebase.database().ref('forum').child(question.qid).remove()
+    // firebase.database().ref('forum').child(question.qid).remove()
   }
   return (
     <div className={styles.mainDiv}>

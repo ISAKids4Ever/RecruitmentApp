@@ -17,7 +17,7 @@ export const useFormValidation = (initialState, validate, authenticate) => {
                  setSubmitting(false)
              }
          }
-     },[errors])
+     },[isSubmitting])
 
 
     const handleChange = (event) => {
@@ -32,9 +32,10 @@ export const useFormValidation = (initialState, validate, authenticate) => {
         setErrors(validationErrors)
     }
     const handleSubmit = (event) => {
+        console.log("CLICKED")
       event.preventDefault();
-      const validationErrors = validate(values)
-      setErrors(validationErrors)
+    //   const validationErrors = validate(values)
+    //   setErrors(validationErrors)
       setSubmitting(true)
     
 

@@ -10,10 +10,10 @@ export function ItemsList() {
     const [isFilter, setIsFilter] = useState(false)
 
     useEffect(() => {
-        firebase.database().ref('forum').on("value", data => {
-            const forumQuestion = data.val()
-            setQuestions(prepareData(forumQuestion))
-        })
+        // firebase.database().ref('forum').on("value", data => {
+        //     const forumQuestion = data.val()
+        //     setQuestions(prepareData(forumQuestion))
+        // })
 
     }, [])
     

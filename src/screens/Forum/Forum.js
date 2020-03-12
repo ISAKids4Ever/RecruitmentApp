@@ -10,12 +10,12 @@ export function Forum() {
 
   const addQuestion = () => {
 
-    firebase.database().ref('forum').push({
-      user: 'unknown',
-      title: 'title',
-      question: 'question',
-      createdAt: new Date().toISOString()
-    })
+    // firebase.database().ref('forum').push({
+    //   user: 'unknown',
+    //   title: 'title',
+    //   question: 'question',
+    //   createdAt: new Date().toISOString()
+    // })
 
   };
 

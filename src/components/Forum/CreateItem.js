@@ -32,7 +32,9 @@ export function CreateItem({clicked}) {
 			created: Date.now(),
 			id: uuid()
 		};
-		firebase.database().ref('forum').push(newLink);
+		// firebase.database().ref('forum').push(newLink);
+		console.log("newLink", newLink)
+		firebase.db.collection("forum").add(newLink)
 	}
 
 	return (
