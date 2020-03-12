@@ -17,15 +17,17 @@ export function ItemDetails(props) {
   const [commentText, setCommentText] = React.useState("");
   const [question, setQuestions] = useState(INIT_STATE)
 
+  const questionId = props.match.params.qid;
 
-  useEffect(() => {
-    firebase.database().ref('forum').child(props.match.params.qid).on("value", data => {
-      const forumQuestion = data.val()
-      setQuestions(forumQuestion)
+ useEffect(() => {
 
-    })
+  const questionRef = firebase.db.collection('forum').doc(questionId);
+  questionRef.get().then(doc => {
+    setQuestions({...doc.data(), id: doc.id})
+  })
+  
 
-  }, [])
+ }, [])
 
 
 
@@ -64,7 +66,7 @@ export function ItemDetails(props) {
           <div className={styles.questionSectionTitle}>{question.title}</div>
           {question.created && <div style={{ width: '100%', color: "black" }}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
         </div>
-        <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votedBy.length}</div>
+        {/* <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votes.length}</div> */}
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
