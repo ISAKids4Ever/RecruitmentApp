@@ -7,16 +7,19 @@ export function Item({ question }) {
 
   function handleVote() {
 
-  //   firebase.database().ref('forum/' + question.qid).update({
-  //     votes: [
-  //       ...question.votedBy,
-  //       {
-  //         userid: 'krzychi',
-  //         createdAt: Date.now()
-  //       }
-  //     ],
-  //     email: 'email',
-  //   });
+    const voteReference = firebase.db.collection('forum').doc(question.qid);
+    voteReference.get().then(doc => {
+      if(doc.exists) {
+        const prevVotes = doc.data().votes;
+        const newVote = { 
+          votedBy: {
+            id: "userid",
+            username:"username"
+          }}
+          const updatedVotes = [...prevVotes, newVote]
+          voteReference.update({ votes: updatedVotes })
+      }
+    })
   }
 
   function handleDelete() {
@@ -28,7 +31,7 @@ export function Item({ question }) {
         <div className={styles.title}>  {question.title}</div>
         <div className={styles.description}>{question.description}</div>
         <div style={{ display: "flex" }}>
-          {/* <Link to={`/forum/${question.id}`} style={{ margin: "0", padding: "2px", fontSize: "120%" }}>DISCUSS</Link> */}
+          <Link to={`/forum/${question.qid}`} style={{ margin: "0", padding: "2px", fontSize: "120%" }}>DISCUSS</Link>
           <div onClick={handleDelete} style={{ border: "1pxsolid black", margin: "0", padding: "2px", fontSize: "120%" }}>DELETE</div>
         </div>
       </div>

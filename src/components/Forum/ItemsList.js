@@ -16,9 +16,10 @@ export function ItemsList() {
         // })
         function handleSnapshot(snapshot) {
             const items = snapshot.docs.map(doc => {
-                return { id: doc.id, ...doc.data() }
+                return { qid: doc.id, ...doc.data() }
             })
             console.log("ITEMY", items)
+            
             setQuestions(items)
         }
         firebase.db.collection("forum").onSnapshot(handleSnapshot)
