@@ -5,6 +5,11 @@ export const Questions = [
       answer: 'HTML stands for Hyper Text Markup Language. It is a language of World Wide Web. It is a standard text formatting language which is used to create and display pages on the Web. It makes the text more interactive and dynamic. It can turn text into images, tables, links.'
     },
     {
+      id: '16',
+      question: 'What is semantic HTML',
+      answer: ' Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information in our websites will often give us accessibility for free.'
+    },
+    {
       id: '2',
       question: 'What are HTML5 semantic tags?',
       answer: 'HTML5 semantic tags define the purpose of the element. By using semantic markup, you help the browser understand the meaning of the content instead of just displaying it. By providing this extra level of clarity, HTML5 semantic elements also help search engines to read the page and find the required information faster.'
@@ -15,14 +20,19 @@ export const Questions = [
       answer: 'The semantic elements added in HTML5 are: <article> <aside> <details> <figcaption> <figure> <footer> <header> <main> <mark> <nav> <section> <summary> <time>'
     },
     {
+      id: '17',
+      question: 'What is event bubbling and event capturing?',
+      answer: 'Those are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside another element, and both elements have registered a handle for that event.'
+    },
+    {
       id: '4',
       question: 'Define event bubbling?',
-      answer: 'JavaScript allows DOM elements to be nested inside each other. In such a case, if the handler of the child is clicked, the handler of parent will also work as if it were clicked too.<br/>(need more details)'
+      answer: 'Event Bubbling is the event starts from the deepest element or target element to its parents, then all its ancestors which are on the way to bottom to top. At present, all the modern browsers have event bubbling as the default way of event flow.'
     },
     {
       id: '5',
       question: 'Describe event capturing?',
-      answer: 'Oh, Im terribly sor... Artoo! What are you doing here? Well, I can see youre serving drinks, but this place is dangerous. Theyre going to exenpmcute Master Luke and, if were not careful, us too! '
+      answer: 'The event is first captured by the outermost element and propagated to the inner elements. Capturing is also called "trickling", which helps remember the propagation order.'
     },
     {
       id: '6',
@@ -73,11 +83,6 @@ export const Questions = [
       id: '15',
       question: 'What is the difference between host objects and native objects?',
       answer: 'Host — objects provided by environment like window, document by browser. Native — object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment. Eg. Array, String etc.'
-    },
-    {
-      id: '16',
-      question: 'What is the difference between host objects and native objects?',
-      answer: 'Host — objects provided by environment like window, document by browser. Native — object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment. Eg. Array, String etc.'
-    },
+    }
   ]
   
