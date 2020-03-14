@@ -6,7 +6,8 @@ import { Button } from '../';
 import { CardContent } from './CardContent';
 
 export function Flashcard({questions, all, setAll, known, setKnown, unknown, setUnknown, checkAllWithUserBase}) {
-    const [count, setCount] = useState(0);
+    const [countQuestions, setCountQuestions] = useState(0);
+    const [nextQuestion, setNextQuestion] = useState(questions[0]);
     
     useEffect(() => {
         localStorage.setItem('known', JSON.stringify(known));
@@ -38,12 +39,52 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
         }
     }
 
+    const nextId = () => {
+        let nextId
+        while(nextId === undefined){
+            nextId = drawNextId();
+        }
+        let nextQuestion = questions.find(question => question.id === nextId);
+        setNextQuestion(nextQuestion);
+    }
+
+    const drawNextId = () => {
+        let probabilityNumber = Math.floor(Math.random() * 100); 
+        let nextId;
+        if (probabilityNumber < 45) {
+            if(unknown.length > 0){
+                let drawWhich = unknown.length;
+                let drawId = Math.floor(Math.random() * drawWhich); 
+                nextId = unknown[drawId];
+            }else{
+                return
+            }
+        }else if(probabilityNumber < 85){
+            if(all.length > 0){
+                let drawWhich = all.length;
+                let drawId = Math.floor(Math.random() * drawWhich);
+                nextId = all[drawId]
+            }else{
+                return
+            }
+        }else{
+            if(known.length > 0){
+                let drawWhich = known.length;
+                let drawId = Math.floor(Math.random() * drawWhich); 
+                nextId = known[drawId]
+            }else{
+                return
+            }
+        }
+        return nextId;
+    }
+
     return (
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
-                { (count) ?  <Button onClick={() => setCount(count - 1)} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
-                <CardContent question={ questions[count] } addToUserBase={addToUserBase} />
-                { (count+1 < questions.length) ? <Button onClick={() => setCount(count + 1)} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
+                { (countQuestions) ?  <Button onClick={() => nextId()} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
+                <CardContent question={ nextQuestion } addToUserBase={addToUserBase} />
+                { (countQuestions+1 < questions.length) ? <Button onClick={() => nextId()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
             </div>
         </div>
     )
