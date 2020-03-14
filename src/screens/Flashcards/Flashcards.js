@@ -4,24 +4,40 @@ import { FlashcardsIntro, Flashcard} from 'components';
 import { Questions } from './QuestionsBase.js'
 
 export function Flashcards() {
-  const [shuffledFlashcards, setShuffledFlashcards] = useState(Questions);
+  const [shuffledQuestions, setShuffledQuestions] = useState(Questions);
   const [showIntro, setShowIntro] = useState(true)
+  const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
+  const [unknown, setUnknown] = useState(JSON.parse(localStorage.getItem('unknown')) || []);
+  const [all, setAll] = useState();
+
 
   useEffect(() => {
     shuffle(Questions);
+    checkAllWithUserBase(shuffledQuestions);
   }, []);
 
   const whatsDisplayed = (dataFromIntro) => {
     setShowIntro(dataFromIntro);
   }
 
-  const shuffle = (array) => {
-    const shuffledFlashcards = [...array]
-    for (let i = shuffledFlashcards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledFlashcards[i], shuffledFlashcards[j]] = [shuffledFlashcards[j], shuffledFlashcards[i]];
+  const checkAllWithUserBase = (questions) =>{
+    let check = questions.map(question => question.id);
+      for (let i = 0; i < known.length; i++) {
+          check = check.filter(id => id !== known[i]);
+      }
+      for (let i = 0; i < unknown.length; i++) {
+          check = check.filter(id => id !== unknown[i]);
+      }
+    setAll(check);
+  }
+
+  const shuffle = (questions) => {
+    let shuffledQuestions = [...questions]
+    for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
     }
-    setShuffledFlashcards(shuffledFlashcards)
+    setShuffledQuestions(shuffledQuestions);
   }
 
   if (showIntro) {
@@ -33,7 +49,16 @@ export function Flashcards() {
   }else{
     return (
       <div className={styles.mainFlashcards}>
-        <Flashcard questions={shuffledFlashcards} />
+        <Flashcard 
+          questions={shuffledQuestions} 
+          all={all}
+          setAll={setAll}
+          known={known}
+          setKnown={setKnown}
+          unknown={unknown}
+          setUnknown={setUnknown}
+          checkAllWithUserBase={checkAllWithUserBase}
+        />
       </div>
     )
   }

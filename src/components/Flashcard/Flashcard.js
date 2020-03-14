@@ -5,33 +5,17 @@ import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 import { Button } from '../';
 import { CardContent } from './CardContent';
 
-export function Flashcard(props) {
-    const { questions } = props;
+export function Flashcard({questions, all, setAll, known, setKnown, unknown, setUnknown, checkAllWithUserBase}) {
 
     const [count, setCount] = useState(0);
-    const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
-    const [unknown, setUnknown] = useState(JSON.parse(localStorage.getItem('unknown')) || []);
-    const [all, setAll] = useState();
-
-
-    const checkAllWithLocalStorage = () =>{
-        let check = questions.map(question => question.id);
-        for (let i = 0; i < known.length; i++) {
-            check = check.filter(id => id !== known[i]);
-        }
-        for (let i = 0; i < unknown.length; i++) {
-            check = check.filter(id => id !== unknown[i]);
-        }
-        setAll(check);
-    }
-
-    useEffect(() => {
-        checkAllWithLocalStorage();
-    }, []);
     
     useEffect(() => {
-        localStorage.setItem('known', JSON.stringify(known));
-        localStorage.setItem('unknown', JSON.stringify(unknown));
+        if(known){
+            localStorage.setItem('known', JSON.stringify(known));
+        }
+        if(unknown){
+            localStorage.setItem('unknown', JSON.stringify(unknown));
+        }
     });
 
     console.log(all);
@@ -62,7 +46,7 @@ export function Flashcard(props) {
                 }
             }
         }
-        checkAllWithLocalStorage()
+        checkAllWithUserBase(questions);
     }
 
     return (
