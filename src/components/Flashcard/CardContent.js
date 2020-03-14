@@ -4,8 +4,7 @@ import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons
 
 import { Button } from '../';
 
-
-export function CardContent({ question, addToUserKnown }) {
+export function CardContent({ question, addToUserBase }) {
 
     return (
         <div className="flashcardPlusUserButtons">
@@ -23,8 +22,8 @@ export function CardContent({ question, addToUserKnown }) {
             </div>
             <div className={styles.flashcardUserButtons}>
                 <Button className={'iconButton'}><i><FaSave /></i></Button>
-                <Button className={'iconButton'} onClick={() => addToUserKnown(question.id, 'known')} ><i><FaCheck /></i></Button>
-                <Button className={'iconButton'} onClick={() => addToUserKnown(question.id, 'unknown')} ><i><FaTimes /></i></Button>
+                <Button className={'iconButton'} onClick={() => addToUserBase(question.id, 'known')} ><i><FaCheck /></i></Button>
+                <Button className={'iconButton'} onClick={() => addToUserBase(question.id, 'unknown')} ><i><FaTimes /></i></Button>
             </div>
         </div>
     )

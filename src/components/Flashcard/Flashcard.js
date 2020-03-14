@@ -6,54 +6,43 @@ import { Button } from '../';
 import { CardContent } from './CardContent';
 
 export function Flashcard({questions, all, setAll, known, setKnown, unknown, setUnknown, checkAllWithUserBase}) {
-
     const [count, setCount] = useState(0);
     
     useEffect(() => {
-        if(known){
-            localStorage.setItem('known', JSON.stringify(known));
-        }
-        if(unknown){
-            localStorage.setItem('unknown', JSON.stringify(unknown));
-        }
+        localStorage.setItem('known', JSON.stringify(known));
+        localStorage.setItem('unknown', JSON.stringify(unknown));
     });
 
     console.log(all);
     console.log(known);
     console.log(unknown);
 
-    const addToUserKnown = (id, tag) => {
+    const addToUserBase = (id, tag) => {
         if (tag === 'known') {
-            if(!known.includes(id)){
-                let newKnown = known;
-                newKnown.push(id);
-                setKnown(newKnown);
-    
-                if(unknown.includes(id)){
-                    let newUnknown = unknown.filter(item => item !== id);
-                    setUnknown(newUnknown);
-                }
-            }
+            addingAndRemovingFromBase(id, known,setKnown, unknown, setUnknown)
         }else{
-            if(!unknown.includes(id)){
-                let newUnknown = unknown;
-                newUnknown.push(id);
-                setUnknown(newUnknown);
-                
-                if(known.includes(id)){
-                    let newKnown = known.filter(item => item !== id);
-                    setKnown(newKnown);
-                }
-            }
+            addingAndRemovingFromBase(id, unknown, setUnknown, known,setKnown)
         }
         checkAllWithUserBase(questions);
+    }
+
+    const addingAndRemovingFromBase = (id, baseToAdd, setBaseToAdd, baseToRemove, setBaseToRemove ) => {
+        if(!baseToAdd.includes(id)){
+            let newBaseToAdd = baseToAdd;
+            newBaseToAdd.push(id);
+            setBaseToAdd(newBaseToAdd);
+            if(baseToRemove.includes(id)){
+                let newBaseToRemove = baseToRemove.filter(item => item !== id);
+                setBaseToRemove(newBaseToRemove);
+            }
+        }
     }
 
     return (
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
                 { (count) ?  <Button onClick={() => setCount(count - 1)} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
-                <CardContent question={ questions[count] } addToUserKnown={addToUserKnown} />
+                <CardContent question={ questions[count] } addToUserBase={addToUserBase} />
                 { (count+1 < questions.length) ? <Button onClick={() => setCount(count + 1)} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
             </div>
         </div>
