@@ -39,52 +39,38 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
         }
     }
 
-    const nextId = () => {
-        let nextId
+    const drawNextQuestion = () => {
+        let nextId;
         while(nextId === undefined){
-            nextId = drawNextId();
+            let randomCategory = Math.floor(Math.random() * 100); 
+            if (randomCategory < 45) {
+                nextId = randomIdFromCategory(unknown);
+            }else if(randomCategory < 85){
+                nextId = randomIdFromCategory(all);
+            }else{
+                nextId = randomIdFromCategory(known);
+            }
         }
+        console.log(nextId);
         let nextQuestion = questions.find(question => question.id === nextId);
         setNextQuestion(nextQuestion);
     }
 
-    const drawNextId = () => {
-        let probabilityNumber = Math.floor(Math.random() * 100); 
-        let nextId;
-        if (probabilityNumber < 45) {
-            if(unknown.length > 0){
-                let drawWhich = unknown.length;
-                let drawId = Math.floor(Math.random() * drawWhich); 
-                nextId = unknown[drawId];
-            }else{
-                return
-            }
-        }else if(probabilityNumber < 85){
-            if(all.length > 0){
-                let drawWhich = all.length;
-                let drawId = Math.floor(Math.random() * drawWhich);
-                nextId = all[drawId]
-            }else{
-                return
-            }
-        }else{
-            if(known.length > 0){
-                let drawWhich = known.length;
-                let drawId = Math.floor(Math.random() * drawWhich); 
-                nextId = known[drawId]
-            }else{
-                return
-            }
+    const randomIdFromCategory = (category) => {
+        if(category.length > 0){
+            let nextId;
+            let numberToDraw = category.length;
+            let drawId = Math.floor(Math.random() * numberToDraw);
+            return nextId = category[drawId];
         }
-        return nextId;
     }
 
     return (
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
-                { (countQuestions) ?  <Button onClick={() => nextId()} className={'iconButton'}><i><FaChevronCircleLeft/></i></Button> : <p> </p>}
-                <CardContent question={ nextQuestion } addToUserBase={addToUserBase} />
-                { (countQuestions+1 < questions.length) ? <Button onClick={() => nextId()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> : <p> </p>}
+                <Button onClick={() => drawNextQuestion()} className={ 'iconButton' }><i><FaChevronCircleLeft/></i></Button>
+                <CardContent question={ nextQuestion } addToUserBase={ addToUserBase } />
+                <Button onClick={() => drawNextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button>
             </div>
         </div>
     )
