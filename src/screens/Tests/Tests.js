@@ -102,6 +102,7 @@ export function Tests() {
 					userPoints={userPoints}
 					setPoints={setUserPoints}
 					currentPage={currentPage}
+					setElementToShow={setElementToShow}
 				/>
 			))}
 
