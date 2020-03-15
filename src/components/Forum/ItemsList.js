@@ -5,17 +5,15 @@ import { SearchItem, Item } from 'components';
 
 export function ItemsList() {
     const [questions, setQuestions] = useState([]);
-    const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
     const [dateSort, setDateSort] = useState(false)
     const [commentsSort, setCommentsSort] = useState(false)
     const [isFilter, setIsFilter] = useState(false)
+    const [allQuestions, setAllQuestions] = useState([])
+
 
     useEffect(() => {
-        // firebase.database().ref('forum').on("value", data => {
-        //     const forumQuestion = data.val()
-        //     setQuestions(prepareData(forumQuestion))
-        // })
+
         function handleSnapshot(snapshot) {
             const items = snapshot.docs.map(doc => {
                 return { qid: doc.id, ...doc.data() }
@@ -23,22 +21,13 @@ export function ItemsList() {
             console.log("ITEMY", items)
             
             setQuestions(items)
+            setAllQuestions(items)
         }
         db.collection("forum").onSnapshot(handleSnapshot)
 
     }, [])
-    useEffect(() => {
+    useEffect(() => {}, [questions])
 
-    }, [questions])
-    const prepareData = data => {
-        return Object.entries(data).map(arr => {
-            const [qid, value] = arr;
-            return {
-                qid,
-                ...value
-            };
-        });
-    };
 
     function handleDateSort() {
         let topSort = questions.slice().sort((q1, q2)=>{
@@ -49,7 +38,8 @@ export function ItemsList() {
         })
 
        !dateSort ? setQuestions(topSort) : setQuestions(bottomSort)
-       setDateSort(prevState => !prevState)    }
+       setDateSort(prevState => !prevState)
+        }
 
     function handleVotesSort() {
 
@@ -79,6 +69,9 @@ export function ItemsList() {
        !commentsSort ? setQuestions(topSort) : setQuestions(bottomSort)
        setCommentsSort(prevState => !prevState)
     }
+    function searchedDisplay(searched) {
+        return setQuestions(searched)
+    }
 
     return (
         <div className={styles.mainDiv}>
@@ -86,7 +79,7 @@ export function ItemsList() {
                 <button className={styles.filterToggle} onClick={handleFilters}>FILTERS</button>
                 <div className={isFilter ? styles.sortingDiv : styles.none}>
 
-                    <SearchItem />
+                    <SearchItem allQuestions={allQuestions} searchedDisplay={searchedDisplay} />
                     <div className={styles.sorting}>
                         <button onClick={handleDateSort}>SORT BY DATE</button>
                         <button onClick={handleVotesSort}>SORT BY LIKES</button>
