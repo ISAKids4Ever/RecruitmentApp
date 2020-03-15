@@ -7,6 +7,7 @@ export function ItemsList() {
     const [questions, setQuestions] = useState([]);
     const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
+    const [dateSort, setDateSort] = useState(false)
     const [isFilter, setIsFilter] = useState(false)
 
     useEffect(() => {
@@ -39,8 +40,15 @@ export function ItemsList() {
     };
 
     function handleDateSort() {
-        return 0;
-    }
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.created - q1.created
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.created - q2.created
+        })
+
+       !dateSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setDateSort(prevState => !prevState)    }
 
     function handleVotesSort() {
 
@@ -51,8 +59,8 @@ export function ItemsList() {
             return q1.votes.length - q2.votes.length
         })
 
-       !sortType ? setQuestions(topSort) : setQuestions(bottomSort)
-       setSortType(prevState => !prevState)
+       !votesSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setVotesSort(prevState => !prevState)
     }
 
     function handleFilters() {
