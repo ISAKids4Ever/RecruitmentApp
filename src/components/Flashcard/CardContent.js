@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import styles from './Flashcard.module.css'
-import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react';
+import styles from './Flashcard.module.css';
+import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons/fa';
 
 import { Button } from '../';
 

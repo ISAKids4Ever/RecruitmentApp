@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Flashcards.module.css";
+
 import { FlashcardsIntro, Flashcard} from 'components';
-import { Questions } from './QuestionsBase.js'
+import { Questions } from './QuestionsBase.js';
 
 export function Flashcards() {
   const [shuffledQuestions, setShuffledQuestions] = useState(Questions);
-  const [showIntro, setShowIntro] = useState(true)
+  const [showIntro, setShowIntro] = useState(true);
   const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
   const [unknown, setUnknown] = useState(JSON.parse(localStorage.getItem('unknown')) || []);
   const [all, setAll] = useState();

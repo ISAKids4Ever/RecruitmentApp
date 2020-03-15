@@ -1,6 +1,6 @@
-import React, { useState, useEffect }  from 'react'
-import styles from './Flashcard.module.css'
-import { FaChevronCircleLeft, FaChevronCircleRight, FaUndo } from 'react-icons/fa'
+import React, { useState }  from 'react';
+import styles from './Flashcard.module.css';
+import { FaChevronCircleLeft, FaChevronCircleRight, FaUndo } from 'react-icons/fa';
 
 import { Button } from '../';
 import { CardContent } from './CardContent';
@@ -19,9 +19,9 @@ export function Flashcard({questions, all, known, setKnown, unknown, setUnknown,
 
     const addToUserBase = (id, tag) => {
         if (tag === 'known') {
-            addingAndRemovingFromBase(id, known,setKnown, unknown, setUnknown)
+            addingAndRemovingFromBase(id, known,setKnown, unknown, setUnknown);
         }else{
-            addingAndRemovingFromBase(id, unknown, setUnknown, known, setKnown)
+            addingAndRemovingFromBase(id, unknown, setUnknown, known, setKnown);
         }
         checkAllWithUserBase(questions);
     }
@@ -94,7 +94,8 @@ export function Flashcard({questions, all, known, setKnown, unknown, setUnknown,
             <div className={styles.flashcardPlusButtons}>
                 { countQuestions > 1 
                     ?   <Button onClick={() => backToPrevious()} className={ 'iconButton' }><i><FaChevronCircleLeft/></i></Button> 
-                    :   <p> </p> }
+                    :   <p> </p> 
+                }
                 <CardContent question={ currentQuestion } addToUserBase={ addToUserBase } known={known} unknown={unknown}/>
                 { countQuestions < 20 
                     ?   <Button onClick={() => nextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> 
