@@ -13,7 +13,7 @@ export function useAuth()  {
         setIsLoggedIn(false);
       }
     });
-  }, []);
+  }, [isLoggedIn]);
 
   return isLoggedIn;
 };

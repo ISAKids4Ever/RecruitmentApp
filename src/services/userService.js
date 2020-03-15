@@ -45,3 +45,11 @@ export const register = async (email, password, name, bio, joined) => {
 export const passwordReset = (email) => {
 	return firebase.auth().sendPasswordResetEmail(email);
 };
+
+export const currentUser = () => {
+  if (firebase.auth().currentUser) {
+    return firebase.auth().currentUser
+  } else {
+    console.log('user is not logged')
+  }
+}
