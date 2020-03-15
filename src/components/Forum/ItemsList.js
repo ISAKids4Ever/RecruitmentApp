@@ -8,6 +8,7 @@ export function ItemsList() {
     const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
     const [dateSort, setDateSort] = useState(false)
+    const [commentsSort, setCommentsSort] = useState(false)
     const [isFilter, setIsFilter] = useState(false)
 
     useEffect(() => {
@@ -67,6 +68,18 @@ export function ItemsList() {
         setIsFilter((value) => !value)
     }
 
+    function handleCommentsSort() {
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.comments.length - q1.comments.length
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.comments.length - q2.comments.length
+        })
+
+       !commentsSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setCommentsSort(prevState => !prevState)
+    }
+
     return (
         <div className={styles.mainDiv}>
             <div>
@@ -77,7 +90,7 @@ export function ItemsList() {
                     <div className={styles.sorting}>
                         <button onClick={handleDateSort}>SORT BY DATE</button>
                         <button onClick={handleVotesSort}>SORT BY LIKES</button>
-                        <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
+                        <button onClick={handleCommentsSort}>SORT BY COMMENTS</button>
                     </div>
                 </div>
             </div>
