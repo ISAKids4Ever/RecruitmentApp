@@ -53,6 +53,7 @@ const basicQuestions = [
 export function Tests() {
 	const [ currentPage, setCurrentPage ] = useState(1);
 	const [ elementToShow, setElementToShow ] = useState('TestIntro');
+	const [ timeHasGone, setTimeHasGone ] = useState(false)
 	const postsPerPage = 1;
 	const indexOfLastPage = currentPage * postsPerPage;
 	const indexOfFirtsPage = indexOfLastPage - postsPerPage;
@@ -103,6 +104,8 @@ export function Tests() {
 					setPoints={setUserPoints}
 					currentPage={currentPage}
 					setElementToShow={setElementToShow}
+					baseTimeLeft={questionsDisplay.length * 60}
+					setTimeHasGone={setTimeHasGone}
 				/>
 			))}
 
@@ -112,6 +115,7 @@ export function Tests() {
 					setElementToShow={setElementToShow}
 					userPoints={userPoints}
 					setCurrentPage={setCurrentPage}
+					timeHasGone={timeHasGone}
 				/>
 			) : null}
 			<Pagination
