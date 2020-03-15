@@ -8,16 +8,7 @@ export function Forum() {
   const [clicked, setClicked] = useState(false)
 
 
-  const addQuestion = () => {
 
-    // firebase.database().ref('forum').push({
-    //   user: 'unknown',
-    //   title: 'title',
-    //   question: 'question',
-    //   createdAt: new Date().toISOString()
-    // })
-
-  };
 
   return (
     <div className={styles.mainDiv}>
@@ -35,7 +26,7 @@ export function Forum() {
               CLICK HERE
             </a>
           </h1>}
-        <CreateItem addQuestion={addQuestion} clicked={clicked} />
+        <CreateItem  clicked={clicked} />
         <ItemsList />
       </div>
     </div>

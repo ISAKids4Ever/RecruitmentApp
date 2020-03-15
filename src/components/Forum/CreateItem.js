@@ -14,7 +14,7 @@ export function CreateItem({clicked}) {
 	function handleCreateLink() {
 		const { title, description } = values;
 		console.log("Errors: ", errors)
-		if(!errors) {
+		if(errors.length !== 0) {
 			const newLink = {
 				title,
 				description,

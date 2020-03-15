@@ -25,7 +25,9 @@ export function ItemsList() {
         db.collection("forum").onSnapshot(handleSnapshot)
 
     }, [])
-    
+    useEffect(() => {
+
+    }, [questions])
     const prepareData = data => {
         return Object.entries(data).map(arr => {
             const [qid, value] = arr;
@@ -41,7 +43,16 @@ export function ItemsList() {
     }
 
     function handleVotesSort() {
-        return 0
+
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.votes.length - q1.votes.length
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.votes.length - q2.votes.length
+        })
+
+       !sortType ? setQuestions(topSort) : setQuestions(bottomSort)
+       setSortType(prevState => !prevState)
     }
 
     function handleFilters() {

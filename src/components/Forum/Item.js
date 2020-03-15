@@ -1,4 +1,5 @@
 import React from 'react'
+import firebase from '../'
 import { Link } from 'react-router-dom'
 import styles from './Item.module.css'
 import {db} from '../../firebase'
@@ -23,7 +24,8 @@ export function Item({ question }) {
   }
 
   function handleDelete() {
-    // firebase.database().ref('forum').child(question.qid).remove()
+    let questionDelRef = db.collection('forum').doc(question.qid);
+    questionDelRef.delete()
   }
   return (
     <div className={styles.mainDiv}>
