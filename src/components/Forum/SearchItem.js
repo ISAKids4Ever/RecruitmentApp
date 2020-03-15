@@ -15,7 +15,8 @@ export function SearchItem({allQuestions, searchedDisplay}) {
         let searched = filter.toLowerCase();
     
         let included = allQuestions.filter(question => {
-            return question.description.toLowerCase().includes(searched)
+            return question.description.toLowerCase().includes(searched) ||
+                   question.title.toLowerCase().includes(searched)
         })
         searchedDisplay(included)
 

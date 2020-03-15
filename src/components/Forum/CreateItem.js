@@ -24,13 +24,7 @@ export function CreateItem({clicked}) {
 						date: Date.now()
 					}
 				],
-				comments: [
-					{
-						createdBy: '',
-						comment: '',
-						createdAt: ''
-					}
-				],
+				comments: [],
 				created: Date.now(),
 				id: uuid()
 			};

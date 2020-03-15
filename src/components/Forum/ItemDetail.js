@@ -26,6 +26,7 @@ export function ItemDetails(props) {
   questionRef.get().then(doc => {
     setQuestions({...doc.data(), id: doc.id})
   })
+
   
  }, [])
 
@@ -46,6 +47,7 @@ export function ItemDetails(props) {
       setQuestions(prevState => ({...prevState, comments: updatedComments}))
     }
   })
+  console.log("detail", question)
 
   }
 
@@ -60,13 +62,13 @@ export function ItemDetails(props) {
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
-        {question.comments != undefined && question.comments.length > 1 && question.comments.map((comment) => {
+        { question.comments.map((comment) => {
           return (<div className={styles.commentDiv} style={{ display: "flex", flexDirection: "column", width: "90%" }}>
             <div style={{ display: "flex", width: "100%" }}>
-              <div style={{ marginRight: "1%", width: "50%", textAlign: "start", color: "black" }}>User:{comment.createdBy}</div>
-              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {comment.createdAt && formatDistanceToNow(comment.createdAt)} ago</div>
+        <div style={{ marginRight: "1%", width: "50%", textAlign: "start", color: "black" }}>USER:{comment.postedBy.user}</div>
+              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {formatDistanceToNow(comment.created)} ago</div>
             </div>
-            <div style={{ fontSize: "150%", width: "100%", textAlign: "start" }}>{comment.comment}</div>
+            <div style={{ fontSize: "150%", width: "100%", textAlign: "start" }}>{comment.text}</div>
           </div>)
         })}
       </div>
