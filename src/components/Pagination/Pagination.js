@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Pagination.modules.css"
+import styles from "./Pagination.module.css"
 import { Button } from 'components';
 
 
@@ -14,9 +14,9 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
   if (elementToShow !== "TestIntro") {
     return (
       <nav>
-        <div className="pagination">
+        <section className={styles.pagination}>
           {pageNumbers.map(number => (
-            <div key={number} className="pageItem">
+            <div key={number} className={styles.pageItem}>
               <Button
                 tabIndex={-1}
                 onClick={() => {
@@ -28,7 +28,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage, el
               </Button>
             </div>
           ))}
-        </div>
+        </section>
       </nav>
     );
   }
