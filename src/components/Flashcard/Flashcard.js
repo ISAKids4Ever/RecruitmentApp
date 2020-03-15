@@ -7,22 +7,20 @@ import { CardContent } from './CardContent';
 
 export function Flashcard({questions, all, setAll, known, setKnown, unknown, setUnknown, checkAllWithUserBase}) {
     const [countQuestions, setCountQuestions] = useState(0);
-    const [nextQuestion, setNextQuestion] = useState(questions[0]);
-    
-    useEffect(() => {
-        localStorage.setItem('known', JSON.stringify(known));
-        localStorage.setItem('unknown', JSON.stringify(unknown));
-    });
+    const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
+    const [previousQuestions, setPreviousQuestions] = useState([questions[0].id])
 
-    console.log(all);
-    console.log(known);
-    console.log(unknown);
+    console.log(all, 'All-(known+unknown)');
+    console.log(known, 'Known');
+    console.log(unknown, 'Unknown');
+    console.log(previousQuestions, 'Previous questions');
+    console.log(currentQuestion.id, 'Current question');
 
     const addToUserBase = (id, tag) => {
         if (tag === 'known') {
             addingAndRemovingFromBase(id, known,setKnown, unknown, setUnknown)
         }else{
-            addingAndRemovingFromBase(id, unknown, setUnknown, known,setKnown)
+            addingAndRemovingFromBase(id, unknown, setUnknown, known, setKnown)
         }
         checkAllWithUserBase(questions);
     }
@@ -39,6 +37,10 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
         }
     }
 
+    const nextQuestion = () => {
+
+    }
+
     const drawNextQuestion = () => {
         let nextId;
         while(nextId === undefined){
@@ -51,9 +53,14 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
                 nextId = randomIdFromCategory(known);
             }
         }
-        console.log(nextId);
         let nextQuestion = questions.find(question => question.id === nextId);
-        setNextQuestion(nextQuestion);
+        setCurrentQuestion(nextQuestion);
+
+        let newPrevious = previousQuestions;
+        newPrevious.push(nextId);
+        setPreviousQuestions(newPrevious);
+
+        setCountQuestions(countQuestions + 1);
     }
 
     const randomIdFromCategory = (category) => {
@@ -69,7 +76,7 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
                 <Button onClick={() => drawNextQuestion()} className={ 'iconButton' }><i><FaChevronCircleLeft/></i></Button>
-                <CardContent question={ nextQuestion } addToUserBase={ addToUserBase } />
+                <CardContent question={ currentQuestion } addToUserBase={ addToUserBase } />
                 <Button onClick={() => drawNextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button>
             </div>
         </div>

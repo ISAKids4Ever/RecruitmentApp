@@ -16,6 +16,11 @@ export function Flashcards() {
     checkAllWithUserBase(shuffledQuestions);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('known', JSON.stringify(known));
+    localStorage.setItem('unknown', JSON.stringify(unknown));
+  });
+
   const whatsDisplayed = (dataFromIntro) => {
     setShowIntro(dataFromIntro);
   }
