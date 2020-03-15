@@ -34,10 +34,10 @@ export const useFormValidation = (initialState, validate, authenticate) => {
     const handleSubmit = (event) => {
         console.log("CLICKED")
       event.preventDefault();
-    //   const validationErrors = validate(values)
-    //   setErrors(validationErrors)
+      const validationErrors = validate(values)
+      setErrors(() => validationErrors)
       setSubmitting(true)
-    
+    console.log("useFormEror:", errors)
 
     }
  return { handleChange, handleSubmit, handleBlur, errors, isSubmitting, values }

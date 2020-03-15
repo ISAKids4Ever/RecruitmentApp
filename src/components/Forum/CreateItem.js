@@ -10,30 +10,34 @@ const INITIAL_STATE = {
 	description: ''
 };
 export function CreateItem({clicked}) {
-	const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
+	const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
 	function handleCreateLink() {
 		const { title, description } = values;
-		const newLink = {
-			title,
-			description,
-			votes: [
-				{
-					user: 'unknown',
-					date: Date.now()
-				}
-			],
-			comments: [
-				{
-					createdBy: '',
-					comment: '',
-					createdAt: ''
-				}
-			],
-			created: Date.now(),
-			id: uuid()
-		};
-		console.log("newLink", newLink)
-		db.collection("forum").add(newLink)
+		console.log("Errors: ", errors)
+		if(!errors) {
+			const newLink = {
+				title,
+				description,
+				votes: [
+					{
+						user: 'unknown',
+						date: Date.now()
+					}
+				],
+				comments: [
+					{
+						createdBy: '',
+						comment: '',
+						createdAt: ''
+					}
+				],
+				created: Date.now(),
+				id: uuid()
+			};
+			console.log("newLink", newLink)
+			db.collection("forum").add(newLink)
+		}
+		
 	}
 
 	return (
@@ -47,6 +51,7 @@ export function CreateItem({clicked}) {
 				value={values.title}
 				type="text"
 			/>
+			{errors.title && <div>{`ERROR: ${errors.title}`}</div>}
 			<input
 				className={styles.input}
 				name="description"
@@ -56,6 +61,8 @@ export function CreateItem({clicked}) {
 				value={values.description}
 				type="text"
 			/>
+			{errors.description && <div>{`ERROR: ${errors.description}`}</div>}
+
 			<button type="submit" className={styles.button} >
 				ADD QUESTION
 			</button>
