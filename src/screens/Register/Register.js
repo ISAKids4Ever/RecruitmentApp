@@ -9,7 +9,7 @@ export function Register() {
    <div className={styles.mainDiv2}>
      <Link to="/zaloguj">zaloguj się</Link>
       <h1>Register</h1>
-      <button onClick={() => register("email5@email.com", "password", "name", "bio", "joined")
+      <button onClick={() => register("email1@email.com", "password", "name", "bio", "joined")
       }>Zarejestruj</button>
    </div>
   );
