@@ -1,20 +1,21 @@
 import React, { useState, useEffect }  from 'react'
 import styles from './Flashcard.module.css'
-import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
+import { FaChevronCircleLeft, FaChevronCircleRight, FaUndo } from 'react-icons/fa'
 
 import { Button } from '../';
 import { CardContent } from './CardContent';
 
-export function Flashcard({questions, all, setAll, known, setKnown, unknown, setUnknown, checkAllWithUserBase}) {
-    const [countQuestions, setCountQuestions] = useState(0);
+export function Flashcard({questions, all, known, setKnown, unknown, setUnknown, checkAllWithUserBase, setShowIntro}) {
+    const [countQuestions, setCountQuestions] = useState(1);
     const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
-    const [previousQuestions, setPreviousQuestions] = useState([questions[0].id])
+    const [previousQuestions, setPreviousQuestions] = useState([questions[0].id]);
 
     console.log(all, 'All-(known+unknown)');
     console.log(known, 'Known');
     console.log(unknown, 'Unknown');
     console.log(previousQuestions, 'Previous questions');
     console.log(currentQuestion.id, 'Current question');
+    console.log(countQuestions, 'Count');
 
     const addToUserBase = (id, tag) => {
         if (tag === 'known') {
@@ -38,7 +39,24 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
     }
 
     const nextQuestion = () => {
+        if(countQuestions === previousQuestions.length){
+            drawNextQuestion();
+        }else{
+            let forward = +1;
+            movingInsidePreviousQuestions(forward);
+        }
+    }
 
+    const backToPrevious = () => {
+        let backward = -1;
+        movingInsidePreviousQuestions(backward);
+    }
+
+    const movingInsidePreviousQuestions = (direction) => {
+        let newCount = countQuestions + direction;
+        let newCurrentQuestion = questions.find(question => question.id === previousQuestions[newCount - 1]);
+        setCurrentQuestion(newCurrentQuestion);
+        setCountQuestions(newCount);
     }
 
     const drawNextQuestion = () => {
@@ -65,19 +83,23 @@ export function Flashcard({questions, all, setAll, known, setKnown, unknown, set
 
     const randomIdFromCategory = (category) => {
         if(category.length > 0){
-            let nextId;
             let numberToDraw = category.length;
             let drawId = Math.floor(Math.random() * numberToDraw);
-            return nextId = category[drawId];
+            return category[drawId];
         }
     }
 
     return (
         <div className={styles.flashcardView}>
             <div className={styles.flashcardPlusButtons}>
-                <Button onClick={() => drawNextQuestion()} className={ 'iconButton' }><i><FaChevronCircleLeft/></i></Button>
+                { countQuestions > 1 
+                    ?   <Button onClick={() => backToPrevious()} className={ 'iconButton' }><i><FaChevronCircleLeft/></i></Button> 
+                    :   <p> </p> }
                 <CardContent question={ currentQuestion } addToUserBase={ addToUserBase } />
-                <Button onClick={() => drawNextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button>
+                { countQuestions < 20 
+                    ?   <Button onClick={() => nextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> 
+                    :   <Button onClick={() => setShowIntro(true) } className={'iconButton'}><i><FaUndo/></i></Button> 
+                }
             </div>
         </div>
     )

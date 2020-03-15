@@ -63,6 +63,7 @@ export function Flashcards() {
           unknown={unknown}
           setUnknown={setUnknown}
           checkAllWithUserBase={checkAllWithUserBase}
+          setShowIntro={setShowIntro}
         />
       </div>
     )
