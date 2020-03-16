@@ -8,9 +8,8 @@ const INIT_STATE = {
   title: "",
   created: "",
   description: "",
-  votedBy: []
+  votes: []
 }
-
 
 
 export function ItemDetails(props) {
@@ -24,10 +23,8 @@ export function ItemDetails(props) {
  useEffect(() => {
 
   questionRef.get().then(doc => {
-    setQuestions({...doc.data(), id: doc.id})
+    setQuestions({...doc.data(), id: doc.id,})
   })
-
-  
  }, [])
 
 
@@ -58,7 +55,7 @@ export function ItemDetails(props) {
           <div className={styles.questionSectionTitle}>{question.title}</div>
           {question.created && <div style={{ width: '100%', color: "black" }}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
         </div>
-        {/* <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votes.length}</div> */}
+        <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votes.length}</div>
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
