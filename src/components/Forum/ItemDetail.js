@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {db} from "../../firebase";
+import { db } from "../../firebase";
+
+import { addQuestion } from "services";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './ItemDetail.module.css'
 
@@ -9,67 +11,58 @@ const INIT_STATE = {
   created: "",
   description: "",
   votes: [],
-  postedBy:{
-    user:"",
-    id:""
+  postedBy: {
+    user: "",
+    id: ""
   }
 }
 
 
 export function ItemDetails(props) {
   const [commentText, setCommentText] = useState("");
-  const [question, setQuestions] = useState(INIT_STATE)
+  const [questions, setQuestions] = useState(INIT_STATE)
 
   const questionId = props.match.params.qid;
   const questionRef = db.collection('forum').doc(questionId);
 
+  useEffect(() => {
+    watchComments()
+  }, [])
 
- useEffect(() => {
-
-  questionRef.get().then(doc => {
-    setQuestions({...doc.data(), id: doc.id,})
-  })
-  console.log("fjsdhj", question)
- }, [])
-
-
-
-  function handleAddComment() {
-
-  questionRef.get().then(doc => {
-    if(doc.exists) {
-      const previosuComments = doc.data().comments
-      const newComment = {
-        postedBy: {id:"id", user:"username"},
-        created: Date.now(),
-        text: commentText
-      }
-      const updatedComments = [...previosuComments, newComment];
-      questionRef.update({comments: updatedComments})
-      setQuestions(prevState => ({...prevState, comments: updatedComments}))
-    }
-  })
-  console.log("detail", question)
-
+  function watchComments() {
+    questionRef.onSnapshot(function (doc) {
+      setQuestions(doc.data())
+    });
   }
 
   return (
     <div className={styles.mainDiv}>
       <div className={styles.questionSection}>
         <div className={styles.questionSection1} >
-          <div className={styles.questionSectionTitle}>{question.title}</div>
-          {question.created && 
-          <div className={styles.questionSectionTitle1}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
+          <div className={styles.questionSectionTitle}>{questions.title}</div>
+          {
+            questions.created && (
+              <div className={styles.questionSectionTitle1}>
+                Asked  {formatDistanceToNow(questions.created, { addSuffix: true })}
+              </div>
+            )
+          }
+          <div className={styles.questionDescription}>{questions.description}</div>
         </div>
-        <div className={styles.questionSectionTitle2} className={styles.likes}>LIKES: {question.votes.length}</div>
+        <div className={`${styles.questionSectionTitle2} ${styles.likes}`}>LIKES: {questions.votes.length}</div>
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
-        { question.comments.map((comment) => {
-          return (<div className={styles.commentDiv}>
+        {questions.comments.map((comment, index) => {
+          return (
+          <div className={styles.commentDiv} key={index.toString()}>
             <div className={styles.commentDiv1}>
-        <div className={styles.commentDiv2}>USER:{comment.postedBy.user}</div>
-              <div className={styles.commentDiv3}>Added: {formatDistanceToNow(comment.created)} ago</div>
+              <div className={styles.commentDiv2}>
+                USER:{comment.postedBy.user}
+              </div>
+              <div className={styles.commentDiv3}>
+                Added: {formatDistanceToNow(comment.created)} ago
+              </div>
             </div>
             <div className={styles.commentDiv4}>{comment.text}</div>
           </div>)
@@ -83,7 +76,12 @@ export function ItemDetails(props) {
           value={commentText}
         />
         <div>
-          <button className={styles.addCommentBtn} onClick={handleAddComment}>AddCommnet</button>
+          <button 
+            className={styles.addCommentBtn} 
+            onClick={() => addQuestion(questionId, commentText, 'id', 'username')}
+          >
+              AddCommnet
+          </button>
         </div>
       </div>
     </div>

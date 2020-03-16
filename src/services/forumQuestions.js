@@ -19,5 +19,26 @@ export function handleCreateLink(values, errors) {
         };
         db.collection("forum").add(newLink)
     }
-    
 }
+
+
+
+export function addQuestion(questionId, text, id, user) {
+    const questionRef = db.collection('forum').doc(questionId);
+
+    questionRef.get().then(doc => {
+      if (doc.exists) {
+        const previosuComments = doc.data().comments
+        const newComment = {
+          postedBy: {
+            id,
+            user
+          },
+          created: Date.now(),
+          text
+        }
+        const updatedComments = [...previosuComments, newComment];
+        questionRef.update({ comments: updatedComments })
+      }
+    })
+  }
