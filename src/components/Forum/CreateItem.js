@@ -1,9 +1,9 @@
 import React from 'react';
 import {useFormValidation} from 'hooks';
-import {validateCreate} from 'services';
-import {db} from '../../firebase';
-import uuid from 'react-uuid';
+import {validateCreate,  handleCreateLink} from 'services';
+
 import styles from './CreateItem.module.css';
+
 
 const INITIAL_STATE = {
 	title: '',
@@ -11,28 +11,7 @@ const INITIAL_STATE = {
 };
 export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-	function handleCreateLink() {
-		const { title, description } = values;
-		console.log("Errors: ", errors)
-		if(errors.length !== 0) {
-			const newLink = {
-				title,
-				description,
-				votes: [
-					{
-						user: 'unknown',
-						date: Date.now()
-					}
-				],
-				comments: [],
-				created: Date.now(),
-				id: uuid()
-			};
-			console.log("newLink", newLink)
-			db.collection("forum").add(newLink)
-		}
-		
-	}
+     
 
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
