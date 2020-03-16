@@ -18,7 +18,6 @@ export function ItemsList() {
             const items = snapshot.docs.map(doc => {
                 return { qid: doc.id, ...doc.data() }
             })
-            console.log("ITEMY", items)
             
             setQuestions(items)
             setAllQuestions(items)

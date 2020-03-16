@@ -6,12 +6,10 @@ export function SearchItem({allQuestions, searchedDisplay}) {
     const [filter, setFilter] = useState("");
     
     useEffect(()=>{
-        console.log("Q", allQuestions)
     }, [])
 
     function handleSearch(event) {
         event.preventDefault();
-        console.log("AFTER SUB", allQuestions)
         let searched = filter.toLowerCase();
     
         let included = allQuestions.filter(question => {
@@ -20,7 +18,6 @@ export function SearchItem({allQuestions, searchedDisplay}) {
         })
         searchedDisplay(included)
 
-        console.log("INCLUDED: ", included)
     }
 
     return(

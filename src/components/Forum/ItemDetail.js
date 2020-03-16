@@ -29,7 +29,6 @@ export function ItemDetails(props) {
   questionRef.get().then(doc => {
     setQuestions({...doc.data(), id: doc.id,})
   })
-  console.log("fjsdhj", question)
  }, [])
 
 
@@ -49,7 +48,6 @@ export function ItemDetails(props) {
       setQuestions(prevState => ({...prevState, comments: updatedComments}))
     }
   })
-  console.log("detail", question)
 
   }
 
