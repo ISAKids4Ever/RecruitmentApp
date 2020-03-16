@@ -1,4 +1,4 @@
-import {db} from '../firebase';
+import {db} from '..//firebase';
 import uuid from 'react-uuid';
 
 export function handleCreateLink(values, errors) {
@@ -21,4 +21,3 @@ export function handleCreateLink(values, errors) {
     }
     
 }
-

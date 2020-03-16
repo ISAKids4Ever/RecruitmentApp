@@ -17,7 +17,7 @@ const INIT_STATE = {
 
 
 export function ItemDetails(props) {
-  const [commentText, setCommentText] = React.useState("");
+  const [commentText, setCommentText] = useState("");
   const [question, setQuestions] = useState(INIT_STATE)
 
   const questionId = props.match.params.qid;
