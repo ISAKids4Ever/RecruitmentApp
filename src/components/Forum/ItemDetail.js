@@ -8,7 +8,11 @@ const INIT_STATE = {
   title: "",
   created: "",
   description: "",
-  votes: []
+  votes: [],
+  postedBy:{
+    user:"",
+    id:""
+  }
 }
 
 
@@ -25,6 +29,7 @@ export function ItemDetails(props) {
   questionRef.get().then(doc => {
     setQuestions({...doc.data(), id: doc.id,})
   })
+  console.log("fjsdhj", question)
  }, [])
 
 
@@ -51,21 +56,22 @@ export function ItemDetails(props) {
   return (
     <div className={styles.mainDiv}>
       <div className={styles.questionSection}>
-        <div style={{ width: "70%" }}>
+        <div className={styles.questionSection1} >
           <div className={styles.questionSectionTitle}>{question.title}</div>
-          {question.created && <div style={{ width: '100%', color: "black" }}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
+          {question.created && 
+          <div className={styles.questionSectionTitle1}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
         </div>
-        <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votes.length}</div>
+        <div className={styles.questionSectionTitle2} className={styles.likes}>LIKES: {question.votes.length}</div>
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
         { question.comments.map((comment) => {
-          return (<div className={styles.commentDiv} style={{ display: "flex", flexDirection: "column", width: "90%" }}>
-            <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ marginRight: "1%", width: "50%", textAlign: "start", color: "black" }}>USER:{comment.postedBy.user}</div>
-              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {formatDistanceToNow(comment.created)} ago</div>
+          return (<div className={styles.commentDiv}>
+            <div className={styles.commentDiv1}>
+        <div className={styles.commentDiv2}>USER:{comment.postedBy.user}</div>
+              <div className={styles.commentDiv3}>Added: {formatDistanceToNow(comment.created)} ago</div>
             </div>
-            <div style={{ fontSize: "150%", width: "100%", textAlign: "start" }}>{comment.text}</div>
+            <div className={styles.commentDiv4}>{comment.text}</div>
           </div>)
         })}
       </div>
