@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import firebase from '../../firebase'
-
+import React, { useState } from 'react'
+import  {useAuth}  from "hooks";
 import { ItemsList, CreateItem } from "components";
 import styles from './Forum.module.css'
 
 export function Forum() {
   const [clicked, setClicked] = useState(false)
-
+   const isLoggedIn = useAuth();
 
 
 
@@ -14,7 +13,7 @@ export function Forum() {
     <div className={styles.mainDiv}>
       <div className={styles.content}>
         <h1>FORUM</h1>
-        {clicked ||
+        { isLoggedIn && (clicked || 
           <h1>Do you wanna create a topic/ask question?
             <a
               style={{ cursor: "pointer", color: "black" }}
@@ -25,7 +24,7 @@ export function Forum() {
             >
               CLICK HERE
             </a>
-          </h1>}
+          </h1>)}
         <CreateItem  clicked={clicked} />
         <ItemsList />
       </div>

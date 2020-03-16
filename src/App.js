@@ -18,7 +18,7 @@ import { Forum, Home, Login, Profile, Register, Questions, Tests }from "screens"
 const App = () => {
   const isLoggedIn = useAuth();
 
-  if (isLoggedIn == null) {
+  if (isLoggedIn === null) {
     return (      
       <div>Pobieranie danych...</div>  
     );

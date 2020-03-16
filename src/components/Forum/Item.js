@@ -37,10 +37,10 @@ export function Item({ question }) {
           <div onClick={handleDelete} className={styles.handleDelete} >DELETE</div>
         </div>
       </div>
-      <div className={styles.likesSection}>
+      <div className={styles.likesSection} onClick={handleVote}>
         <div className={styles.likeSection1}>{question.votes.length}</div>
-        <div className={styles.likeSection2} onClick={handleVote}>
-          <span>^</span>
+        <div className={styles.likeSection2} >
+          <span>&#8593;</span>
         </div>
       </div>
     </div>

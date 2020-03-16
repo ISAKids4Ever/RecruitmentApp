@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 };
 export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-     
 
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
