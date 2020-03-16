@@ -29,39 +29,11 @@ export function ItemDetails(props) {
     watchComments()
   }, [])
 
-<<<<<<< HEAD
- useEffect(() => {
-
-  questionRef.get().then(doc => {
-    setQuestions({...doc.data(), id: doc.id,})
-  })
- }, [])
-
-
-
-  function handleAddComment() {
-
-  questionRef.get().then(doc => {
-    if(doc.exists) {
-      const previosuComments = doc.data().comments
-      const newComment = {
-        postedBy: {id:"id", user:"username"},
-        created: Date.now(),
-        text: commentText
-      }
-      const updatedComments = [...previosuComments, newComment];
-      questionRef.update({comments: updatedComments})
-      setQuestions(prevState => ({...prevState, comments: updatedComments}))
-    }
-  })
-
-=======
   function watchComments() {
     questionRef.onSnapshot(function (doc) {
       setQuestions(doc.data())
     });
->>>>>>> 6b3f43c4d8c89024d74a2aaf568199c04e6b705b
-  }
+}
 
   return (
     <div className={styles.mainDiv}>
