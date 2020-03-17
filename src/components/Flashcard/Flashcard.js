@@ -54,7 +54,7 @@ export function Flashcard({questions, all, known, setKnown, unknown, setUnknown,
 
     const drawNextQuestion = () => {
         let nextId;
-        while(nextId === undefined){
+        while(nextId === undefined || previousQuestions.includes(nextId)){
             let randomCategory = Math.floor(Math.random() * 100); 
             if (randomCategory < 45) {
                 nextId = randomIdFromCategory(unknown);
@@ -90,7 +90,7 @@ export function Flashcard({questions, all, known, setKnown, unknown, setUnknown,
                     :   <p> </p> 
                 }
                 <CardContent question={ currentQuestion } addToUserBase={ addToUserBase } known={known} unknown={unknown}/>
-                { countQuestions < 20 
+                { countQuestions < 12 
                     ?   <Button onClick={() => nextQuestion()} className={'iconButton'}><i><FaChevronCircleRight/></i></Button> 
                     :   <Button onClick={() => setShowIntro(true) } className={'iconButton'}><i><FaUndo/></i></Button> 
                 }
