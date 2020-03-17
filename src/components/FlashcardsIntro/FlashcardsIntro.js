@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './QuestionsIntro.module.css'
+import styles from './FlashcardsIntro.module.css'
 import { Button } from 'components';
 
 
-export function QuestionsIntro(props) {
+export function FlashcardsIntro(props) {
     const {showIntro} = props
 
     const hideIntro = (hide) => {
@@ -11,8 +11,8 @@ export function QuestionsIntro(props) {
     }
 
     return (
-        <div className={styles.Question}>
-            <div className={styles.questionCard}>
+        <div className={styles.FlashcardsIntro}>
+            <div className={styles.FlashcardsIntroCard}>
                 <p>Poznaj typowe pytania rekrutacujne i odpowiedzi.</p>
             </div>
             <Button onClick={() => hideIntro(false)}>Wylosuj pytanie</Button>
