@@ -1,42 +1,73 @@
 import React, { useState, useEffect } from 'react'
 import styles from './ItemsList.module.css'
-import firebase from '../../firebase'
+import {db} from '../../firebase'
 import { SearchItem, Item } from 'components';
 
 export function ItemsList() {
     const [questions, setQuestions] = useState([]);
-    const [sortType, setSortType] = useState(false)
     const [votesSort, setVotesSort] = useState(false)
+    const [dateSort, setDateSort] = useState(false)
+    const [commentsSort, setCommentsSort] = useState(false)
     const [isFilter, setIsFilter] = useState(false)
+    const [allQuestions, setAllQuestions] = useState([])
 
-    useEffect(() => {
-        firebase.database().ref('forum').on("value", data => {
-            const forumQuestion = data.val()
-            setQuestions(prepareData(forumQuestion))
+
+    useEffect(() => {       
+        // TODO: Unsubscribe to this function 
+        db.collection("forum").onSnapshot(handleSnapshot)
+    }, [questions])
+
+    function handleSnapshot(snapshot) {
+        const items = snapshot.docs.map(doc => {
+            return { qid: doc.id, ...doc.data() }
         })
-
-    }, [])
-    
-    const prepareData = data => {
-        return Object.entries(data).map(arr => {
-            const [qid, value] = arr;
-            return {
-                qid,
-                ...value
-            };
-        });
-    };
-
-    function handleDateSort() {
-        return 0;
+        
+        setQuestions(items)
+        setAllQuestions(items)
     }
 
+    function handleDateSort() {
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.created - q1.created
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.created - q2.created
+        })
+
+       !dateSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setDateSort(prevState => !prevState)
+        }
+
     function handleVotesSort() {
-        return 0
+
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.votes.length - q1.votes.length
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.votes.length - q2.votes.length
+        })
+
+       !votesSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setVotesSort(prevState => !prevState)
     }
 
     function handleFilters() {
         setIsFilter((value) => !value)
+    }
+
+    function handleCommentsSort() {
+        let topSort = questions.slice().sort((q1, q2)=>{
+            return q2.comments.length - q1.comments.length
+        })
+        let bottomSort = questions.slice().sort((q1, q2)=>{
+            return q1.comments.length - q2.comments.length
+        })
+
+       !commentsSort ? setQuestions(topSort) : setQuestions(bottomSort)
+       setCommentsSort(prevState => !prevState)
+    }
+    function searchedDisplay(searched) {
+        return setQuestions(searched)
     }
 
     return (
@@ -45,11 +76,11 @@ export function ItemsList() {
                 <button className={styles.filterToggle} onClick={handleFilters}>FILTERS</button>
                 <div className={isFilter ? styles.sortingDiv : styles.none}>
 
-                    <SearchItem />
+                    <SearchItem allQuestions={allQuestions} searchedDisplay={searchedDisplay} />
                     <div className={styles.sorting}>
                         <button onClick={handleDateSort}>SORT BY DATE</button>
                         <button onClick={handleVotesSort}>SORT BY LIKES</button>
-                        <button onClick={handleVotesSort}>SORT BY COMMENTS</button>
+                        <button onClick={handleCommentsSort}>SORT BY COMMENTS</button>
                     </div>
                 </div>
             </div>

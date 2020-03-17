@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase";
+import { db } from "../../firebase";
+
+import { addQuestion } from "services";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './ItemDetail.module.css'
 
@@ -8,73 +10,62 @@ const INIT_STATE = {
   title: "",
   created: "",
   description: "",
-  votedBy: []
+  votes: [],
+  postedBy: {
+    user: "",
+    id: ""
+  }
 }
 
 
-
 export function ItemDetails(props) {
-  const [commentText, setCommentText] = React.useState("");
-  const [question, setQuestions] = useState(INIT_STATE)
+  const [commentText, setCommentText] = useState("");
+  const [questions, setQuestions] = useState(INIT_STATE)
 
+  const questionId = props.match.params.qid;
+  const questionRef = db.collection('forum').doc(questionId);
 
+  // TODO: Unsubscribe to this function
   useEffect(() => {
-    firebase.database().ref('forum').child(props.match.params.qid).on("value", data => {
-      const forumQuestion = data.val()
-      setQuestions(forumQuestion)
-
-    })
-
+    watchComments()
   }, [])
 
-
-
-  function handleAddComment() {
-    firebase.database().ref('forum/' + props.match.params.qid + '/comments').once("value", snapshot => {
-      if (snapshot.exists()) {
-        const email = snapshot.val();
-        firebase.database().ref('forum/' + props.match.params.qid).update({
-          comments: [
-            ...question.comments,
-            {
-              createdBy: 'krzychi',
-              createdAt: Date.now(),
-              comment: commentText
-            }
-          ]
-        });
-      } else {
-        firebase.database().ref('forum/' + props.match.params.qid).update({
-          comments: [
-            {
-              createdBy: 'krzychi',
-              createdAt: Date.now(),
-              comment: commentText
-            }
-          ]
-        });
-      }
+  function watchComments() {
+    questionRef.onSnapshot(function (doc) {
+      setQuestions(doc.data())
     });
-  }
+}
 
   return (
     <div className={styles.mainDiv}>
       <div className={styles.questionSection}>
-        <div style={{ width: "70%" }}>
-          <div className={styles.questionSectionTitle}>{question.title}</div>
-          {question.created && <div style={{ width: '100%', color: "black" }}>Asked  {formatDistanceToNow(question.created, { addSuffix: true })}</div>}        <div className={styles.questionDescription}>{question.description}</div>
+        <div className={styles.questionSection1} >
+          <div className={styles.questionSectionTitle}>{questions.title}</div>
+          {
+            questions.created && (
+              <div className={styles.questionSectionTitle1}>
+                Asked  {formatDistanceToNow(questions.created, { addSuffix: true })}
+              </div>
+            )
+          }
+          <div className={styles.questionDescription}>{questions.description}</div>
         </div>
-        <div style={{ width: "30%", fontWeight: "bolder", fontSize: "150%" }} className={styles.likes}>LIKES: {question.votedBy.length}</div>
+        <div className={`${styles.questionSectionTitle2} ${styles.likes}`}>LIKES: {questions.votes.length}</div>
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.commentsTitle}>COMMENTS:</div>
-        {question.comments != undefined && question.comments.length > 1 && question.comments.map((comment) => {
-          return (<div className={styles.commentDiv} style={{ display: "flex", flexDirection: "column", width: "90%" }}>
-            <div style={{ display: "flex", width: "100%" }}>
-              <div style={{ marginRight: "1%", width: "50%", textAlign: "start", color: "black" }}>User:{comment.createdBy}</div>
-              <div style={{ width: "50%", textAlign: "end", color: "black" }}>Added: {comment.createdAt && formatDistanceToNow(comment.createdAt)} ago</div>
+        {questions.comments.map((comment, index) => {
+          return (
+          <div className={styles.commentDiv} key={index.toString()}>
+            <div className={styles.commentDiv1}>
+              <div className={styles.commentDiv2}>
+                USER:{comment.postedBy.user}
+              </div>
+              <div className={styles.commentDiv3}>
+                Added: {formatDistanceToNow(comment.created)} ago
+              </div>
             </div>
-            <div style={{ fontSize: "150%", width: "100%", textAlign: "start" }}>{comment.comment}</div>
+            <div className={styles.commentDiv4}>{comment.text}</div>
           </div>)
         })}
       </div>
@@ -86,7 +77,12 @@ export function ItemDetails(props) {
           value={commentText}
         />
         <div>
-          <button className={styles.addCommentBtn} onClick={handleAddComment}>AddCommnet</button>
+          <button 
+            className={styles.addCommentBtn} 
+            onClick={() => addQuestion(questionId, commentText, 'id', 'username')}
+          >
+              AddCommnet
+          </button>
         </div>
       </div>
     </div>

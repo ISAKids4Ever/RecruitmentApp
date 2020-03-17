@@ -17,6 +17,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 30%;
+    font-weight: bolder;
+    font-size: 100%;
 }
 .questionSection {
 
@@ -35,7 +38,9 @@
     display: flex;
     
 }
-
+.questionSection1 {
+    width: 70%;
+}
 .questionSectionTitle {
 
     font-weight: bold;
@@ -88,7 +93,32 @@
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
+    width: 90%;
    
+}
+
+.commentDiv1 {
+    display: flex;
+    width: 100%;
+}
+
+.commentDiv2 {
+    margin-right: 1%;
+    width: 50%;
+    text-align: start;
+    color: black;
+}
+.commentDiv3 {
+    width: 50%;
+    text-align: end;
+    color: black;
+
+}
+
+.commentDiv4 {
+    font-size: 150%;
+    width: 100%;
+    text-align: start;
 }
 
 .commentsTitle {
@@ -97,6 +127,11 @@
     font-weight: bold;
     color: white;
 }
+.commentsTitle1 {
+    width: 100%;
+    color: black;
+}
+
 
 .addComment>textarea {
 

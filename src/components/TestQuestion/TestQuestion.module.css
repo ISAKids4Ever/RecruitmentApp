@@ -25,4 +25,16 @@
     margin: 0 5%;
 }
 
+.answers>ul>li {
+    cursor: pointer;
+}
+
+.answer {
+    color: black;
+}
+
+.answerMarked {
+    font-weight: bold;
+    background-color: blue;
+}
   
