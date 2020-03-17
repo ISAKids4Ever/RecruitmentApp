@@ -17,7 +17,9 @@ export function Forum() {
         { isLoggedIn && (clicked || 
           <h1>Do you wanna create a topic/ask question?
             <a
+              // TODO: Remove inline styles
               style={{ cursor: "pointer", color: "black" }}
+              // TODO: Change a tag to button
               onClick={(e) => {
                 e.preventDefault()
                 setClicked(!clicked)

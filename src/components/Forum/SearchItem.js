@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './SearchItem.module.css'
 
 export function SearchItem({allQuestions, searchedDisplay}) {
-
     const [filter, setFilter] = useState("");
-    
-    useEffect(()=>{
-    }, [])
 
     function handleSearch(event) {
         event.preventDefault();

@@ -12,21 +12,19 @@ export function ItemsList() {
     const [allQuestions, setAllQuestions] = useState([])
 
 
-    useEffect(() => {
-
-        function handleSnapshot(snapshot) {
-            const items = snapshot.docs.map(doc => {
-                return { qid: doc.id, ...doc.data() }
-            })
-            
-            setQuestions(items)
-            setAllQuestions(items)
-        }
+    useEffect(() => {       
+        // TODO: Unsubscribe to this function 
         db.collection("forum").onSnapshot(handleSnapshot)
+    }, [questions])
 
-    }, [])
-    useEffect(() => {}, [questions])
-
+    function handleSnapshot(snapshot) {
+        const items = snapshot.docs.map(doc => {
+            return { qid: doc.id, ...doc.data() }
+        })
+        
+        setQuestions(items)
+        setAllQuestions(items)
+    }
 
     function handleDateSort() {
         let topSort = questions.slice().sort((q1, q2)=>{

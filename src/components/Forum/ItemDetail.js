@@ -25,6 +25,7 @@ export function ItemDetails(props) {
   const questionId = props.match.params.qid;
   const questionRef = db.collection('forum').doc(questionId);
 
+  // TODO: Unsubscribe to this function
   useEffect(() => {
     watchComments()
   }, [])
