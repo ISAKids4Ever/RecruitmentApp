@@ -2,16 +2,8 @@
     box-sizing: border-box;
 }
 
-.flashcard {
-    font-size: 1rem;
-    background-color: transparent;
-    height: 40vh;
-    width: 80vw;
-    color: white;
-    margin-bottom: 30px;
-}
-
 .flashcardPlusButtons {
+    padding-top: 30vw;
     display: flex;
     flex-direction: row;
     width: 100vw;
@@ -20,6 +12,15 @@
 
 .flashcardPlusButtons>p {
     width: 30px;
+}
+
+.flashcard {
+    font-size: 1rem;
+    background-color: transparent;
+    height: 50vh;
+    width: 80vw;
+    color: white;
+    margin-bottom: 30px;
 }
 
 .flashcard:hover .flashcardInner {
@@ -69,6 +70,12 @@
     display: flex;
     flex-direction: row;
     align-content: space-around;
+}
+
+@media (min-width: 600px){
+    .flashcardPlusButtons {
+        padding-top: 10vw;
+    }
 }
 
 @media (min-width: 750px){

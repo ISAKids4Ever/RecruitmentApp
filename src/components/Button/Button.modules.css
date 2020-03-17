@@ -41,6 +41,10 @@
     opacity: 1;
 }
 
+.iconButtonActive {
+    color: green;
+}
+
 .iconButtonTest{
     color: rgb(41, 27, 236); 
     text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
