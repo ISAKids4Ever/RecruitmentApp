@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Flashcard.module.css';
 import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons/fa';
 
-import { Button } from '../';
+import { Button } from 'components';
 
 export function CardContent({ question, addToUserBase, known, unknown}) {
     const [isKnownAdded, setIsKnownAdded] = useState('iconButton');

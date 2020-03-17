@@ -2,20 +2,13 @@ import React, { useState }  from 'react';
 import styles from './Flashcard.module.css';
 import { FaChevronCircleLeft, FaChevronCircleRight, FaUndo } from 'react-icons/fa';
 
-import { Button } from '../';
+import { Button } from 'components';
 import { CardContent } from './CardContent';
 
 export function Flashcard({questions, all, known, setKnown, unknown, setUnknown, checkAllWithUserBase, setShowIntro}) {
     const [countQuestions, setCountQuestions] = useState(1);
     const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
     const [previousQuestions, setPreviousQuestions] = useState([questions[0].id]);
-
-    console.log(all, 'All-(known+unknown)');
-    console.log(known, 'Known');
-    console.log(unknown, 'Unknown');
-    console.log(previousQuestions, 'Previous questions');
-    console.log(currentQuestion.id, 'Current question');
-    console.log(countQuestions, 'Count');
 
     const addToUserBase = (id, tag) => {
         if (tag === 'known') {
