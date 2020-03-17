@@ -10,14 +10,14 @@ export const useFormValidation = (initialState, validate, authenticate) => {
          if(isSubmitting) {
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
-                 authenticate();
+                 authenticate(values, errors);
                  setValues(initialState)
                  setSubmitting(false)
              } else {
                  setSubmitting(false)
              }
          }
-     },[errors])
+     },[isSubmitting])
 
 
     const handleChange = (event) => {
@@ -34,9 +34,8 @@ export const useFormValidation = (initialState, validate, authenticate) => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const validationErrors = validate(values)
-      setErrors(validationErrors)
+      setErrors(() => validationErrors)
       setSubmitting(true)
-    
 
     }
  return { handleChange, handleSubmit, handleBlur, errors, isSubmitting, values }

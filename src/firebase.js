@@ -1,5 +1,7 @@
 import firebase from 'firebase'
+import 'firebase/firestore'
 
+// zakomentowane rzeczy to te, o ktorych pisalem, jak nie chcesz z nich skorzystac to poprostu je usun
 const {
   REACT_APP_API_KEY,
   REACT_APP_AUTH_DOMAIN,
@@ -20,6 +22,9 @@ const firebaseConfig = {
   appId: REACT_APP_APP_ID
 };
 
-firebase.initializeApp(firebaseConfig);
-     
+firebase.initializeApp(firebaseConfig)
+
+export const db = firebase.firestore()
+
 export default firebase
+

@@ -22,15 +22,48 @@
     padding-bottom:1%;
 }
 .likesSection {
-    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bolder;
     font-size: 200%;
+    cursor: pointer;
 
 }
 
 .questionSection {
     width: 70%;
+}
+
+.description1 {
+    display: flex;
+}
+
+.link {
+    margin: 0;
+    padding: 2px;
+    font-size: 200%;
+
+}
+
+.handleDelete {
+    margin: 0;
+    padding: 2px;
+    font-size: 200%;
+    cursor: pointer;
+}
+
+.likesSection1 {
+    margin: 0;
+}
+
+.likesSection2 {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    font-size: 120%;
+    cursor: default;
 }

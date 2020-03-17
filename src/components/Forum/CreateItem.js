@@ -1,39 +1,16 @@
 import React from 'react';
 import {useFormValidation} from 'hooks';
-import {validateCreate} from 'services';
-import firebase from '../../firebase';
-import uuid from 'react-uuid';
+import {validateCreate,  handleCreateLink} from 'services';
+
 import styles from './CreateItem.module.css';
+
 
 const INITIAL_STATE = {
 	title: '',
 	description: ''
 };
 export function CreateItem({clicked}) {
-	const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-	function handleCreateLink() {
-		const { title, description } = values;
-		const newLink = {
-			title,
-			description,
-			votedBy: [
-				{
-					user: 'unknown',
-					date: Date.now()
-				}
-			],
-			comments: [
-				{
-					createdBy: '',
-					comment: '',
-					createdAt: ''
-				}
-			],
-			created: Date.now(),
-			id: uuid()
-		};
-		firebase.database().ref('forum').push(newLink);
-	}
+	const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
 
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
@@ -46,6 +23,7 @@ export function CreateItem({clicked}) {
 				value={values.title}
 				type="text"
 			/>
+			{errors.title && <div>{`ERROR: ${errors.title}`}</div>}
 			<input
 				className={styles.input}
 				name="description"
@@ -55,6 +33,8 @@ export function CreateItem({clicked}) {
 				value={values.description}
 				type="text"
 			/>
+			{errors.description && <div>{`ERROR: ${errors.description}`}</div>}
+
 			<button type="submit" className={styles.button} >
 				ADD QUESTION
 			</button>
