@@ -1,10 +1,23 @@
 import * as React from 'react';
-import styles from './TestQuestion.module.css'
+import styles from './TestQuestion.module.css';
+import Countdown from '../Countdown/Countdown';
 
 
 export function TestQuestion(props) {
-    const { question, answear1, answear2, answear3, elementToShow, userPoints, setPoints, currentPage} = props;
+    const { question, answear1, answear2, answear3, elementToShow, setElementToShow, userPoints, setPoints, currentPage, baseTimeLeft, setTimeHasGone} = props;
+    
+    const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft)
+
+    const unMarkedAnswer = styles.answer
+    const [liClassName, setLiClassName] = React.useState(unMarkedAnswer)
+
+    React.useEffect(() => {
+        setLiClassName(unMarkedAnswer)
+    }, [question, unMarkedAnswer] )
+
     function calculatePoints(currentPage, answear){
+        const markedAnswer = styles.answerMarked
+        setLiClassName(markedAnswer)
         const points = [...userPoints]
         if (answear.correct === true){
             points[currentPage] = 1;
@@ -13,13 +26,19 @@ export function TestQuestion(props) {
         }
         setPoints(points);
     }
-    if(elementToShow === 'TestQuestion') {
+
+    if(testTimeLeft === 0){
+        setElementToShow('TestResults')
+        setTimeHasGone(true)
+    }
+    if(elementToShow === 'TestQuestion' && testTimeLeft > 0) {
         return (
             <div className={styles.testView}>
+                <Countdown seconds={testTimeLeft} setTestTimeLeft={setTestTimeLeft}/>
                <div className={styles.question}>{question}</div>
-               <div className={styles.answears}>
+               <div className={styles.answers}>
                    <ul>
-                       <li onClick={() => calculatePoints(currentPage, answear1)}>{answear1.value}</li>
+                       <li className={liClassName} onClick={() => calculatePoints(currentPage, answear1)} >{answear1.value}</li>
                        <li onClick={() => calculatePoints(currentPage, answear2)}>{answear2.value}</li>
                        <li onClick={() => calculatePoints(currentPage, answear3)}>{answear3.value}</li>
                    </ul>
