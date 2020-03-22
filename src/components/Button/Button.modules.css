@@ -3,15 +3,18 @@
 }
 
 .regularButton {
-    font-family: 'Rationale';
+    font-family: 'Adventpro';
     color: white;
     font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     outline: none;
     background-color: transparent;
-    border: none;
-    border-radius: 10px;
+    padding: 20px;
+    border: 5px solid;
+    border-image: linear-gradient(10deg, #808080 45%, #3a6073 0) 20;
+    background: transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    padding: 15px 20px;
     cursor: pointer;
 }
 
@@ -20,8 +23,8 @@
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.current{
-    box-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+.current {
+    box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.8);
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -45,32 +48,32 @@
     color: green;
 }
 
-.iconButtonTest{
-    color: rgb(41, 27, 236); 
-    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+.iconButtonTest {
+    color: rgb(41, 27, 236);
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.8);
     display: inline-block;
     width: 60px;
     font-size: 40px;
     margin: 20px 0;
 }
 
-.fa-js-square{
+.fa-js-square {
     color: yellow;
 }
 
-.fa-html5{
+.fa-html5 {
     color: orange;
 }
 
-.fa-css3-alt{
+.fa-css3-alt {
     color: rgb(78, 245, 245);
 }
 
-.fa-react{
+.fa-react {
     color: purple;
 }
 
-.submitButton{
+.submitButton {
     position: fixed;
     bottom: 30px;
 }

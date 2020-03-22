@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 
-.flashcardPlusButtons>p {
+.flashcardPlusButtons > p {
     width: 30px;
 }
 
@@ -27,7 +27,7 @@
     transform: rotateY(180deg);
 }
 
-.flashcard:hover .flashcardFront{
+.flashcard:hover .flashcardFront {
     opacity: 0;
 }
 
@@ -58,8 +58,8 @@
     transform: rotateY(180deg);
 }
 
-.flashcardFront>i,
-.flashcardBack>i {
+.flashcardFront > i,
+.flashcardBack > i {
     position: relative;
     font-size: 1.2rem;
     padding: 15px;
@@ -72,14 +72,14 @@
     align-content: space-around;
 }
 
-@media (min-width: 600px){
+@media (min-width: 600px) {
     .flashcardPlusButtons {
         padding-top: 10vw;
     }
 }
 
-@media (min-width: 750px){
-    .flashcard { 
+@media (min-width: 750px) {
+    .flashcard {
         font-size: 1.1rem;
         width: 60vw;
     }

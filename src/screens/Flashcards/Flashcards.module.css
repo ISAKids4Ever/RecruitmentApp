@@ -1,5 +1,5 @@
 .mainFlashcards {
-  background-image: linear-gradient(to right, #F45C43, #3a6073);
+  background-image: linear-gradient(to bottom, #F45C43 85%, #3a6073);
   display: flex;
   width: 100%;
   justify-content: center;
