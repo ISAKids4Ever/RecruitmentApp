@@ -1,8 +1,13 @@
-@font-face{
+@font-face {
     font-family: 'Rationale';
     src: url('./fonts/Rationale-Regular.ttf');
 }
 
-body{
-    font-family: 'Rationale';
+@font-face {
+    font-family: 'Adventpro';
+    src: url('./fonts/Adventpro-Regular.ttf');
+}
+
+body {
+    font-family: 'Adventpro';
 }
