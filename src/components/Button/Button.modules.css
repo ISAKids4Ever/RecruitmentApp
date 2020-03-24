@@ -11,8 +11,8 @@
     outline: none;
     background-color: transparent;
     padding: 20px;
-    border: 5px solid;
-    border-image: linear-gradient(10deg, #808080 45%, #3a6073 0) 20;
+    border: 3px solid;
+    border-image: linear-gradient(5deg, #808080 45%, #3a6073 0) 20;
     background: transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
