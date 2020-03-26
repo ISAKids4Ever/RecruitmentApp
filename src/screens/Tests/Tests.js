@@ -153,7 +153,140 @@ const basicQuestions = [
 			value: '< !TYPE>',
 			correct: false
 		}
-	}
+	},
+	{
+		question: 'What HTML stands for?',
+		answear1: {
+			value: 'Hyper Text Markup Language',
+			correct: true
+		},
+		answear2: {
+			value: 'Hyper Text Markdown Language',
+			correct: false
+		},
+		answear3: {
+			value: 'Home Tool Markup Language',
+			correct: false
+		}
+	},
+	{
+		question: 'What is the correct HTML for creating a hyperlink?',
+		answear1: {
+			value: '<a>http://www.intervyou.essa</a>',
+			correct: false
+		},
+		answear2: {
+			value: '<a href="http://www.intervyou.essa">IntervYou</a>',
+			correct: true
+		},
+		answear3: {
+			value: '<a url="http://www.intervyou.essa">IntervYou.essa</a>',
+			correct: false
+		}
+	},
+	{
+		question: 'What is the correct HTML for inserting a background image?',
+		answear1: {
+			value: '<body bg="background.gif">',
+			correct: false
+		},
+		answear2: {
+			value: '<background img="background.gif">',
+			correct: false
+		},
+		answear3: {
+			value: '<body style="background-image:url(background.gif)">',
+			correct: true
+		}
+	},
+	{
+		question: 'Choose the correct HTML element to define important text',
+		answear1: {
+			value: '<strong>',
+			correct: true
+		},
+		answear2: {
+			value: '<important>',
+			correct: false
+		},
+		answear3: {
+			value: '<i>',
+			correct: false
+		}
+	},
+	{
+		question: 'How can you open a link in a new tab/browser window?',
+		answear1: {
+			value: '<a href="url" target="new">',
+			correct: false
+		},
+		answear2: {
+			value: '<a href="url" new>',
+			correct: false
+		},
+		answear3: {
+			value: '<a href="url" target="_blank">',
+			correct: true
+		}
+	},
+	{
+		question: 'How can you open a link in a new tab/browser window?',
+		answear1: {
+			value: '<a href="url" target="new">',
+			correct: false
+		},
+		answear2: {
+			value: '<a href="url" new>',
+			correct: false
+		},
+		answear3: {
+			value: '<a href="url" target="_blank">',
+			correct: true
+		}
+	},
+	{
+		question: 'How can you make a numbered list?',
+		answear1: {
+			value: '<ul>',
+			correct: false
+		},
+		answear2: {
+			value: '<ol>',
+			correct: true
+		},
+		answear3: {
+			value: '<li>',
+			correct: false
+		}
+	},{
+		question: 'How can you open a link in a new tab/browser window?',
+		answear1: {
+			value: '<a href="url" target="new">',
+			correct: false
+		},
+		answear2: {
+			value: '<a href="url" new>',
+			correct: false
+		},
+		answear3: {
+			value: '<a href="url" target="_blank">',
+			correct: true
+		}
+	},{
+		question: 'How can you open a link in a new tab/browser window?',
+		answear1: {
+			value: '<a href="url" target="new">',
+			correct: false
+		},
+		answear2: {
+			value: '<a href="url" new>',
+			correct: false
+		},
+		answear3: {
+			value: '<a href="url" target="_blank">',
+			correct: true
+		}
+	},
 ];
 
 export function Tests() {
@@ -171,7 +304,7 @@ export function Tests() {
 	};
 
 	const [ questionsDisplay, setQuestionsDisplay ] = useState(basicQuestions);
-	const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage);
+	const currentQuestions = questionsDisplay.slice(1,11).slice(indexOfFirtsPage, indexOfLastPage);
 
 	useEffect(() => {
 		shuffle(basicQuestions);
@@ -226,7 +359,7 @@ export function Tests() {
 			) : null}
 			<Pagination
 				postsPerPage={postsPerPage}
-				totalPosts={questionsDisplay.length}
+				totalPosts={10}
 				paginate={paginate}
 				currentPage={currentPage}
 				elementToShow={elementToShow}
