@@ -65,11 +65,10 @@
     transform: rotateY(180deg);
 }
 
-.flashcardFront > i,
-.flashcardBack > i {
-    position: relative;
-    font-size: 1.2rem;
-    padding: 15px;
+.flashcardIcon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 15px;
 }
 
 .flashcardUserButtons {
