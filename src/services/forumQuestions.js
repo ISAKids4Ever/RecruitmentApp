@@ -2,7 +2,7 @@ import { db } from '..//firebase';
 import uuid from 'react-uuid';
 
 export function handleCreateLink(values, errors) {
-	const { title, description } = values;
+	const { title, description, user } = values;
 	if (errors.length !== 0) {
 		const newLink = {
 			title,
@@ -15,6 +15,10 @@ export function handleCreateLink(values, errors) {
 			],
 			comments: [],
 			created: Date.now(),
+			author: {
+				name: user.name,
+				id: user.id
+			},
 			id: uuid()
 		};
 		db.collection('forum').add(newLink);

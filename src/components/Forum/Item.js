@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import styles from './Item.module.css'
-import {db} from '../../firebase'
+import { db } from '../../firebase'
 
 export function Item({ question }) {
 
-  const { title, created, description, qid, votes } = question
+  const { title, created, description, qid, votes, author } = question
 
   function handleVote() {
 
@@ -34,7 +34,7 @@ export function Item({ question }) {
       <div className={styles.questionSection}>
         <div className={styles.title}><Link to={`/forum/${qid}`} className="link-style">{title}</Link></div>
           <div>Added: {formatDistanceToNow(created, { addSuffix:true })}</div>
-          <div>Created by unknown</div>
+        <div>Created by {author.name}</div>
         <div className={styles.description}>{description}</div>
         <div className={styles.description1}>
           <Link to={`/forum/${qid}`} className={styles.link}>DISCUSS</Link>

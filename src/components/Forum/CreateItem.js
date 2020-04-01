@@ -1,17 +1,21 @@
 import React from 'react';
 import {useFormValidation} from 'hooks';
 import {validateCreate,  handleCreateLink} from 'services';
-
 import styles from './CreateItem.module.css';
+import firebase from '../../firebase'
 
 
 const INITIAL_STATE = {
 	title: '',
-	description: ''
+	description: '',
+	user: {
+		name: 'unknown',
+		id: 'unknown'
+	}
 };
 export function CreateItem({clicked}) {
 	const { handleSubmit, handleChange, values, errors } = useFormValidation(INITIAL_STATE, validateCreate, handleCreateLink);
-
+    console.log(firebase.auth().currentUser)
 	return (
 		<form onSubmit={handleSubmit} className={clicked ? styles.forum : styles.none}>
 			<input

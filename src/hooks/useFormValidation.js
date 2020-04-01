@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import firebase from '../firebase'
 
 export const useFormValidation = (initialState, validate, authenticate) => {
 
@@ -8,6 +9,12 @@ export const useFormValidation = (initialState, validate, authenticate) => {
 
      useEffect(()=>{
          if(isSubmitting) {
+             const user = {
+                 name:firebase.auth().currentUser.displayName,
+                 id: firebase.auth().currentUser.uid
+             }
+             console.log("USER", user)
+             setValues(prevVal => ({...prevVal, user}))
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
                  authenticate(values, errors);
