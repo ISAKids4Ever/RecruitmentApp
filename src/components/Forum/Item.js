@@ -33,7 +33,7 @@ export function Item({ question }) {
     <div className={styles.mainDiv}>
       <div className={styles.questionSection}>
         <div className={styles.title}><Link to={`/forum/${qid}`} className="link-style">{title}</Link></div>
-          <div>Added: {formatDistanceToNow(created, {addSuffix:true})}</div>
+          <div>Added: {formatDistanceToNow(created, { addSuffix:true })}</div>
           <div>Created by unknown</div>
         <div className={styles.description}>{description}</div>
         <div className={styles.description1}>
