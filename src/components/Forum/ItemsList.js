@@ -15,7 +15,10 @@ export function ItemsList() {
     useEffect(() => {       
         // TODO: Unsubscribe to this function 
         db.collection("forum").onSnapshot(handleSnapshot)
-    }, [questions])
+    }, [])
+
+
+
 
     function handleSnapshot(snapshot) {
         const items = snapshot.docs.map(doc => {

@@ -30,7 +30,7 @@ export function Item({ question }) {
   return (
     <div className={styles.mainDiv}>
       <div className={styles.questionSection}>
-        <div className={styles.title}>  {question.title}</div>
+        <div className={styles.title}><Link to={`/forum/${question.qid}`} className="link-style">{question.title}</Link></div>
         <div className={styles.description}>{question.description}</div>
         <div className={styles.description1}>
           <Link to={`/forum/${question.qid}`} className={styles.link}>DISCUSS</Link>

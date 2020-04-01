@@ -15,7 +15,12 @@
     font-weight: bolder;
     font-size: 200%;
     padding-bottom: 1%;
+    cursor: pointer;
 
+}
+.title:hover {
+    color: gray;
+    text-decoration: underline;
 }
 .description {
     font-size: 125%;
