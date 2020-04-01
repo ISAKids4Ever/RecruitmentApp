@@ -1,31 +1,23 @@
-import { useState, useEffect } from 'react'
-import firebase from '../firebase'
-
+import { useState, useEffect, useContext } from 'react'
+import { FirebaseContext } from '../Context'
 export const useFormValidation = (initialState, validate, authenticate) => {
 
     const [values, setValues] = useState(initialState)
     const [errors, setErrors] = useState({})
     const [isSubmitting, setSubmitting] = useState(false);
-
+    const { user } = useContext(FirebaseContext)
      useEffect(()=>{
          if(isSubmitting) {
-             const user = {
-                 name:firebase.auth().currentUser.displayName,
-                 id: firebase.auth().currentUser.uid
-             }
-             console.log("USER", user)
-             setValues(prevVal => ({...prevVal, user}))
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
-                 authenticate(values, errors);
-                 setValues(initialState)
+                 authenticate(values, errors, user);
+                 setValues({...initialState })
                  setSubmitting(false)
              } else {
                  setSubmitting(false)
              }
          }
      },[isSubmitting])
-
 
     const handleChange = (event) => {
         event.persist();

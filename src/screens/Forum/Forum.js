@@ -13,8 +13,8 @@ export function Forum() {
     <div className={styles.mainDiv}>
       <div className={styles.content}>
         <h1>FORUM</h1>
-        {isLoggedIn || <h1>SIGN IN TO ADD A QUESTION</h1>}
-        { isLoggedIn && (clicked || 
+        {true || <h1>SIGN IN TO ADD A QUESTION</h1>}
+        { true && (clicked || 
           <h1>Do you wanna create a topic/ask question?
             <a
               // TODO: Remove inline styles

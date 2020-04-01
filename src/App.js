@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import  { useAuth }  from "hooks";
 import './App.css';
+import { FirebaseContext } from './Context'
 
 // components
 import { Navbar, ItemDetails } from 'components';
@@ -16,21 +17,22 @@ import { Forum, Home, Login, Profile, Register, Flashcards, Tests } from "screen
 
 
 const App = () => {
-  const isLoggedIn = useAuth();
+  const user = useAuth();
 
-  if (isLoggedIn === null) {
+  if (user === null) {
     return (      
       <div>Pobieranie danych...</div>  
     );
   }
 
-  if (!isLoggedIn) {
+  if (!user) {
     return (
       <Router>
         <div>
           <div>
             <Navbar login/>
           </div>
+          <FirebaseContext.Provider value ={{ user }}>
           <Switch>
             <Route exact path="/zaloguj" component={Login} />
             <Route exact path="/zarejestruj" component={Register} />
@@ -42,6 +44,7 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Redirect to="/zaloguj" />
           </Switch>
+          </FirebaseContext.Provider>
         </div>
       </Router>
     );
@@ -50,6 +53,7 @@ const App = () => {
   return (
     <Router>
       <Navbar logout/>      
+      <FirebaseContext.Provider value ={{ user }}>
         <Switch>
           <Redirect path="/zaloguj" to="/" />
           <Redirect path="/zarejestruj" to="/" /> 
@@ -61,6 +65,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route component={() => <h1>Nie ma takiej strony</h1>} />
         </Switch>  
+        </FirebaseContext.Provider>
     </Router>
   );  
 };

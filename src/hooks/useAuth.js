@@ -6,9 +6,9 @@ export function useAuth()  {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(() => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (firebase.auth().currentUser) {
-        setIsLoggedIn(true);
+        setIsLoggedIn(user);
       } else {
         setIsLoggedIn(false);
       }
