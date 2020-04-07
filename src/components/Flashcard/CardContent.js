@@ -3,7 +3,8 @@ import styles from './Flashcard.module.css';
 import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons/fa';
 
 import { Button } from 'components';
-import SaveIcon from '../icons/CrossIcon';
+import QuestionIcon from '../Icons/QuestionIcon';
+import AnswerIcon from '../Icons/AnswerIcon';
 
 export function CardContent({ question, addToUserBase, known, unknown}) {
     const [isKnownAdded, setIsKnownAdded] = useState('iconButton');
@@ -27,11 +28,11 @@ export function CardContent({ question, addToUserBase, known, unknown}) {
             <div className={styles.flashcard}>
                 <div className={styles.flashcardInner}>
                     <div className={styles.flashcardFront}>
-                        <SaveIcon className={styles.flashcardIcon}/>
+                        <QuestionIcon className={styles.flashcardIcon}/>
                         <p>{question.question}</p>
                     </div>
                     <div className={styles.flashcardBack}>
-                        <i><FaCommentDots /></i>
+                        <i><AnswerIcon className={styles.flashcardIcon}/></i>
                         <p>{question.answer}</p>
                     </div>
                 </div>

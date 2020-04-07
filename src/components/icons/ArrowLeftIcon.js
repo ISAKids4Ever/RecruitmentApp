@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CrossIcon = ({ className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.1 41.8">
+const ArrowLeftIcon = ({ className }) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.8 40.1">
         <line
-            x1="3.5"
-            y1="3.2"
-            x2="38"
-            y2="38.5"
+            x1="3.2"
+            y1="19.3"
+            x2="22.3"
+            y2="3.1"
             fill="none"
             stroke="gray"
             stroke-linecap="round"
@@ -14,10 +14,10 @@ const CrossIcon = ({ className }) => (
             stroke-width="6"
         />
         <line
-            x1="38.8"
-            y1="3.2"
-            x2="3.5"
-            y2="38.5"
+            x1="3.2"
+            y1="19.8"
+            x2="22.6"
+            y2="37"
             fill="none"
             stroke="gray"
             stroke-linecap="round"
@@ -27,4 +27,4 @@ const CrossIcon = ({ className }) => (
     </svg>
 );
 
-export default CrossIcon;
+export default ArrowLeftIcon;
