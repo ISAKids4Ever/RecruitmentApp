@@ -1,9 +1,9 @@
 .mainFlashcards {
-  background-image: linear-gradient(to bottom, #F45C43 85%, #3a6073);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  top: 40px;
-  height: 100vh;
+    background-image: linear-gradient(to top, lightgray 70%, white);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 40px;
+    height: 100vh;
 }

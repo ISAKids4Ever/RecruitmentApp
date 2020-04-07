@@ -9,8 +9,8 @@ import CheckIcon from '../Icons/CheckIcon';
 import CrossIcon from '../Icons/CrossIcon';
 
 export function CardContent({ question, addToUserBase, known, unknown}) {
-    const [isKnownAdded, setIsKnownAdded] = useState('iconButton');
-    const [isUnknownAdded, setIsUnknownAdded] = useState('iconButton');
+    const [isKnownAdded, setIsKnownAdded] = useState('gray');
+    const [isUnknownAdded, setIsUnknownAdded] = useState('gray');
 
     useEffect(() => {
         isClicked(known, setIsKnownAdded);
@@ -19,9 +19,9 @@ export function CardContent({ question, addToUserBase, known, unknown}) {
 
     const isClicked = (base, setClass) => {
         if(base.includes(question.id)){
-            setClass('iconButton iconButtonActive')
+            setClass('#9e005d')
         }else{
-            setClass('iconButton')
+            setClass('gray')
         }
     }
 
@@ -41,8 +41,8 @@ export function CardContent({ question, addToUserBase, known, unknown}) {
             </div>
             <div className={styles.flashcardUserButtons}>
                 <Button className={'iconButton'}> <SaveIcon /> </Button>
-                <Button className={isKnownAdded} onClick={() => addToUserBase(question.id, 'known')} ><i> <CheckIcon /> </i></Button>
-                <Button className={isUnknownAdded} onClick={() => addToUserBase(question.id, 'unknown')} ><i><CrossIcon /></i></Button>
+                <Button className={'iconButton'} onClick={() => addToUserBase(question.id, 'known')} ><i> <CheckIcon isKnownAdded={isKnownAdded}/> </i></Button>
+                <Button className={'iconButton'} onClick={() => addToUserBase(question.id, 'unknown')} ><i><CrossIcon isUnknownAdded={isUnknownAdded}/></i></Button>
             </div>
         </div>
     )
