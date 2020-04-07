@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Flashcard.module.css';
-import { FaQuestion, FaCommentDots, FaSave, FaCheck, FaTimes } from 'react-icons/fa';
 
 import { Button } from 'components';
 import QuestionIcon from '../Icons/QuestionIcon';
 import AnswerIcon from '../Icons/AnswerIcon';
+import SaveIcon from '../Icons/SaveIcon';
+import CheckIcon from '../Icons/CheckIcon';
+import CrossIcon from '../Icons/CrossIcon';
 
 export function CardContent({ question, addToUserBase, known, unknown}) {
     const [isKnownAdded, setIsKnownAdded] = useState('iconButton');
@@ -38,9 +40,9 @@ export function CardContent({ question, addToUserBase, known, unknown}) {
                 </div>
             </div>
             <div className={styles.flashcardUserButtons}>
-                <Button className={'iconButton'}><i><FaSave /></i></Button>
-                <Button className={isKnownAdded} onClick={() => addToUserBase(question.id, 'known')} ><i><FaCheck /></i></Button>
-                <Button className={isUnknownAdded} onClick={() => addToUserBase(question.id, 'unknown')} ><i><FaTimes /></i></Button>
+                <Button className={'iconButton'}> <SaveIcon /> </Button>
+                <Button className={isKnownAdded} onClick={() => addToUserBase(question.id, 'known')} ><i> <CheckIcon /> </i></Button>
+                <Button className={isUnknownAdded} onClick={() => addToUserBase(question.id, 'unknown')} ><i><CrossIcon /></i></Button>
             </div>
         </div>
     )
