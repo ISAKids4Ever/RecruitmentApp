@@ -19,7 +19,7 @@
     background-color: transparent;
     height: 50vh;
     width: 80vw;
-    color: black;
+    color: #416071;
     margin-bottom: 30px;
 }
 
@@ -32,7 +32,6 @@
 }
 
 .flashcardInner {
-    border-radius: 20px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -41,6 +40,9 @@
     transition: transform 0.8s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border: 4px solid;
+    border-image-source: linear-gradient(to right, #f7931e 10%, #9e005d);
+    border-image-slice: 1;
 }
 
 .flashcardFront,
@@ -59,9 +61,14 @@
 }
 
 .flashcardIcon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin-bottom: 15px;
+}
+
+.flashcardUserIcons {
+    width: 25px;
+    height: 25px;
 }
 
 .flashcardUserButtons {
