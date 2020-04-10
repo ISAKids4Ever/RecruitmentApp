@@ -60,7 +60,7 @@
 }
 
 .first {
-    background-image: linear-gradient(to right, #e66465, #F45C43);
+    background: linear-gradient(to top, lightgray 70%, white);
     flex-direction: column;
     align-items: flex-start;
 }
@@ -74,21 +74,21 @@
 }
 
 .second {
-    background-image: linear-gradient(to right, #F45C43, #F45C43);
+    background: linear-gradient(to top, lightgray 70%, white);
 }
 
 .third {
-    background-image: linear-gradient(to right, #F45C43, #3a6073);
+    background: linear-gradient(to top, lightgray 70%, white);
 }
 
 .fourth {
-    background-image: linear-gradient(to right, #3a6073, #ff8008);
+    background: linear-gradient(to top, lightgray 70%, white);
 }
 
 .fifth {
-    background-image: linear-gradient(to right, #ff8008, #ffc837);
+    background: linear-gradient(to top, lightgray 70%, white);
 }
 
 .sixth {
-    background-image:linear-gradient(to right, #ffc837, #e66465);
+    background: linear-gradient(to top, lightgray 70%, white);
 }
