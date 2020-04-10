@@ -11,7 +11,8 @@
 }
 
 .navLogo img {
-    max-height: 15vh;
+    height: 10vh;
+    margin: 10px;
     opacity: 1;
     transition: all 0.15s ease-in-out;
 }
@@ -30,7 +31,7 @@
 
 .navViewList a,
 .navViewList button {
-    color: white;
+    color: #416071;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -42,15 +43,22 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .navViewList a:hover {
     opacity: 0.9;
+    color: #9e005d;
 }
 
 .navViewList a.navActive {
-    background: rgba(190, 57, 57, 0.53);
-    border-radius: 4px;
+    color: #9e005d;
+}
+
+.loginIcon {
+    width: 20px;
+    height: 20px;
 }
 
 @media (min-width: 800px) {
@@ -58,16 +66,26 @@
         flex-direction: row;
         align-items: center;
     }
+
     .navLogo {
         width: 45vw;
     }
+
     .navLogo img {
-        margin: 0 50px;
+        margin: 15px 0;
+        height: 13vh;
     }
+
     .navViewList {
         width: 45vw;
     }
+
     .navViewList a {
         font-size: 1rem;
+    }
+
+    .loginIcon {
+        width: 30px;
+        height: 30px;
     }
 }
