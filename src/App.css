@@ -6,3 +6,10 @@
 body{
     font-family: 'Rationale';
 }
+
+/*Forum Item.js*/
+
+.link-style {
+    color: inherit;
+    text-decoration: inherit;
+}

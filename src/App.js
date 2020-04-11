@@ -5,8 +5,9 @@ import {
   Redirect,  
   Switch
 } from "react-router-dom";
-import  { useAuth }  from "hooks";
+import  { useUser, useAuth }  from "hooks";
 import './App.css';
+import { FirebaseContext } from 'contexts'
 
 // components
 import { Navbar, ItemDetails } from 'components';
@@ -16,15 +17,15 @@ import { Forum, Home, Login, Profile, Register, Flashcards, Tests } from "screen
 
 
 const App = () => {
-  const isLoggedIn = useAuth();
+  const user = useUser();
 
-  if (isLoggedIn === null) {
+  if (user === null) {
     return (      
       <div>Pobieranie danych...</div>  
     );
   }
 
-  if (!isLoggedIn) {
+  if (!user) {
     return (
       <Router>
         <div>
@@ -60,9 +61,16 @@ const App = () => {
           <Route path="/forum/:qid" component={ItemDetails} />
           <Route exact path="/" component={Home} />
           <Route component={() => <h1>Nie ma takiej strony</h1>} />
-        </Switch>  
+        </Switch>
     </Router>
   );  
 };
 
-export default App;
+const Root = () => {
+  const user = useAuth();
+  return <FirebaseContext.Provider value = {{ user }}>
+    <App />
+  </FirebaseContext.Provider>
+}
+
+export default Root;
