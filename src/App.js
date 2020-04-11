@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import  { useUser, useAuth }  from "hooks";
 import './App.css';
-import { FirebaseContext } from './Context'
+import { FirebaseContext } from 'contexts'
 
 // components
 import { Navbar, ItemDetails } from 'components';
