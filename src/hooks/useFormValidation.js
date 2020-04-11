@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from 'react'
-import { FirebaseContext } from '../Context'
-export const useFormValidation = (initialState, validate, authenticate) => {
+import { useState, useEffect } from 'react'
+import { useUser } from './useAuth'
 
+export const useFormValidation = (initialState, validate, authenticate) => {
     const [values, setValues] = useState(initialState)
     const [errors, setErrors] = useState({})
     const [isSubmitting, setSubmitting] = useState(false);
-    const { user } = useContext(FirebaseContext)
+    const user = useUser()
      useEffect(()=>{
          if(isSubmitting) {
              const noErrors = Object.keys(errors).length===0;
