@@ -5,7 +5,7 @@ import {
   Redirect,  
   Switch
 } from "react-router-dom";
-import  { useAuth }  from "hooks";
+import  { useUser, useAuth }  from "hooks";
 import './App.css';
 import { FirebaseContext } from './Context'
 
@@ -17,7 +17,7 @@ import { Forum, Home, Login, Profile, Register, Flashcards, Tests } from "screen
 
 
 const App = () => {
-  const user = useAuth();
+  const user = useUser();
 
   if (user === null) {
     return (      
@@ -32,7 +32,6 @@ const App = () => {
           <div>
             <Navbar login/>
           </div>
-          <FirebaseContext.Provider value ={{ user }}>
           <Switch>
             <Route exact path="/zaloguj" component={Login} />
             <Route exact path="/zarejestruj" component={Register} />
@@ -44,7 +43,6 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Redirect to="/zaloguj" />
           </Switch>
-          </FirebaseContext.Provider>
         </div>
       </Router>
     );
@@ -53,7 +51,6 @@ const App = () => {
   return (
     <Router>
       <Navbar logout/>      
-      <FirebaseContext.Provider value ={{ user }}>
         <Switch>
           <Redirect path="/zaloguj" to="/" />
           <Redirect path="/zarejestruj" to="/" /> 
@@ -64,10 +61,16 @@ const App = () => {
           <Route path="/forum/:qid" component={ItemDetails} />
           <Route exact path="/" component={Home} />
           <Route component={() => <h1>Nie ma takiej strony</h1>} />
-        </Switch>  
-        </FirebaseContext.Provider>
+        </Switch>
     </Router>
   );  
 };
 
-export default App;
+const Root = () => {
+  const user = useAuth();
+  return <FirebaseContext.Provider value = {{ user }}>
+    <App />
+  </FirebaseContext.Provider>
+}
+
+export default Root;
