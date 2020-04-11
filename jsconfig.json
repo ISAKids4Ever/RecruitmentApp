@@ -5,6 +5,7 @@
       "components": ["src/components"],
       "fonts": ["src/fonts"],
       "hooks": ["src/hooks"],
+      "contexts": ["src/contexts"],
       "screens": ["src/screens"],
       "services": ["src/services"],
       "~/*": ["src/*"]
