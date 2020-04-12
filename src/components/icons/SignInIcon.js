@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignInIcon = ({ className }) => (
+export const SignInIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.6 60">
         <path
             d="M54.7,14.8A28.9,28.9,0,0,0,33.2,5.2,29.2,29.2,0,0,0,4.1,34.5,28.8,28.8,0,0,0,8.3,49.6,29.3,29.3,0,0,1,29.8.7,29,29,0,0,1,54.7,14.8Z"
@@ -34,5 +34,3 @@ const SignInIcon = ({ className }) => (
         />
     </svg>
 );
-
-export default SignInIcon;

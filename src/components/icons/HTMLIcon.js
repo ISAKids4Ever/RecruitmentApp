@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HTMLIcon = ({ className }) => (
+export const HTMLIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94 94.5">
         <path
             d="M2,2.1l9.2,77.7L47.3,92.7,83.4,79.8,92.6,2.1ZM67.5,24.9l-32.7.2v8.4l32.8.2v30L47.3,73.3l-20.2-11V53.2l7.3.2.2,4.2,12.7,7.1,12.2-5.5V41.4H27.1v-24H67.5Z"
@@ -21,5 +21,3 @@ const HTMLIcon = ({ className }) => (
         </g>
     </svg>
 );
-
-export default HTMLIcon;

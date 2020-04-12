@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import styles from './Flashcard.module.css';
 import { FaUndo } from 'react-icons/fa';
 
-import { Button } from 'components';
+import { Button, ArrowLeftIcon, ArrowRightIcon } from 'components';
 import { CardContent } from './CardContent';
-import ArrowLeftIcon from '../Icons/ArrowLeftIcon';
-import ArrowRightIcon from '../Icons/ArrowRightIcon';
 
 export function Flashcard({
     questions,

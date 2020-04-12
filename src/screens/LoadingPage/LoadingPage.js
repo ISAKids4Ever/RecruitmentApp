@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LoadingPage.module.css';
-import LOGO from '../../components/Icons/LOGO.svg';
+import LOGO from '../../images/LOGO.svg';
 
 export function LoadingPage() {
     return (

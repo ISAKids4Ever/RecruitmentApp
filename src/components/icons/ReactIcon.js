@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReactIcon = ({ className }) => (
+export const ReactIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.7 71.8">
         <circle cx="43.4" cy="36.1" r="7" fill="#416071" />
         <ellipse
@@ -37,5 +37,3 @@ const ReactIcon = ({ className }) => (
         />
     </svg>
 );
-
-export default ReactIcon;

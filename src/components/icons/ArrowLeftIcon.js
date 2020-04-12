@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowLeftIcon = ({ className }) => (
+export const ArrowLeftIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.8 40.1">
         <line
             x1="3.2"
@@ -26,5 +26,3 @@ const ArrowLeftIcon = ({ className }) => (
         />
     </svg>
 );
-
-export default ArrowLeftIcon;

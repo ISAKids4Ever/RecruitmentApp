@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FlashcardsIntro.module.css';
-import { Button, ReactIcon, CSSIcon, HTMLIcon, JSIcon, StartButton } from 'components';
+import { Button, ReactIcon, CSSIcon, HTMLIcon, JSIcon } from 'components';
+import StartButton from '../../images/StartButton.svg';
 
 export function FlashcardsIntro(props) {
     const { showIntro } = props;
@@ -34,7 +35,7 @@ export function FlashcardsIntro(props) {
                     className={'regularButton startButton'}
                     onClick={() => hideIntro(false)}
                 >
-                    <StartButton />
+                    <img src={StartButton} alt="start button" />
                 </Button>
             </div>
         </div>

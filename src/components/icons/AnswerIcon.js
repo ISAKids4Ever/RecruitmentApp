@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AnswerIcon = ({ className }) => (
+export const AnswerIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.2 55.8">
         <path
             d="M25.9,48a40.2,40.2,0,0,0,6.9.6c17.1,0,30.8-10.5,30.8-23.4S49.9,1.9,32.8,1.9,2,12.3,2,25.2c0,6.7,3.7,12.7,9.5,16.9"
@@ -23,5 +23,3 @@ const AnswerIcon = ({ className }) => (
         <circle cx="42.1" cy="33.9" r="3.1" fill="#416071" />
     </svg>
 );
-
-export default AnswerIcon;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionIcon = ({ className }) => (
+export const QuestionIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.4 61.3">
         <path
             d="M2.2,17.6a15,15,0,1,1,15,15"
@@ -34,5 +34,3 @@ const QuestionIcon = ({ className }) => (
         />
     </svg>
 );
-
-export default QuestionIcon;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CrossIcon = ({ className, isUnknownAdded }) => (
+export const CrossIcon = ({ className, isUnknownAdded }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.1 41.8">
         <line
             x1="3.5"
@@ -26,5 +26,3 @@ const CrossIcon = ({ className, isUnknownAdded }) => (
         />
     </svg>
 );
-
-export default CrossIcon;

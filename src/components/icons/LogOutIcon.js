@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LogOutIcon = ({ className }) => (
+export const LogOutIcon = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.2 34.6">
         <line
             x1="30.8"
@@ -56,5 +56,3 @@ const LogOutIcon = ({ className }) => (
         />
     </svg>
 );
-
-export default LogOutIcon;

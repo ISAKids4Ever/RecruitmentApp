@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import firebase from '../../firebase';
-import LOGO from '../Icons/LOGO.svg';
-import SignInIcon from '../Icons/SignInIcon';
-import LogOutIcon from '../Icons/LogOutIcon';
+import LOGO from '../../images/LOGO.svg';
+
+import { SignInIcon, LogOutIcon } from 'components';
 
 import * as ROUTES from '../../constants/routes';
 
