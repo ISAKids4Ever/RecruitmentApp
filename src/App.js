@@ -6,8 +6,17 @@ import './App.css';
 // components
 import { Navbar, ItemDetails } from 'components';
 
-// screens
-import { Forum, Home, Login, Profile, Register, Flashcards, Tests } from 'screens';
+// screen
+import {
+    Forum,
+    Home,
+    Login,
+    Profile,
+    Register,
+    Flashcards,
+    Tests,
+    LoadingPage,
+} from 'screens';
 
 //routes
 import * as ROUTES from './constants/routes';
@@ -16,7 +25,7 @@ const App = () => {
     const isLoggedIn = useAuth();
 
     if (isLoggedIn === null) {
-        return <div>Pobieranie danych...</div>;
+        return <LoadingPage />;
     }
 
     return (
@@ -40,12 +49,7 @@ const App = () => {
                         <>
                             <Redirect path={ROUTES.LOGIN} to={ROUTES.HOME} />
                             <Redirect path={ROUTES.REGISTER} to={ROUTES.HOME} />
-                            <Route
-                                strict
-                                exact
-                                path={ROUTES.PROFILE}
-                                component={Profile}
-                            />
+                            <Route exact path={ROUTES.PROFILE} component={Profile} />
                             <Route component={() => <h1>Nie ma takiej strony</h1>} />
                         </>
                     )}
