@@ -72,7 +72,7 @@
 }
 
 @media (min-width: 800px) {
-    .navbar {
+    .mainNav {
         flex-direction: row;
         align-items: center;
     }
