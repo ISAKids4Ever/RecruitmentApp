@@ -1,12 +1,6 @@
 import React from 'react';
 import styles from './FlashcardsIntro.module.css';
-import { Button } from 'components';
-import ReactIcon from '../Icons/ReactIcon';
-import HTMLIcon from '../Icons/HTMLIcon';
-import CSSIcon from '../Icons/CSSIcon';
-import JSIcon from '../Icons/JSIcon';
-
-import StartButton from '../Icons/StartButton';
+import { Button, ReactIcon, CSSIcon, HTMLIcon, JSIcon, StartButton } from 'components';
 
 export function FlashcardsIntro(props) {
     const { showIntro } = props;
@@ -18,14 +12,28 @@ export function FlashcardsIntro(props) {
     return (
         <div className={styles.FlashcardsIntro}>
             <div className={styles.FlashcardsIntroCard}>
-                <p>Poznaj typowe pytania rekrutacujne i odpowiedzi.</p>
-                <section className={styles.flashcardsTechIcons}>
-                    <ReactIcon className={styles.flashcardTechIcon} />
-                    <HTMLIcon className={styles.flashcardTechIcon} />
-                    <CSSIcon className={styles.flashcardTechIcon} />
-                    <JSIcon className={styles.flashcardTechIcon} />
+                <p>
+                    Select a category and draw flashcards with typical questions you may
+                    be asked at the interview.
+                </p>
+                <section className={styles.flashcardsTechChoice}>
+                    <Button>
+                        <ReactIcon className={styles.flashcardTechIcon} />
+                    </Button>
+                    <Button>
+                        <HTMLIcon className={styles.flashcardTechIcon} />
+                    </Button>
+                    <Button>
+                        <CSSIcon className={styles.flashcardTechIcon} />
+                    </Button>
+                    <Button>
+                        <JSIcon className={styles.flashcardTechIcon} />
+                    </Button>
                 </section>
-                <Button className={'startButton'} onClick={() => hideIntro(false)}>
+                <Button
+                    className={'regularButton startButton'}
+                    onClick={() => hideIntro(false)}
+                >
                     <StartButton />
                 </Button>
             </div>

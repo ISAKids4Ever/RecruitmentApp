@@ -5,7 +5,7 @@
 
 .FlashcardsIntroCard {
     background-color: transparent;
-    font-size: 1rem;
+    font-size: 1.1rem;
     width: 80vw;
     color: #416071;
     display: flex;
@@ -18,22 +18,22 @@
     text-align: center;
 }
 
+.flashcardsTechChoice {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .flashcardTechIcon {
     width: 35px;
     height: 35px;
     margin: 10px;
 }
 
-.flashcardsTechIcons {
-    display: flex;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
 @media (min-width: 750px) {
     .FlashcardsIntroCard {
         width: 60vw;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .flashcardTechIcon {
