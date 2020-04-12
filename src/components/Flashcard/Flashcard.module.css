@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 
-.flashcardPlusButtons > p {
+.flashcardPlusButtons>p {
     width: 30px;
 }
 
@@ -61,14 +61,14 @@
 }
 
 .flashcardIcon {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-bottom: 15px;
 }
 
 .flashcardUserIcons {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
 }
 
 .flashcardUserButtons {
@@ -89,7 +89,19 @@
         font-size: 1.1rem;
         width: 60vw;
     }
+
     .flashcardPlusButtons {
         width: 80vw;
+    }
+
+    .flashcardIcon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+
+    .flashcardUserIcons {
+        width: 25px;
+        height: 25px;
     }
 }

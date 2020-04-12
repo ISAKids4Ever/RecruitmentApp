@@ -10,19 +10,31 @@ import * as ROUTES from '../../constants/routes';
 
 export function Navbar({ profile = false, logout = false, login = false }) {
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.mainNav}>
             <Link to={ROUTES.HOME} className={styles.navLogo}>
                 <img src={LOGO} alt="intervyou logo" />
             </Link>
 
             <div className={styles.navViewList}>
-                <NavLink to={ROUTES.TESTS} activeClassName={styles.navActive}>
+                <NavLink
+                    to={ROUTES.TESTS}
+                    activeClassName={styles.navActive}
+                    className={styles.orange}
+                >
                     Tests
                 </NavLink>
-                <NavLink to={ROUTES.FLASHCARDS} activeClassName={styles.navActive}>
+                <NavLink
+                    to={ROUTES.FLASHCARDS}
+                    activeClassName={styles.navActive}
+                    className={styles.pink}
+                >
                     Flashcards
                 </NavLink>
-                <NavLink to={ROUTES.FORUM} activeClassName={styles.navActive}>
+                <NavLink
+                    to={ROUTES.FORUM}
+                    activeClassName={styles.navActive}
+                    className={styles.purple}
+                >
                     Forum
                 </NavLink>
                 {login && (
@@ -31,10 +43,7 @@ export function Navbar({ profile = false, logout = false, login = false }) {
                     </NavLink>
                 )}
                 {profile && (
-                    <NavLink
-                        to={ROUTES.PROFILE}
-                        onClick={() => firebase.auth().signOut()}
-                    >
+                    <NavLink to={ROUTES.PROFILE}>
                         <SignInIcon className={styles.loginIcon} />
                     </NavLink>
                 )}

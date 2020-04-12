@@ -1,4 +1,4 @@
-.navbar {
+.mainNav {
     box-sizing: border-box;
     width: 100vw;
     position: fixed;
@@ -18,7 +18,7 @@
 }
 
 .navLogo:hover img {
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .navViewList {
@@ -29,10 +29,20 @@
     margin: 0;
 }
 
-.navViewList a,
-.navViewList button {
+.navViewList .orange {
+    color: #f7931e;
+}
+
+.navViewList .pink {
+    color: #d4145a;
+}
+
+.navViewList .purple {
+    color: #9e005d;
+}
+
+.navViewList a {
     color: #416071;
-    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1.5px;
     font-size: 0.9rem;
@@ -49,11 +59,11 @@
 
 .navViewList a:hover {
     opacity: 0.9;
-    color: #9e005d;
+    color: #416071;
 }
 
 .navViewList a.navActive {
-    color: #9e005d;
+    font-size: 1.2rem;
 }
 
 .loginIcon {
@@ -81,7 +91,11 @@
     }
 
     .navViewList a {
-        font-size: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .navViewList a.navActive {
+        font-size: 1.5rem;
     }
 
     .loginIcon {
