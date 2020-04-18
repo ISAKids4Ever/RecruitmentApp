@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { useAuth } from 'hooks';
+import { useUser, useAuth } from 'hooks';
 import './App.css';
+import { FirebaseContext } from 'contexts';
 
 // components
 import { Navbar, ItemDetails } from 'components';
@@ -22,16 +23,16 @@ import {
 import * as ROUTES from './constants/routes';
 
 const App = () => {
-    const isLoggedIn = useAuth();
+    const user = useUser();
 
-    if (isLoggedIn === null) {
+    if (user === null) {
         return <LoadingPage />;
     }
 
     return (
         <Router>
             <div>
-                {!isLoggedIn ? <Navbar login /> : <Navbar profile logout />}
+                {!user ? <Navbar login /> : <Navbar profile logout />}
                 <Switch>
                     <Route exact path={ROUTES.HOME} component={Home} />
                     <Route strict exact path={ROUTES.TESTS} component={Tests} />
@@ -39,7 +40,7 @@ const App = () => {
                     <Route strict exact path={ROUTES.FORUM} component={Forum} />
                     <Route path={ROUTES.ITEMDETAILS} component={ItemDetails} />
 
-                    {!isLoggedIn ? (
+                    {!user ? (
                         <>
                             <Route exact path={ROUTES.LOGIN} component={Login} />
                             <Route exact path={ROUTES.REGISTER} component={Register} />
@@ -59,4 +60,13 @@ const App = () => {
     );
 };
 
-export default App;
+const Root = () => {
+    const user = useAuth();
+    return (
+        <FirebaseContext.Provider value={{ user }}>
+            <App />
+        </FirebaseContext.Provider>
+    );
+};
+
+export default Root;

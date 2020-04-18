@@ -1,8 +1,9 @@
 import { db } from '..//firebase';
 import uuid from 'react-uuid';
 
-export function handleCreateLink(values, errors) {
-	const { title, description } = values;
+export function handleCreateLink(values, errors, user) {
+	const { title, description, } = values;
+	const { displayName, uid } = user
 	if (errors.length !== 0) {
 		const newLink = {
 			title,
@@ -15,6 +16,10 @@ export function handleCreateLink(values, errors) {
 			],
 			comments: [],
 			created: Date.now(),
+			author: {
+				name: displayName,
+				id: uid
+			},
 			id: uuid()
 		};
 		db.collection('forum').add(newLink);

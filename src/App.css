@@ -11,3 +11,10 @@
 body {
     font-family: 'Adventpro';
 }
+
+/*Forum Item.js*/
+
+.link-style {
+    color: inherit;
+    text-decoration: inherit;
+}
