@@ -82,7 +82,7 @@ export function Flashcard({
                 nextId = randomIdFromCategory(known);
             }
         }
-        let nextQuestion = questions.find((question) => question.id === nextId);
+        let nextQuestion = questions.find(question => question.id === nextId);
         setCurrentQuestion(nextQuestion);
 
         let newPrevious = previousQuestions;
