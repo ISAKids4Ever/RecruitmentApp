@@ -11,19 +11,21 @@ import {
 } from 'components';
 
 export function CardContent({ question, addToUserBase, known, unknown }) {
-    const [isKnownAdded, setIsKnownAdded] = useState('#416071');
-    const [isUnknownAdded, setIsUnknownAdded] = useState('#416071');
+    const notActiveUserIconColor = '#416071';
+    const activeUserIconColor = '#9e005d';
+    const [isKnownAdded, setIsKnownAdded] = useState(notActiveUserIconColor);
+    const [isUnknownAdded, setIsUnknownAdded] = useState(notActiveUserIconColor);
 
     useEffect(() => {
         isClicked(known, setIsKnownAdded);
         isClicked(unknown, setIsUnknownAdded);
     });
 
-    const isClicked = (base, setClass) => {
+    const isClicked = (base, setColor) => {
         if (base.includes(question.id)) {
-            setClass('#9e005d');
+            setColor(activeUserIconColor);
         } else {
-            setClass('#416071');
+            setColor(notActiveUserIconColor);
         }
     };
 
@@ -56,7 +58,7 @@ export function CardContent({ question, addToUserBase, known, unknown }) {
                         {' '}
                         <CheckIcon
                             className={styles.flashcardUserIcons}
-                            isKnownAdded={isKnownAdded}
+                            knownColor={isKnownAdded}
                         />{' '}
                     </i>
                 </Button>
@@ -67,7 +69,7 @@ export function CardContent({ question, addToUserBase, known, unknown }) {
                     <i>
                         <CrossIcon
                             className={styles.flashcardUserIcons}
-                            isUnknownAdded={isUnknownAdded}
+                            knownColor={isUnknownAdded}
                         />
                     </i>
                 </Button>
