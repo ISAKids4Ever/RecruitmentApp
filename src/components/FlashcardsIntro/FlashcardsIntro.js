@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FlashcardsIntro.module.css';
-import { Button, ReactIcon, CSSIcon, HTMLIcon, JSIcon } from 'components';
+import { Button } from 'components';
+import { ReactIcon, CSSIcon, HTMLIcon, JSIcon } from '../icons';
 import StartButton from '../../images/StartButton.svg';
 
 export function FlashcardsIntro(props) {

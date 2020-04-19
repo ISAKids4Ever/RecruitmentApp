@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles from './Flashcard.module.css';
 import { FaUndo } from 'react-icons/fa';
 
-import { Button, ArrowLeftIcon, ArrowRightIcon } from 'components';
+import { Button } from 'components';
+import { ArrowLeftIcon, ArrowRightIcon } from '../icons';
 import { CardContent } from './CardContent';
 
 export function Flashcard({

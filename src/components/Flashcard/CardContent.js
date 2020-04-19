@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Flashcard.module.css';
 
-import {
-    Button,
-    CrossIcon,
-    CheckIcon,
-    SaveIcon,
-    AnswerIcon,
-    QuestionIcon,
-} from 'components';
+import { Button } from 'components';
+
+import { CrossIcon, CheckIcon, SaveIcon, AnswerIcon, QuestionIcon } from '../icons';
 
 export function CardContent({ question, addToUserBase, known, unknown }) {
     const [isKnownAdded, setIsKnownAdded] = useState('#416071');

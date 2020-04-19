@@ -1,18 +1,10 @@
 @font-face {
-    font-family: 'Rationale';
-    src: url('./fonts/Rationale-Regular.ttf');
-}
-
-@font-face {
     font-family: 'Adventpro';
     src: url('./fonts/Adventpro-Regular.ttf');
 }
 
 body {
-    font-family: 'Adventpro';
-}
-body{
-    font-family: 'Rationale';
+    font-family: 'Adventpro', sans-serif;
 }
 
 /*Forum Item.js*/
