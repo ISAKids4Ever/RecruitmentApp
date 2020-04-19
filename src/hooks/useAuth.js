@@ -1,19 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { FirebaseContext } from 'contexts'
 
 import firebase from "../firebase";
 
 export function useAuth()  {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [user, setUser] = useState(null);
   
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(() => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (firebase.auth().currentUser) {
-        setIsLoggedIn(true);
+        setUser(user);
       } else {
-        setIsLoggedIn(false);
+        setUser(false);
       }
     });
-  }, [isLoggedIn]);
+  }, [user]);
 
-  return isLoggedIn;
+  return user;
 };
+
+export function useUser() {
+  const { user } = useContext(FirebaseContext)
+  return user
+}

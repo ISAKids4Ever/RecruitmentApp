@@ -1,7 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { useAuth } from 'hooks';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,  
+  Switch
+} from "react-router-dom";
+import  { useUser, useAuth }  from "hooks";
 import './App.css';
+import { FirebaseContext } from 'contexts'
 
 // components
 import { Navbar, ItemDetails } from 'components';
@@ -22,12 +28,15 @@ import {
 import * as ROUTES from './constants/routes';
 
 const App = () => {
-    const isLoggedIn = useAuth();
+  const user = useUser();
 
-    if (isLoggedIn === null) {
-        return <LoadingPage />;
-    }
+  if (user === null) {
+    return (      
+      <div>Pobieranie danych...</div>  
+    );
+  }
 
+  if (!user) {
     return (
         <Router>
             <div>
@@ -57,6 +66,31 @@ const App = () => {
             </div>
         </Router>
     );
+  }
+
+  return (
+    <Router>
+      <Navbar logout/>      
+        <Switch>
+          <Redirect path="/zaloguj" to="/" />
+          <Redirect path="/zarejestruj" to="/" /> 
+          <Route strict exact path="/testy" component={Tests}/>
+          <Route strict exact path="/pytania" component={Flashcards}/>
+          <Route strict exact path="/forum" component={Forum}/>
+          <Route strict exact path="/profile" component={Profile}/>
+          <Route path="/forum/:qid" component={ItemDetails} />
+          <Route exact path="/" component={Home} />
+          <Route component={() => <h1>Nie ma takiej strony</h1>} />
+        </Switch>
+    </Router>
+  );  
 };
 
-export default App;
+const Root = () => {
+  const user = useAuth();
+  return <FirebaseContext.Provider value = {{ user }}>
+    <App />
+  </FirebaseContext.Provider>
+}
+
+export default Root;

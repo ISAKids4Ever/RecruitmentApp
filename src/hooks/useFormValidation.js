@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useUser } from './useAuth'
 
 export const useFormValidation = (initialState, validate, authenticate) => {
-
     const [values, setValues] = useState(initialState)
     const [errors, setErrors] = useState({})
     const [isSubmitting, setSubmitting] = useState(false);
-
+    const user = useUser()
      useEffect(()=>{
          if(isSubmitting) {
              const noErrors = Object.keys(errors).length===0;
              if(noErrors){
-                 authenticate(values, errors);
-                 setValues(initialState)
+                 authenticate(values, errors, user);
+                 setValues({...initialState })
                  setSubmitting(false)
              } else {
                  setSubmitting(false)
              }
          }
      },[isSubmitting])
-
 
     const handleChange = (event) => {
         event.persist();
