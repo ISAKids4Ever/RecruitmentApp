@@ -42,7 +42,6 @@ export function CardContent({ question, addToUserBase, known, unknown }) {
             </div>
             <div className={styles.flashcardUserButtons}>
                 <Button className={'iconButton'}>
-                    {' '}
                     <SaveIcon className={styles.flashcardUserIcons} />{' '}
                 </Button>
                 <Button
@@ -50,11 +49,10 @@ export function CardContent({ question, addToUserBase, known, unknown }) {
                     onClick={() => addToUserBase(question.id, 'known')}
                 >
                     <i>
-                        {' '}
                         <CheckIcon
                             className={styles.flashcardUserIcons}
                             knownColor={isKnownAdded}
-                        />{' '}
+                        />
                     </i>
                 </Button>
                 <Button

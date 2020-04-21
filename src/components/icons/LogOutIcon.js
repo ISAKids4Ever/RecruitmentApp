@@ -9,9 +9,9 @@ export const LogOutIcon = ({ className }) => (
             y2="12"
             fill="none"
             stroke="#004068"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <line
             x1="30.8"
@@ -20,9 +20,9 @@ export const LogOutIcon = ({ className }) => (
             y2="22.6"
             fill="none"
             stroke="#004068"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <line
             x1="30.1"
@@ -31,9 +31,9 @@ export const LogOutIcon = ({ className }) => (
             y2="17.2"
             fill="none"
             stroke="#004068"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <line
             x1="9.5"
@@ -42,9 +42,9 @@ export const LogOutIcon = ({ className }) => (
             y2="17.3"
             fill="none"
             stroke="#004068"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <path
             d="M30.5,7.5A16.3,16.3,0,0,0,6.3,29.2,16.1,16.1,0,0,1,1.1,17.3,16.3,16.3,0,0,1,30.5,7.5Z"
