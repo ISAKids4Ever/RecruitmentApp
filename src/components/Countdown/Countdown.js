@@ -20,6 +20,8 @@ export default function Countdown({ seconds, setTestTimeLeft }) {
         return () => clearInterval(intervalId);
     }, [timeLeft]);
 
+    setTestTimeLeft(timeLeft)
+    
     return (
         <div>
             <h1>{convertHMS(timeLeft)}</h1>

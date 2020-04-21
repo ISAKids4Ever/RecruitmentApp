@@ -2,23 +2,21 @@ import * as React from 'react';
 import styles from './TestQuestion.module.css';
 import Countdown from '../Countdown/Countdown';
 
-export function TestQuestion(props) {
-	const {
-		question,
-		answear1,
-		answear2,
-		answear3,
-		elementToShow,
-		setElementToShow,
-		userPoints,
-		setPoints,
-		currentPage,
-		baseTimeLeft,
-		setTimeHasGone
-	} = props;
+export function TestQuestion({
+	question,
+	answear1,
+	answear2,
+	answear3,
+	elementToShow,
+	setElementToShow,
+	userPoints,
+	setPoints,
+	currentPage,
+	baseTimeLeft,
+	setTimeHasGone
+}) {
 
-	const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft);
-
+	const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft)
 	const unMarkedAnswer = styles.answer;
 	const [liClassName, setLiClassName] = React.useState(unMarkedAnswer);
 
@@ -48,7 +46,7 @@ export function TestQuestion(props) {
 	if (elementToShow === 'TestQuestion' && testTimeLeft > 0) {
 		return (
 			<div className={styles.testView}>
-				<Countdown seconds={testTimeLeft} setTestTimeLeft={setTestTimeLeft} />
+				<Countdown seconds={baseTimeLeft} setTestTimeLeft={setTestTimeLeft} />
 				<div className={styles.question}>{question}</div>
 				<div className={styles.answers}>
 					<ul>
