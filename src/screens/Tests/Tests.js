@@ -51,38 +51,40 @@ const basicQuestions = [
 ];
 
 export function Tests() {
-	const [ currentPage, setCurrentPage ] = useState(1);
-	const [ elementToShow, setElementToShow ] = useState('TestIntro');
-	const [ timeHasGone, setTimeHasGone ] = useState(false)
+	const [currentPage, setCurrentPage] = useState(1);
+	const [elementToShow, setElementToShow] = useState('TestIntro');
+	const [timeHasGone, setTimeHasGone] = useState(false)
 	const postsPerPage = 1;
 	const indexOfLastPage = currentPage * postsPerPage;
 	const indexOfFirtsPage = indexOfLastPage - postsPerPage;
-	let points = new Array(10).fill(0);
-	const [ userPoints, setUserPoints ] = useState(points);
-
-	const paginate = (pageNumber) => {
-		setCurrentPage(pageNumber);
-	};
-
-	const [ questionsDisplay, setQuestionsDisplay ] = useState(basicQuestions);
+	const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
 	const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage);
+	let points = new Array(10).fill(0);
+	const [userPoints, setUserPoints] = useState(points);
+	let initialTimeLeft = questionsDisplay.length * 60
+	const [ baseTimeLeft, setbaseTimeLeft ] = useState(initialTimeLeft)
 
 	useEffect(() => {
 		shuffle(basicQuestions);
 	}, []);
 
+	const paginate = (pageNumber) => {
+		setCurrentPage(pageNumber);
+	};
+
 	function shuffle(a) {
-		const newQuestions = [ ...a ];
+		const newQuestions = [...a];
 		for (let i = newQuestions.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[ newQuestions[i], newQuestions[j] ] = [ newQuestions[j], newQuestions[i] ];
+			[newQuestions[i], newQuestions[j]] = [newQuestions[j], newQuestions[i]];
 		}
 		setQuestionsDisplay(newQuestions);
 	}
 	return (
 		<div className={styles.mainDiv1}>
 			{elementToShow === 'TestIntro' ? (
-				<TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow} />
+				<TestIntro elementToShow={elementToShow} setElementToShow={setElementToShow} setbaseTimeLeft={setbaseTimeLeft}
+					initialTimeLeft={initialTimeLeft} />
 			) : null}
 			{elementToShow === 'TestQuestion' ? (
 				<BackButton
@@ -92,6 +94,7 @@ export function Tests() {
 					setCurrentPage={setCurrentPage}
 				/>
 			) : null}
+
 			{currentQuestions.map((data, index) => (
 				<TestQuestion
 					question={data.question}
@@ -104,10 +107,11 @@ export function Tests() {
 					setPoints={setUserPoints}
 					currentPage={currentPage}
 					setElementToShow={setElementToShow}
-					baseTimeLeft={questionsDisplay.length * 60}
+					baseTimeLeft={baseTimeLeft}
 					setTimeHasGone={setTimeHasGone}
 				/>
 			))}
+
 
 			{elementToShow === 'TestResults' ? (
 				<TestResults
@@ -126,7 +130,7 @@ export function Tests() {
 				elementToShow={elementToShow}
 			/>
 			{currentPage === questionsDisplay.length && elementToShow === 'TestQuestion' ? (
-				<SubmitTestButton setElementToShow={setElementToShow} setCurrentPage={setCurrentPage} />
+				<SubmitTestButton setElementToShow={setElementToShow} setCurrentPage={setCurrentPage} onClick={() => setTimeHasGone(true)} />
 			) : null}
 		</div>
 	);

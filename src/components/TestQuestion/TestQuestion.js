@@ -17,22 +17,22 @@ export function TestQuestion(props) {
 		setTimeHasGone
 	} = props;
 
-	const [ testTimeLeft, setTestTimeLeft ] = React.useState(baseTimeLeft);
+	const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft);
 
 	const unMarkedAnswer = styles.answer;
-	const [ liClassName, setLiClassName ] = React.useState(unMarkedAnswer);
+	const [liClassName, setLiClassName] = React.useState(unMarkedAnswer);
 
 	React.useEffect(
 		() => {
 			setLiClassName(unMarkedAnswer);
 		},
-		[ question, unMarkedAnswer ]
+		[question, unMarkedAnswer]
 	);
 
 	function calculatePoints(currentPage, answear) {
 		const markedAnswer = styles.answerMarked;
 		setLiClassName(markedAnswer);
-		const points = [ ...userPoints ];
+		const points = [...userPoints];
 		if (answear.correct === true) {
 			points[currentPage] = 1;
 		} else {
@@ -55,8 +55,12 @@ export function TestQuestion(props) {
 						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear1)}>
 							{answear1.value}
 						</li>
-						<li onClick={() => calculatePoints(currentPage, answear2)}>{answear2.value}</li>
-						<li onClick={() => calculatePoints(currentPage, answear3)}>{answear3.value}</li>
+						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear2)}>
+							{answear2.value}
+						</li>
+						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear3)}>
+							{answear3.value}
+						</li>
 					</ul>
 				</div>
 			</div>

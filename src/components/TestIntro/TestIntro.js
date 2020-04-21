@@ -4,8 +4,7 @@ import { FaJsSquare, FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa';
 
 import { Button } from 'components';
 
-export function TestIntro(props) {
-	const { setElementToShow } = props;
+export function TestIntro({ setElementToShow, setbaseTimeLeft, initialTimeLeft }) {
 	return (
 		<div className={styles.intro}>
 			<p> Test składa się z 10 losowych pytań. Wybierz język programowania/technologię!</p>
@@ -34,6 +33,7 @@ export function TestIntro(props) {
 			<Button
 				onClick={() => {
 					setElementToShow('TestQuestion');
+					setbaseTimeLeft(initialTimeLeft)
 				}}
 			>
 				Rozpocznij test!

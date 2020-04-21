@@ -1,14 +1,13 @@
 import React from 'react';
 import { Button } from 'components';
 
-export function BackButton(props) {
-    const { setElementToShow, setUserPoints, setCurrentPage } = props;
+export function BackButton({ setElementToShow, setUserPoints, setCurrentPage }) {
     return (
         <Button onClick={() => {
             setElementToShow('TestIntro')
             setUserPoints(new Array(10).fill(0))
             setCurrentPage(1)
-        }} children='Wróć do instrukcji'></Button>
+        }} children='Wyjdź z tego testu'></Button>
     )
 
 }
