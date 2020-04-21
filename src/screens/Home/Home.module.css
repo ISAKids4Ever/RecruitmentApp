@@ -15,7 +15,6 @@
     transform: translate(-50%, 50%);
 }
 
-
 .nextButton {
     position: absolute;
     color: red;
@@ -53,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to top, lightgray 70%, white);
 }
 
 .slide:focus {
@@ -60,7 +60,6 @@
 }
 
 .first {
-    background: linear-gradient(to top, lightgray 70%, white);
     flex-direction: column;
     align-items: flex-start;
 }
@@ -71,24 +70,4 @@
 
 .first p {
     padding: 0 60px;
-}
-
-.second {
-    background: linear-gradient(to top, lightgray 70%, white);
-}
-
-.third {
-    background: linear-gradient(to top, lightgray 70%, white);
-}
-
-.fourth {
-    background: linear-gradient(to top, lightgray 70%, white);
-}
-
-.fifth {
-    background: linear-gradient(to top, lightgray 70%, white);
-}
-
-.sixth {
-    background: linear-gradient(to top, lightgray 70%, white);
 }
