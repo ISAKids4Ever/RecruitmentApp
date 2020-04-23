@@ -294,13 +294,14 @@ export function Tests() {
 	const [elementToShow, setElementToShow] = useState('TestIntro');
 	const [timeHasGone, setTimeHasGone] = useState(false)
 	const postsPerPage = 1;
+	const questions = 10;
 	const indexOfLastPage = currentPage * postsPerPage;
 	const indexOfFirtsPage = indexOfLastPage - postsPerPage;
 	const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
 	const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage);
 	let points = new Array(10).fill(0);
 	const [userPoints, setUserPoints] = useState(points);
-	let initialTimeLeft = questionsDisplay.length * 60
+	let initialTimeLeft = questions * 60
 	const [ baseTimeLeft, setbaseTimeLeft ] = useState(initialTimeLeft)
 
 	useEffect(() => {
@@ -368,7 +369,7 @@ export function Tests() {
 				currentPage={currentPage}
 				elementToShow={elementToShow}
 			/>
-			{currentPage === questionsDisplay.length && elementToShow === 'TestQuestion' ? (
+			{currentPage === 10 && elementToShow === 'TestQuestion' ? (
 				<SubmitTestButton setElementToShow={setElementToShow} setCurrentPage={setCurrentPage} onClick={() => setTimeHasGone(true)} />
 			) : null}
 		</div>
