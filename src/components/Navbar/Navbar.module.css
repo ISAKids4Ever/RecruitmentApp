@@ -1,79 +1,105 @@
-@font-face {
-	font-family: 'Rationale';
-	src: '../fonts/Rationale-Regular.ttf';
-}
-
-.navbar {
-	box-sizing: border-box;
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 20px;
+.mainNav {
+    box-sizing: border-box;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .navLogo img {
-	max-height: 15vh;
-	opacity: 1;
-	transition: all 0.15s ease-in-out;
+    height: 10vh;
+    margin: 10px;
+    opacity: 1;
+    transition: all 0.15s ease-in-out;
 }
 
 .navLogo:hover img {
-	opacity: 0.85;
+    opacity: 0.9;
 }
 
 .navViewList {
-	display: flex;
-	width: 100vw;
-	align-content: flex-end;
-	justify-content: space-around;
-	margin: 0;
+    display: flex;
+    width: 100vw;
+    align-content: flex-end;
+    justify-content: space-around;
+    margin: 0;
 }
 
-.navViewList a,
-.navViewList button {
-	color: white;
-	text-transform: uppercase;
-	font-weight: 600;
-	letter-spacing: 1.5px;
-	font-size: 0.9rem;
-	font-family: 'Rationale';
-	text-decoration: none;
-	margin: 0;
-	padding: 10px;
-	transition: 0.3s ease;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
+.navViewList .orange {
+    color: #f7931e;
+}
+
+.navViewList .pink {
+    color: #d4145a;
+}
+
+.navViewList .purple {
+    color: #9e005d;
+}
+
+.navViewList a {
+    color: #416071;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    transition: 0.3s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .navViewList a:hover {
-	opacity: 0.9;
+    opacity: 0.9;
+    color: #416071;
 }
 
 .navViewList a.navActive {
-	background: rgba(190, 57, 57, 0.53);
-	border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.loginIcon {
+    width: 20px;
+    height: 20px;
 }
 
 @media (min-width: 800px) {
-	.navbar {
-		flex-direction: row;
-		align-items: center;
-	}
-	.navLogo {
-		width: 45vw;
-	}
-	.navLogo img {
-		margin: 0 50px;
-	}
-	.navViewList {
-		width: 45vw;
-	}
-	.navViewList a {
-		font-size: 1rem;
-	}
+    .mainNav {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navLogo {
+        width: 45vw;
+    }
+
+    .navLogo img {
+        margin: 15px 0;
+        height: 13vh;
+    }
+
+    .navViewList {
+        width: 45vw;
+    }
+
+    .navViewList a {
+        font-size: 1.2rem;
+    }
+
+    .navViewList a.navActive {
+        font-size: 1.5rem;
+    }
+
+    .loginIcon {
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -2,39 +2,57 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import firebase from '../../firebase';
-import logo from '../../images/logoSmallBlack.png';
+import LOGO from '../../images/LOGO.svg';
+
+import { SignInIcon, LogOutIcon } from '../icons';
+
+import * as ROUTES from '../../constants/routes';
 
 export function Navbar({ profile = false, logout = false, login = false }) {
-	return (
-		<nav className={styles.navbar}>
-			<div className={styles.navLogo}>
-				<Link to="/">
-					<img src={logo} alt="intervyou logo" />
-				</Link>
-			</div>
+    return (
+        <nav className={styles.mainNav}>
+            <Link to={ROUTES.HOME} className={styles.navLogo}>
+                <img src={LOGO} alt="intervyou logo" />
+            </Link>
 
-			<div className={styles.navViewList}>
-				<NavLink to="/testy" activeClassName={styles.navActive}>
-					Testy
-				</NavLink>
-				<NavLink to="/pytania" activeClassName={styles.navActive}>
-					Fiszki
-				</NavLink>
-				<NavLink to="/forum" activeClassName={styles.navActive}>
-					Forum
-				</NavLink>
-				{login && (
-					<NavLink to="/zaloguj" activeClassName={styles.navActive}>
-						Zaloguj się
-					</NavLink>
-				)}
-				{profile && (
-					<NavLink to="/view4" activeClassName={styles.navActive}>
-						WIDOK 4
-					</NavLink>
-				)}
-				{logout && <button onClick={() => firebase.auth().signOut()}>Log out</button>}
-			</div>
-		</nav>
-	);
+            <div className={styles.navViewList}>
+                <NavLink
+                    to={ROUTES.TESTS}
+                    activeClassName={styles.navActive}
+                    className={styles.orange}
+                >
+                    Tests
+                </NavLink>
+                <NavLink
+                    to={ROUTES.FLASHCARDS}
+                    activeClassName={styles.navActive}
+                    className={styles.pink}
+                >
+                    Flashcards
+                </NavLink>
+                <NavLink
+                    to={ROUTES.FORUM}
+                    activeClassName={styles.navActive}
+                    className={styles.purple}
+                >
+                    Forum
+                </NavLink>
+                {login && (
+                    <NavLink to={ROUTES.LOGIN} activeClassName={styles.navActive}>
+                        <SignInIcon className={styles.loginIcon} />
+                    </NavLink>
+                )}
+                {profile && (
+                    <NavLink to={ROUTES.PROFILE}>
+                        <SignInIcon className={styles.loginIcon} />
+                    </NavLink>
+                )}
+                {logout && (
+                    <NavLink to={ROUTES.HOME} onClick={() => firebase.auth().signOut()}>
+                        <LogOutIcon className={styles.loginIcon} />
+                    </NavLink>
+                )}
+            </div>
+        </nav>
+    );
 }

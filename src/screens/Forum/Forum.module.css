@@ -1,5 +1,5 @@
 .mainDiv {
-      background-image: linear-gradient(to right, #3a6073, #ff8008);
+      background: linear-gradient(to top, lightgray 70%, white);
       display: flex;
       flex-direction: column;
       position: fixed;
