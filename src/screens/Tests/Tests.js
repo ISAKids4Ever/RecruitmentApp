@@ -294,14 +294,14 @@ export function Tests() {
 	const [elementToShow, setElementToShow] = useState('TestIntro');
 	const [timeHasGone, setTimeHasGone] = useState(false)
 	const postsPerPage = 1;
-	const questions = 10;
+	const questionsAmount = 10;
 	const indexOfLastPage = currentPage * postsPerPage;
 	const indexOfFirtsPage = indexOfLastPage - postsPerPage;
 	const [questionsDisplay, setQuestionsDisplay] = useState(basicQuestions);
-	const currentQuestions = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage);
+	const currentQuestion = questionsDisplay.slice(indexOfFirtsPage, indexOfLastPage);
 	let points = new Array(10).fill(0);
 	const [userPoints, setUserPoints] = useState(points);
-	let initialTimeLeft = questions * 60
+	let initialTimeLeft = questionsAmount * 60
 	const [ baseTimeLeft, setbaseTimeLeft ] = useState(initialTimeLeft)
 
 	useEffect(() => {
@@ -318,7 +318,8 @@ export function Tests() {
 			const j = Math.floor(Math.random() * (i + 1));
 			[newQuestions[i], newQuestions[j]] = [newQuestions[j], newQuestions[i]];
 		}
-		setQuestionsDisplay(newQuestions);
+		const displayQuestions = newQuestions.slice(0,10)
+		setQuestionsDisplay(displayQuestions);
 	}
 	return (
 		<div className={styles.mainDiv1}>
@@ -335,7 +336,7 @@ export function Tests() {
 				/>
 			) : null}
 
-			{currentQuestions.map((data, index) => (
+			{currentQuestion.map((data, index) => (
 				<TestQuestion
 					question={data.question}
 					answear1={data.answear1}
