@@ -5,7 +5,6 @@ import { db } from '../../firebase';
 import { FlashcardsIntro, Flashcard } from 'components';
 
 export function Flashcards() {
-    const [questions, setQuestions] = useState([]);
     const [shuffledQuestions, setShuffledQuestions] = useState([]);
     const [showIntro, setShowIntro] = useState(true);
     const [known, setKnown] = useState(JSON.parse(localStorage.getItem('known')) || []);
@@ -22,8 +21,7 @@ export function Flashcards() {
         const questions = snapshot.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
         });
-
-        setQuestions(questions);
+        
         shuffle(questions);
     }
 
