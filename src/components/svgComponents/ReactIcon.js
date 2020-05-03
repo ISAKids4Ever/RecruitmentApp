@@ -10,8 +10,8 @@ export const ReactIcon = ({ className }) => (
             ry="11.5"
             fill="none"
             stroke="#416071"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <ellipse
             cx="43.4"
@@ -21,8 +21,8 @@ export const ReactIcon = ({ className }) => (
             transform="translate(-13 33.3) rotate(-36.9)"
             fill="none"
             stroke="#416071"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <ellipse
             cx="43.4"
@@ -32,8 +32,8 @@ export const ReactIcon = ({ className }) => (
             transform="translate(-11.9 47.5) rotate(-51.3)"
             fill="none"
             stroke="#416071"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
     </svg>
 );

@@ -4,7 +4,7 @@ import styles from './Navbar.module.css';
 import firebase from '../../firebase';
 import LOGO from '../../images/LOGO.svg';
 
-import { SignInIcon, LogOutIcon } from '../icons';
+import { SignInIcon, LogOutIcon } from '../svgComponents';
 
 import * as ROUTES from '../../constants/routes';
 

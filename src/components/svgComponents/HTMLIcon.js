@@ -6,8 +6,8 @@ export const HTMLIcon = ({ className }) => (
             d="M2,2.1l9.2,77.7L47.3,92.7,83.4,79.8,92.6,2.1ZM67.5,24.9l-32.7.2v8.4l32.8.2v30L47.3,73.3l-20.2-11V53.2l7.3.2.2,4.2,12.7,7.1,12.2-5.5V41.4H27.1v-24H67.5Z"
             fill="none"
             stroke="#416071"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <g opacity="0.27">
             <polygon

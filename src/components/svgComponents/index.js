@@ -11,3 +11,4 @@ export * from './SignInIcon';
 export * from './LogOutIcon';
 export * from './AnswerIcon';
 export * from './QuestionIcon';
+export * from './FlashcardsStart';

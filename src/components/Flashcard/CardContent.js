@@ -3,7 +3,7 @@ import styles from './Flashcard.module.css';
 
 import { Button } from 'components';
 
-import { CrossIcon, CheckIcon, SaveIcon, AnswerIcon, QuestionIcon } from '../icons';
+import { CrossIcon, CheckIcon, SaveIcon, AnswerIcon, QuestionIcon } from '../svgComponents';
 
 export function CardContent({ question, addToUserBase, known, unknown }) {
     const notActiveUserIconColor = '#416071';
