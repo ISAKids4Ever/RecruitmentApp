@@ -7,13 +7,11 @@ export function FlashcardsIntro(props) {
     const { showIntro } = props;
     const hoverColor = '#416071';
     const nonHoverColor = '#9e005d';
-    const [buttonHover, setButtonHover] = useState(nonHoverColor);
+    const [onHoverColor, setOnHoverColor] = useState(nonHoverColor);
 
     const hideIntro = (hide) => {
         showIntro(hide);
     };
-
-    const toggleHover = () => {};
 
     return (
         <div className={styles.FlashcardsIntro}>
@@ -39,10 +37,10 @@ export function FlashcardsIntro(props) {
                 <Button
                     className={'regularButton startButton'}
                     onClick={() => hideIntro(false)}
-                    onMouseEnter={() => setButtonHover(hoverColor)}
-                    onMouseLeave={() => setButtonHover(nonHoverColor)}
+                    onMouseEnter={() => setOnHoverColor(hoverColor)}
+                    onMouseLeave={() => setOnHoverColor(nonHoverColor)}
                 >
-                    <StartButton hoverStyle={buttonHover} />
+                    <StartButton hoverColor={onHoverColor} />
                 </Button>
             </div>
         </div>
