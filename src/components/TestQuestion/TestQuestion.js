@@ -16,22 +16,15 @@ export function TestQuestion({
 	setTimeHasGone
 }) {
 
-	const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft)
+	const [testTimeLeft, setTestTimeLeft] = React.useState(baseTimeLeft);
 	const unMarkedAnswer = styles.answer;
-	const [liClassName, setLiClassName] = React.useState(unMarkedAnswer);
+	const markedAnswer = styles.answerMarked;
+	const [classMarked, setclassMarked] = React.useState([unMarkedAnswer, unMarkedAnswer, unMarkedAnswer])
 
-	React.useEffect(
-		() => {
-			setLiClassName(unMarkedAnswer);
-		},
-		[question, unMarkedAnswer]
-	);
 
-	function calculatePoints(currentPage, answear) {
-		const markedAnswer = styles.answerMarked;
-		setLiClassName(markedAnswer);
+	function calculatePoints(currentPage, answer) {
 		const points = [...userPoints];
-		if (answear.correct === true) {
+		if (answer.correct === true) {
 			points[currentPage] = 1;
 		} else {
 			points[currentPage] = 0;
@@ -50,13 +43,22 @@ export function TestQuestion({
 				<div className={styles.question}>{question}</div>
 				<div className={styles.answers}>
 					<ul>
-						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear1)}>
+						<li className={classMarked[0]} onClick={() => {
+							calculatePoints(currentPage, answear1)
+							setclassMarked([markedAnswer, unMarkedAnswer, unMarkedAnswer])
+							}}>
 							{answear1.value}
 						</li>
-						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear2)}>
+						<li className={classMarked[1]} onClick={() => {
+							calculatePoints(currentPage, answear2)
+							setclassMarked([unMarkedAnswer, markedAnswer, unMarkedAnswer])
+							}}>
 							{answear2.value}
 						</li>
-						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear3)}>
+						<li className={classMarked[2]} onClick={() => {
+							calculatePoints(currentPage, answear3)
+							setclassMarked([unMarkedAnswer, unMarkedAnswer, markedAnswer])
+							}}>
 							{answear3.value}
 						</li>
 					</ul>
