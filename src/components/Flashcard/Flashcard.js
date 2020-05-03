@@ -3,7 +3,7 @@ import styles from './Flashcard.module.css';
 import { FaUndo } from 'react-icons/fa';
 
 import { Button } from 'components';
-import { ArrowLeftIcon, ArrowRightIcon } from '../icons';
+import { ArrowLeftIcon, ArrowRightIcon } from '../svgComponents';
 import { CardContent } from './CardContent';
 
 export function Flashcard({

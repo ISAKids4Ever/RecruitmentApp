@@ -9,4 +9,4 @@ export * from './BackButton';
 export * from './SubmitTestButton';
 export * from './TestResults';
 export * from './Forum';
-export * from './icons';
+export * from './svgComponents';

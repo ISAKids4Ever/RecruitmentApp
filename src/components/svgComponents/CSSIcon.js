@@ -6,8 +6,8 @@ export const CSSIcon = ({ className }) => (
             d="M1.8,2.7l9.3,77.7,36,12.9L83.3,80.4,92.5,2.7ZM70.9,30.9,51.3,35l19.6.3V61.9L47.1,72.6,23.2,62.2V54h7.7v3.3l16.2,6.7,16.1-7.3V43l-40-.6v-9l37.2-8.5-36.1.4v-8l46.6.3Z"
             fill="none"
             stroke="#416071"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <g opacity="0.27">
             <polygon

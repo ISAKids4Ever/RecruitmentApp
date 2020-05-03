@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FlashcardsIntro.module.css';
 import { Button } from 'components';
-import { ReactIcon, CSSIcon, HTMLIcon, JSIcon } from '../icons';
-import StartButton from '../../images/StartButton.svg';
+import { ReactIcon, CSSIcon, HTMLIcon, JSIcon, StartButton } from '../svgComponents';
 
 export function FlashcardsIntro(props) {
     const { showIntro } = props;
+    const hoverColor = '#416071';
+    const nonHoverColor = '#9e005d';
+    const [buttonHover, setButtonHover] = useState(nonHoverColor);
 
     const hideIntro = (hide) => {
         showIntro(hide);
     };
+
+    const toggleHover = () => {};
 
     return (
         <div className={styles.FlashcardsIntro}>
@@ -35,8 +39,10 @@ export function FlashcardsIntro(props) {
                 <Button
                     className={'regularButton startButton'}
                     onClick={() => hideIntro(false)}
+                    onMouseEnter={() => setButtonHover(hoverColor)}
+                    onMouseLeave={() => setButtonHover(nonHoverColor)}
                 >
-                    <img src={StartButton} alt="start button" />
+                    <StartButton hoverStyle={buttonHover} />
                 </Button>
             </div>
         </div>
