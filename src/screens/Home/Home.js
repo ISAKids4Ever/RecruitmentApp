@@ -48,11 +48,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Tests!</h2>
                         <p className={styles.slideText}>
-                            Some more tests description below. <br />
-                            You can explore <strong>Flashcards</strong> and then check
-                            your knowledge with <strong> Tests</strong>. <br />
-                            If there is anything more you would like to ask about go to
-                            our <strong>Forum</strong>.
+                            In this part you can check your knowledge by taking a test in the IT technology of your choice. You have a certain amount of time to mark the answer and finally you will know the result and all the correct answers.
                         </p>
                     </div>
                 </div>
@@ -65,11 +61,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Flashcards!</h2>
                         <p className={styles.slideText}>
-                            Flashcards descriptions. <br />
-                            You can explore <strong>Flashcards</strong> and then check
-                            your knowledge with <strong> Tests</strong>. <br />
-                            If there is anything more you would like to ask about go to
-                            our <strong>Forum</strong>.
+                            Here you can learn recruitment questions an sample answers in the form of flashcards. You can choose the technology to which the questions will relate. Logged-in users can also mark flashcards that they already know the answer to see them less often and those to see more often because they do not remember the answer yet.
                         </p>
                     </div>
                 </div>
@@ -82,11 +74,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Forum!</h2>
                         <p className={styles.slideText}>
-                            Forum description. <br />
-                            You can explore <strong>Flashcards</strong> and then check
-                            your knowledge with <strong> Tests</strong>. <br />
-                            If there is anything more you would like to ask about go to
-                            our <strong>Forum</strong>.
+                            In this section you can ask questions that have not been answered in other modules and start discussions on IT topics, if you get a satisfactory answer you can select it and  will be added to the database.
                         </p>
                     </div>
                 </div>
