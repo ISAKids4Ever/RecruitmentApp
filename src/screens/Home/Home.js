@@ -30,12 +30,9 @@ export function Home() {
                             alt="homeImage"
                         />
                         <h2 className={styles.slideHeader}>Welcome to IntervYou!</h2>
-                        <p className={styles.slideText}>
-                            Here, you will learn common IT interview questions. <br />
-                            You can explore <strong>Flashcards</strong> and then check
-                            your knowledge with <strong> Tests</strong>. <br />
-                            If there is anything more you would like to ask about go to
-                            our <strong>Forum</strong>.
+                        <p className={`${styles.slideText}  ${styles.overviewSlide}`}>
+                            If you want to conquer interviews on the IT market, this application is just for you. It was created by our team - young engineers, that wanted to give you a hand while entering this complicated technology world. While we still develop the application, we want to give you highest quality of information most needed during your first interviews in this trade. We take care about details, a well-developed database and form of learning.
+                            What can you expect from the app? Let's have a look!
                         </p>
                     </div>
                 </div>
@@ -48,7 +45,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Tests!</h2>
                         <p className={styles.slideText}>
-                            In this part you can check your knowledge by taking a test in the IT technology of your choice. You have a certain amount of time to mark the answer and finally you will know the result and all the correct answers.
+                            We hope you're gonna love the <strong>Tests</strong> we have created here. They'll give you short answers for not so complicated questions, problems that can be explained with a single line - first of all the basics of the technology of your choice, in which you can check yourself within 10 minutes!
                         </p>
                     </div>
                 </div>
@@ -61,7 +58,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Flashcards!</h2>
                         <p className={styles.slideText}>
-                            Here you can learn recruitment questions an sample answers in the form of flashcards. You can choose the technology to which the questions will relate. Logged-in users can also mark flashcards that they already know the answer to see them less often and those to see more often because they do not remember the answer yet.
+                            Next level - <strong>Flashcards</strong> - whenever you feel more confident with your basics. Here you'll get access to more complicated knowledge with more advanced explanation. To the well known form we added functionality, that allows you to skip questions you already know and focus on more difficult issues.
                         </p>
                     </div>
                 </div>
@@ -74,7 +71,7 @@ export function Home() {
                         />
                         <h2 className={styles.slideHeader}>Forum!</h2>
                         <p className={styles.slideText}>
-                            In this section you can ask questions that have not been answered in other modules and start discussions on IT topics, if you get a satisfactory answer you can select it and  will be added to the database.
+                            Last but not least - our <strong>Forum</strong> - the place, where you'll be able to ask about more detailed stuff, get in touch with other users, discuss and gain even more valuable knowledge based on experience of others! Try not to lose yourself here and keep your learning path, so you can see effects as soon as possible! 
                         </p>
                     </div>
                 </div>
