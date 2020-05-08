@@ -35,10 +35,10 @@
     outline: none;
 }
 
-.descriptionImage {
+.slide .descriptionImage {
     align-self: center;
-    border: none !important;
-    margin: 0 !important;
+    border: none;
+    margin: 0;
     width: 80%;
 }
 
@@ -55,7 +55,7 @@
     text-align: left;
 }
 
-.overviewSlide{
+.overviewSlide {
     max-width: 700px;
     font-size: 0.8rem;
 }
