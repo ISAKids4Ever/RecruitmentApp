@@ -3,37 +3,28 @@
 }
 
 .regularButton {
-    font-family: 'Rationale';
-    color: white;
-    font-size: 1rem;
     outline: none;
-    background-color: transparent;
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    padding: 15px 20px;
+    background: transparent;
     cursor: pointer;
 }
 
-.regularButton:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+.current {
+    box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.8);
     text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.current{
-    box-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+.startButton {
+    width: 100%;
+    max-width: 430px;
 }
 
 .iconButton {
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
     width: 30px;
     background-color: transparent;
     border: none;
     outline: none;
-    color: white;
     opacity: 0.75;
-    font-size: 20px;
     cursor: pointer;
 }
 
@@ -41,36 +32,32 @@
     opacity: 1;
 }
 
-.iconButtonActive {
-    color: green;
-}
-
-.iconButtonTest{
-    color: rgb(41, 27, 236); 
-    text-shadow: 2px 8px 10px  rgba(0, 0, 0, 0.8);
+.iconButtonTest {
+    color: rgb(41, 27, 236);
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.8);
     display: inline-block;
     width: 60px;
     font-size: 40px;
     margin: 20px 0;
 }
 
-.fa-js-square{
+.fa-js-square {
     color: yellow;
 }
 
-.fa-html5{
+.fa-html5 {
     color: orange;
 }
 
-.fa-css3-alt{
+.fa-css3-alt {
     color: rgb(78, 245, 245);
 }
 
-.fa-react{
+.fa-react {
     color: purple;
 }
 
-.submitButton{
+.submitButton {
     position: fixed;
     bottom: 30px;
 }

@@ -55,8 +55,8 @@ export function TestQuestion(props) {
 						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear1)}>
 							{answear1.value}
 						</li>
-						<li onClick={() => calculatePoints(currentPage, answear2)}>{answear2.value}</li>
-						<li onClick={() => calculatePoints(currentPage, answear3)}>{answear3.value}</li>
+						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear2)}>{answear2.value}</li>
+						<li className={liClassName} onClick={() => calculatePoints(currentPage, answear3)}>{answear3.value}</li>
 					</ul>
 				</div>
 			</div>
